@@ -1,0 +1,11 @@
+#PBS -N had46med_graphem_merra_krig_sp80_main
+#PBS -k oe
+#PBS -l mem=80gb
+
+cd /home/geovault-02/avaccaro/hadCRUT4.6/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_merra_krig_sp80_main.out << EOF
+had46med_graphem_merra_krig_sp80_main
+exit
+EOF
+
+

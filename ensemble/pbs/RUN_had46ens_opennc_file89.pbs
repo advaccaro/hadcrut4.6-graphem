@@ -1,0 +1,8 @@
+#PBS -N had46ens_opennc_file89
+#PBS -k oe
+cd /home/geovault-00/rverna/hadCRUT4.6/ensemble/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46ens_opennc_file89.out << EOF
+filenum = 89
+had46ens_opennc
+exit
+EOF

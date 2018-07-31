@@ -1,0 +1,10 @@
+com.mathworks.jmi.MatlabException: std::exception
+	at com.mathworks.jmi.NativeMatlab.SendMatlabMessage(Native Method)
+	at com.mathworks.jmi.NativeMatlab.sendMatlabMessage(NativeMatlab.java:259)
+	at com.mathworks.jmi.MatlabLooper.sendMatlabMessage(MatlabLooper.java:120)
+	at com.mathworks.jmi.Matlab.mtFeval(Matlab.java:1713)
+	at com.mathworks.jmi.Matlab.mtEval(Matlab.java:1647)
+	at com.mathworks.jmi.Matlab.mtEval(Matlab.java:1628)
+	at com.mathworks.matlabserver.connector.impl.AutoStartImpl$2.run(AutoStartImpl.java:63)
+	at com.mathworks.matlabserver.connector.impl.AutoStartImpl$TaskListener.mvmChanged(AutoStartImpl.java:200)
+	at com.mathworks.matlabserver.connector.impl.AutoStartImpl$TaskListener.mvmChanged(AutoStartImpl.java:182)

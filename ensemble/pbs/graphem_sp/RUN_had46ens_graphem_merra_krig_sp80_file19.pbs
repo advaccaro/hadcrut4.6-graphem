@@ -1,0 +1,9 @@
+#PBS -N had46ens_graphem_merra_krig_sp80_file19
+#PBS -l mem=14gb
+#PBS -k oe
+cd /home/geovault-02/avaccaro/hadCRUT4.6/ensemble/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46ens_graphem_merra_krig_sp80_file19.out << EOF
+filenum = 19
+had46ens_graphem_merra_krig_sp80_main
+exit
+EOF

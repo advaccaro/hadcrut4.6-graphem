@@ -1,0 +1,7 @@
+#PBS -N cw17_opennc_file
+#PBS -k oe
+cd /home/geovault-00/rverna/hadCRUT4.6/cw17/
+/usr/bin/matlab -nodesktop -nosplash > ./out/cw17_opennc_file.out << EOF
+cw17_opennc
+exit
+EOF

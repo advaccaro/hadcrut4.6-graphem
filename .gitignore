@@ -1,0 +1,10 @@
+*.jpeg
+*.pdf
+
+*.mat
+*.nc
+*.csv
+
+suplabel/
+
+out/

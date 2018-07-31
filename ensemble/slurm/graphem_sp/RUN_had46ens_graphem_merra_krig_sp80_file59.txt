@@ -1,0 +1,11 @@
+#!/bin/bash -f
+#SBATCH --job-name=had46ens_graphem_merra_krig_sp80_file59
+#SBATCH --mem=14GB
+#SBATCH --output=had46ens_graphem_merra_krig_sp80_file59.o
+#SBATCH --error=had46ens_graphem_merra_krig_sp80_file59.e
+cd /home/geovault-02/avaccaro/hadCRUT4.6/ensemble/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46ens_graphem_merra_krig_sp80_file59.out << EOF
+filenum = 59
+had46ens_graphem_merra_krig_sp80_main
+exit
+EOF
