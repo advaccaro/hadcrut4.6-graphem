@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=H46MED_SP50_K6
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp50_k6.o
+#SBATCH --error=had46med_graphem_sp50_k6.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./graphem_sp/out/had46med_graphem_sp50_k6.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 50
+target_spars = target_spars/100;
+Kfold = 6
+had46med_graphem_sp_CV_step2(target_spars, Kfold)
+exit
+EOF
