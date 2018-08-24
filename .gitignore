@@ -9,6 +9,8 @@
 *.e
 *.out
 
+test.sh
+
 suplabel/
 
 out/
