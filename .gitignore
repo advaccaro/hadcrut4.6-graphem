@@ -5,6 +5,10 @@
 *.nc
 *.csv
 
+*.o
+*.e
+*.out
+
 suplabel/
 
 out/
