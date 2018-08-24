@@ -42,7 +42,8 @@ C0 = corrcoef(cw17s.temp2d); %estimate correlation coefficients matrix
 
 %Load ADJ
 load('had46med_sparse_adjs.mat')
-adjs = [.5:.05:1.1];
+%adjs = [.5:.05:1.1]; for some reason, this doesn't work for values greater than .8
+adjs = [.5, .55, .6, .65, .7, .75, .8, .85, .9, .95, 1, 1.05, 1.1];
 adj_ind = find(adjs == target_spars);
 adjM = ADJ(adj_ind).adjacency_matrix;
 spars_f = ADJ(adj_ind).estimated_sparsity;
@@ -84,4 +85,3 @@ SPkfoldtag = ['H46MED_SPCV_sp' num2str(target_spars*100) '_k' num2str(Kfold) '.m
 SPkfoldpath = [odir SPkfoldtag];
 runtime = toc;
 save(SPkfoldpath, 'Xg_k', 'CV', 'target_spars', 'adjM', 'spars_f', 'runtime', 'Kfold');
-

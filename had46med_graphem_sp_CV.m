@@ -41,31 +41,14 @@ N = 100; %number of max iterations for greedy search
 %% GraphEM stage
 
 %GraphEM optons
-adjR = neigh_radius_adj(lonlat,target_cr);
-opt.regress = 'ols';
-opt.stagtol = 5e-3;
-opt.maxit = 50;
-opt.useggm = 1;
-opt %display options
+%adjR = neigh_radius_adj(lonlat,target_cr);
+%opt.regress = 'ols';
+%opt.stagtol = 5e-3;
+%opt.maxit = 50;
+%opt.useggm = 1;
+%opt %display options
 
 for k = 1:Kcv
-	% GraphEM part 1: Neighborhood graph (900km)
-	%opt.adj = adjR;
-	%[Xcr{k},Mcr{k},Ccr{k}] = graphem_JW(Xcv{k},opt);
-	%Xcr_k = Xcr{k}; Xcv_k = Xcv{k};
-	CRkfoldtag = ['H46MED_SPCV_cr' num2str(target_cr) '_k' num2str(k) '.mat'];
-	CRkfoldpath = [odir CRkfoldtag];	
-	%save(CRkfoldpath, 'Xcr_k', 'target_cr', 'Xcv_k');
-	%load(CRkfoldpath)
-
-	% GraphEM part 2: GLASSO
-	%Xcal = Xcr{k}(calib,:); %select calibration period
-	%S = corrcoef(Xcal); %sample covariance matrix
-	%[spars,adj] = greedy_search_TT(S,target_spars,N);
-	%spars_f = spars(end); adjM = adj{end};
-	%opt = rmfield(opt,'adj');
-	%opt.adj = adjM;
-	%[Xg{k},Mg{k},Cg{k}] = graphem_JW(Xcv{k},opt); Xg_k = Xg{k}; 
 	SPkfoldtag = ['H46MED_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 	SPkfoldpath = [odir SPkfoldtag];
 	%save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'Xcv_k', 'spars_f');
@@ -81,15 +64,38 @@ lats_t = lats_2d(indavl_t);
 weights = cosd(lats_t);	
 normfac = nsum(nsum(weights));
 
+lat = lats; %assign latitudes
+nlat = length(lat); %number of latitudes
+latStep = 10; %latitude step size
+latBounds = fliplr([-90:latStep:90]); %define boundaries for latitude bands
+nBands = length(latBounds) - 1; %number of latitude bands
+%zonalMSE = zeros(Kcv,nBands);
+zonalEPE = zeros(nBands);
+
 %% Cross-validation stage
 for k = 1:Kcv
 		mse0{k} = (Xg{k} - Xraw).^2;
-		%mse0{k,n} = (Xcr{k,n} - Xgrid_red).^2;
 		mse_t{k} = mse0{k}(indavl_t);
 		f_num(k) = nsum(nsum(mse_t{k}.*weights));	
-		f_mse(k) = f_num(k)/normfac;	
+		f_mse(k) = f_num(k)/normfac;
+		for j = 1:nBands
+			clear spaceInd spaceIndAvl zWeights zLats zNormFac
+			%get space index:
+			spaceInd = find(lat <= latBounds(k) & lat >= latBounds(k+1));
+			spaceIndAvl = indavl_t(:,spaceInd);
+			zLats = lats_2d(spaceIndAvl);
+			zWeights = cosd(zLats);
+			zNormFac = nsum(nsum(zWeights));
+			zMSE{k,j} = mse0{k}(spaceIndAvl);
+			f_num_z(k,j) = nsum(nsum(zMSE{k,j}.*zWeights));
+			f_mse_z(k,j) = f_num_z(k,j)/zNormFac;
+		end
 end
 
+for j = 1:nBands
+	zonalEPE(j) = (1/Kcv) * sum(f_mse_z(:,j));
+	zonalSigg(j) = std(f_mse_z(:,j));
+end
 
 epe = (1/Kcv) * sum(f_mse(:));
 sigg = std(f_mse(:));
@@ -107,7 +113,7 @@ runtime = toc;
 %CVtag = 'pseudoworld1_sst_cr_CVscores_test_raw_reduced.mat';
 CVtag = ['H46MED_SP' num2str(target_spars*100) '_CVscores_v1.mat'];
 savepath = [odir CVtag];
-save(savepath, 'epe', 'sigg','runtime', 'target_spars', 'spars_f')
+save(savepath, 'epe', 'sigg','runtime', 'target_spars', 'spars_f', 'zonalEPE', 'zonalSigg')
 
 %% Old plotting and saving stuff below
 

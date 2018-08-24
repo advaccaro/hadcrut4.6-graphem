@@ -4,11 +4,11 @@
 %Purpose: Generate a series of adjacency matrices from a range of target sparsities in order to visualize the effect of varying sparsity.
 
 tic;
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/avaccaro/GraphEM/')
 
 %% Open HadCRUT4 and CW datasets
-homedir = '/home/geovault-02/avaccaro/hadCRUT4.6/';
+homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 indir = [homedir 'data/'];
 infile = 'had46med.mat';
 inpath = [indir infile];
@@ -21,14 +21,18 @@ load(cwpath)
 load(cwspath)
 
 %% Set script parameters and outpaths
-target_spars = [.5:.05:1.1];
+target_spars = [1.25:.25:2.5];
 nspars = length(target_spars);
 outdir = indir;
-outfile = 'had46med_sparse_adjs.mat';
+outfile = 'had46med_sparse_adjs_large.mat';
 outpath = [outdir outfile];
 
 C0 = corrcoef(cw17s.temp2d); %estimate covariance matrix
-N = 50; %maximum iterations
+N = 75; %maximum iterations
+
+opt.ggm_tol = 5e-3;
+opt.ggm_maxit = 200;
+opt.ggm_thre  = 50;
 
 %% Generate adjacency matrices
 for ii = 1:nspars
@@ -39,7 +43,9 @@ for ii = 1:nspars
 	ADJ(ii).target_sparsity = target;
 	ADJ(ii).estimated_sparsity = spars_f;
 	ADJ(ii).adjacency_matrix = adjM;
-	clear adj spars spars_f adjM target
+	opt.adj = adjM;
+	ADJ(ii).Cg = Sigma_G(C0,opt);
+	clear adj spars spars_f adjM target opt.adj
 end
 
 toc

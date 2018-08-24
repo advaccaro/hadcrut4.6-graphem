@@ -9,13 +9,13 @@ tic;
 %% Add paths to necessary functions
 %addpath(genpath('/home/geovault-00/rverna/hadCRUT4.6/'))
 %addpath(genpath('/home/scec-02/avaccaro/hadCRUT4.6/'))
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/avaccaro/GraphEM/')
 
 %% Open HadCRUT4 and CW datasets
 %homedir = '/home/geovault-00/rverna/hadCRUT4.6/'
 %homedir = '/home/scec-02/avaccaro/hadCRUT4.6/';
-homedir = '/home/geovault-02/avaccaro/hadCRUT4.6/';
+homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 indir = [homedir 'data/'];
 infile = 'had46med.mat';
 inpath = [indir infile];
