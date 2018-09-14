@@ -9,7 +9,7 @@
 *.e
 *.out
 
-graphem_sp/slurm_had46med_graphem_sp*_k*.e
+graphem_sp/slurm/had46med_graphem_sp*_k*.e
 
 test.sh
 
