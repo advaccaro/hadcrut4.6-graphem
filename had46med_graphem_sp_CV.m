@@ -1,6 +1,6 @@
 % had43med_graphem_sp_CV.m
 % Cross-validation for cutoff radius for GraphEM
-function [epe, sigg] = had46med_graphem_sp_CV(sparsity)
+function had46med_graphem_sp_CV(sparsity)
 
 tic;
 
@@ -15,9 +15,9 @@ target_spars = sparsity
 raw = load('had46med.mat'); 
 Xraw = raw.had46med; 
 [ntime, nspace] = size(Xraw);
-tfrac = raw.H46med.tfrac; %fractional time axis
-tcal = tfrac(tfrac >= 1960 & tfrac < 1991); %calibration period (1960-1990)
-calib = ismember(tfrac,tcal);
+%tfrac = raw.H46med.tfrac; %fractional time axis
+%tcal = tfrac(tfrac >= 1960 & tfrac < 1991); %calibration period (1960-1990)
+%calib = ismember(tfrac,tcal);
 
 % %select non empty grid points (actually, select points w/ >20% coverage)
 %test = ~isnan(Xraw); Stest = sum(test,1);
@@ -35,8 +35,8 @@ load(CVindicestag)
 lonlat = double(raw.loc); lats = lonlat(:,2);
 lats_2d = repmat(lats, [1 ntime]);
 lats_2d = lats_2d'; %time x space
-target_cr = 1000;
-N = 100; %number of max iterations for greedy search
+%target_cr = 1000;
+%N = 100; %number of max iterations for greedy search
 
 %% GraphEM stage
 
@@ -58,51 +58,101 @@ for k = 1:Kcv
 	Xg{k} = Xg_k;
 end
 
-indavl_t = ~isnan(Xraw);
-lats_t = lats_2d(indavl_t);
+%indavl_t = ~isnan(Xraw);
+%lats_t = lats_2d(indavl_t);
 %lats_t = lats_2d_red(indavl_t);
-weights = cosd(lats_t);	
-normfac = nsum(nsum(weights));
+%weights = cosd(lats_t);	
+%normfac = nsum(nsum(weights));
 
-lat = lats; %assign latitudes
-nlat = length(lat); %number of latitudes
-latStep = 10; %latitude step size
+%lat = lats; %assign latitudes
+%nlat = length(lat); %number of latitudes
+latStep = 20; %latitude step size
 latBounds = fliplr([-90:latStep:90]); %define boundaries for latitude bands
-nBands = length(latBounds) - 1; %number of latitude bands
+nBands = length(latBounds) - 1 %number of latitude bands
 %zonalMSE = zeros(Kcv,nBands);
-zonalEPE = zeros(nBands);
-
-%% Cross-validation stage
+%zonalEPE = zeros(nBands,1);
+avail = ~isnan(Xraw);
 for k = 1:Kcv
-		mse0{k} = (Xg{k} - Xraw).^2;
-		mse_t{k} = mse0{k}(indavl_t);
-		f_num(k) = nsum(nsum(mse_t{k}.*weights));	
-		f_mse(k) = f_num(k)/normfac;
-		for j = 1:nBands
-			clear spaceInd spaceIndAvl zWeights zLats zNormFac
-			%get space index:
-			spaceInd = find(lat <= latBounds(k) & lat >= latBounds(k+1));
-			spaceIndAvl = indavl_t(:,spaceInd);
-			zLats = lats_2d(spaceIndAvl);
-			zWeights = cosd(zLats);
-			zNormFac = nsum(nsum(zWeights));
-			zMSE{k,j} = mse0{k}(spaceIndAvl);
-			f_num_z(k,j) = nsum(nsum(zMSE{k,j}.*zWeights));
-			f_mse_z(k,j) = f_num_z(k,j)/zNormFac;
-		end
+
+	outAvail = logical(avail.*cv_out{k});
+	[Bias(k),Var(k),MSE(k)] = MSE_decomp(Xraw(outAvail), Xg{k}(outAvail));
+
+	for j = 1:nBands
+		latUpper = latBounds(j);
+		latLower = latBounds(j+1);
+		latsIn = lats_2d;
+		latsIn(latsIn > latUpper | latsIn <= latLower) = NaN;
+		latsIn(~isnan(latsIn)) = 1;
+		latsIn(isnan(latsIn)) = 0;
+		alat = logical(latsIn .* outAvail);
+		[zBias(k,j), zVar(k,j), zMSE(k,j)] = MSE_decomp(Xraw(alat), Xg{k}(alat));
+	
+
+	end
 end
 
-for j = 1:nBands
-	zonalEPE(j) = (1/Kcv) * sum(f_mse_z(:,j));
-	zonalSigg(j) = std(f_mse_z(:,j));
-end
-
-epe = (1/Kcv) * sum(f_mse(:));
-sigg = std(f_mse(:));
-
-runtime = toc;
+CVtag = ['H46MED_SP' num2str(target_spars*100) '_CVscores_v2.mat'];
+savepath = [odir CVtag];
+save(savepath, 'Bias', 'Var','MSE', 'zBias','zVar','zMSE','target_spars', 'spars_f')
 
 
+
+
+
+%fig('MSE plot');
+
+
+
+
+%for j = 1:nBands
+%	zonalEPE1(j) = (1/Kcv) * sum(f_mse_z(:,j));
+%	zonalEPE2(j) = (1/Kcv) * sum(zMSE2(:,j));
+%	zonalEPE3(j) = (1/Kcv) * nsum(zMSE3(:,j));
+%	zonalSigg1(j) = std(f_mse_z(:,j));
+%	zonalSigg2(j) = std(zMSE2(:,j));
+	%zonalSigg3(j) = std(zMSE3(:,j)(~isnan(zMSE(:,j))));
+%end
+
+%epe1 = (1/Kcv) * sum(f_mse(:));
+%EPE = (1/Kcv) * sum(MSE(:));
+%EPE2 = (1/Kcv) * sum(MSE2(:));
+
+%sigg1 = std(f_mse(:));
+%SIGG = std(MSE);
+%SIGG2 = std(MSE2);
+%runtime = toc;
+	%clear spaceInd spaceIndAvl zWeights zLats zNormFac
+	%get space index:
+			%latBounds(j)
+			%latBounds(j+1)
+			%spaceInd{j} = find(lat <= latBounds(j) & lat >= latBounds(j+1));
+			%spaceIndAvl{j} = indavl_t(:,spaceInd{j});
+			%spaceIndAvl{j} = ind2(:,spaceInd{j});
+			%zLats{j} = lats_2d(spaceIndAvl{j});
+			%zWeights{j} = cosd(zLats{j});
+			%zNormFac(j) = nsum(nsum(zWeights{j}));
+			%zMSE{k,j} = mse0{k}(spaceIndAvl{j});
+			%f_num_z(k,j) = nsum(nsum(zMSE{k,j}.*zWeights{j}));
+			%f_mse_z(k,j) = f_num_z(k,j)/zNormFac(j);
+			%[zBias1(k,j), zVar1(k,j), zMSE1(k,j)] = MSE_decomp(Xraw(spaceIndAvl{j}), Xg{k}(spaceIndAvl{j}));
+			%[zBias2(k,j), zVar2(k,j), zMSE2(k,j)] = MSE_decomp(Xraw(:,spaceInd{j}), Xg{k}(:,spaceInd{j}));
+			%[zBias3(k,j) zVar3(k,j), zMSE3(k,j)] = MSE_decomp(Xraw(ind2(:,spaceInd{j})), Xg{k}(ind2(:,spaceInd{j})));
+	%mse0{k} = (Xg{k} - Xraw).^2;
+	%mse_t{k} = mse0{k}(indavl_t);
+	%f_num(k) = nsum(nsum(mse_t{k}.*weights));
+	%f_mse(k) = f_num(k)/normfac;
+	%mse1(k) = MSE_decomp(Xraw(cv_out{k}), Xg{k}(cv_out{k}));
+	%ind1 = ~isnan(Xraw);
+	%ind2 = logical(cv_out{k}.*ind1);
+	%mse2(k) = MSE_decomp(Xraw(ind2), Xg{k}(ind2));
+	%ind2 = ~isnan(Xg{k});
+	%ind3 = ind1.*ind2;
+	%mse(k) = MSE_decomp(Xcv{k}(ind1), Xg{k}(ind1));
+	%mse_f(k) = MSE_decomp(Xraw, Xg{k});
+	%[Bias(k), Var(k), MSE(k)] = MSE_decomp(Xraw(indavl_t), Xg{k}(indavl_t));
+	%[Bias1(k), Var1(k), MSE1(k)] = MSE_decomp(Xraw, Xg{k});
+	%[Bias2(k), Var2(k), MSE2(k)] = MSE_decomp(Xraw(ind2), Xg{k}(ind2));
+%end
 %% Plotting
 %figtitle = [worldname ' ' datatype ' CV scores'];
 %fig(figtitle)
@@ -111,9 +161,7 @@ runtime = toc;
 %fancyplot_deco('10-fold Cross-validation scores for choosing target sparsity (Pseudo-world 1 sst)', 'Target sparsity', 'Average MSE', 14, 'Helvetica');
 
 %CVtag = 'pseudoworld1_sst_cr_CVscores_test_raw_reduced.mat';
-CVtag = ['H46MED_SP' num2str(target_spars*100) '_CVscores_v1.mat'];
-savepath = [odir CVtag];
-save(savepath, 'epe', 'sigg','runtime', 'target_spars', 'spars_f', 'zonalEPE', 'zonalSigg')
+
 
 %% Old plotting and saving stuff below
 
