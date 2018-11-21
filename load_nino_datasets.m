@@ -7,6 +7,9 @@ load('/home/geovault-02/avaccaro/hadCRUT4.6/data/H46MED_EXP.mat');
 %HadCRUT4.6 graphem infilled (sparsity 0.8%) explored
 load('/home/geovault-02/avaccaro/hadCRUT4.6/data/H46MED_SP80_MERRA_KRIG_EXP.mat');
 
+%HadCRUT4.6 graphem infilled (sparsity 0.8%) explored
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/H46MED_SP60_MERRA_KRIG_EXP.mat');
+
 %Kaplan ext explored
 load('/home/scec-02/avaccaro/HadCRUT4.3/SST_datasets/KAPLANext/data/KAPLANext_NINO.mat');
 

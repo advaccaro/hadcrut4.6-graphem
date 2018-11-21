@@ -9,7 +9,7 @@ load_gmt_datasets
 
 %Abbreviate dataset names
 HR = H46MED_EXP;
-HG = H46M80_EXP;
+HG = H46M60_EXP;
 G = GISTEMP_GMT;
 CW = C46MED_EXP;
 N = NOAA_GMT;
@@ -122,7 +122,7 @@ p2=plot(HR.tmdn,HR.GMTm,'color','g');
 p3=plot(CW.tmdn,CW.GMTm,'color','r');
 p1=plot(HG.tmdn,HG.GMTm,'color', 'k' );
 datetick('x','yyyy')
-[hleg,objh] = legend([p1,hp2,hp1,p2,p3],{'GraphEM ensemble median (0.8% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
+[hleg,objh] = legend([p1,hp2,hp1,p2,p3],{'GraphEM ensemble median (0.6% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
 %[hleg,objh] = legend([p1,p2,p3],{'GraphEM ensemble median (0.8% sparsity)', 'HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
 %[hleg,objh] = legend('HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way', 'HadCRUT4.6 + GraphEM (0.8% sparsity)');
 set(hleg,'Location','SouthEast')
@@ -154,8 +154,8 @@ datetick('x','yyyy')
 fancyplot_deco('Same, difference to raw HadCRUT4.6 median', 'Time (Year)', '{\Delta}T ({\circ}C)',14,'Helvetica')
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
-figname = 'gmt_ens_plot1.pdf';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
+figname = 'gmt_ens_plot1_sp60.pdf';
 figpath = [odir figname];
 %hepta_figprint(figpath)
 print(figpath, '-cmyk', '-dpdf', '-fillpage')
@@ -177,7 +177,7 @@ p7=plot(G.tmdn,G.GMTm,'color',ornj);
 p8=plot(N.tmdn,N.GMTm,'color',maroon);
 datetick('x','yyyy')
 %[hleg,objh] = legend([p6,p7,p8], {'GraphEM ensemble median (0.8% sparsity)', 'GISTEMP', 'NOAA'});
-[hleg,objh] = legend([p6, hp6, hp5, p7, p8],{'GraphEM ensemble median (0.8% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'GISTEMP', 'NOAA'});
+[hleg,objh] = legend([p6, hp6, hp5, p7, p8],{'GraphEM ensemble median (0.6% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'GISTEMP', 'NOAA'});
 set(hleg,'Location','SouthEast')
 set(objh,'linewidth',2)
 legend('boxoff')
@@ -204,9 +204,9 @@ fancyplot_deco('Same, 1985 - present', 'Time (Year)', ylabel_str, 14, 'Helvetica
 
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
 %figname = 'gmt_plot2.eps';
-figname = 'gmt_ens_plot2.pdf';
+figname = 'gmt_ens_plot2_sp60.pdf';
 figpath = [odir figname];
 %hepta_figprint(figpath)
 print(figpath, '-cmyk', '-dpdf', '-fillpage')

@@ -3,7 +3,7 @@ clear all;
 close all;
 %rmpath('/home/s%cec-02/avaccaro/HadCRUT4.3/opendap/loaddap-3.7.3/testsuite/matlab/grid.m')l
 addpath('./cbrewer')
-load('/home/geovault-02/avaccaro/hadCRUT4.6/data/had46med_full_sp80_merra_krig.mat');
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/had46med_full_sp60_merra_krig.mat');
 
 lat = loc(:,2); nlat = length(lat); %get latitudes and length
 years = H46med.tvec(:,1); %get years
@@ -107,7 +107,7 @@ xlabel(xlbl_str); %ylabel(['Latitude (' int2str(latStep) char(176) ' Latitude Ba
 ylabel(ylbl_str);
 %outFile2 = ['./figs/had46med_lat_band_pcolor_' int2str(latStep) 'd_interp.eps'];
 %outFile3 = ['./figs/had46med_lat_band_pcolor_' int2str(latStep) 'd_interp.jpeg'];
-outFile4 = ['./figs/had46med_lat_band_pcolor_interp_' int2str(latStep) 'd_' int2str(cLim*10) 'c_' int2str(ngroups) 'n.jpeg'];
+outFile4 = ['./figs/had46med_lat_band_pcolor_interp_' int2str(latStep) 'd_' int2str(cLim*10) 'c_' int2str(ngroups) 'n_sp60.jpeg'];
 print(outFile4,'-djpeg','-r500');
 end
 end

@@ -6,14 +6,14 @@
 
 
 
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 
 load_gmt_datasets
 load JEG_graphics
 
 %shorten dataset names
 HR = H46MED_EXP;
-HG = H46M80_EXP;
+HG = H46M60_EXP;
 G = GISTEMP_GMT;
 CW = C46MED_EXP;
 N = NOAA_GMT;
@@ -253,13 +253,13 @@ hold off
 
 pause;
 
-legend boxoff
+legend('boxoff')
 
 %suplabel(xlabel_str);
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
-figname = 'gmt_trend_plot_zoom.pdf';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
+figname = 'gmt_trend_plot_zoom_sp60.pdf';
 figpath = [odir figname];
 %hepta_figprint(figpath)
 print(figpath, '-cmyk', '-dpdf', '-bestfit')

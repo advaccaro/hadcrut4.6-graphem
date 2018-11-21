@@ -7,26 +7,26 @@
 %% Set Up
 clear all
 %close all
-working_dir = '/home/geovault-02/avaccaro/hadCRUT4.6/';
+working_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 addpath(genpath(working_dir))
 
 %% Load datasets
 load had46med.mat %HadCRUT4.6 Raw
-load had46med_full_sp80_merra_krig.mat %HadCRUT4.6 GLASSO GraphEM
+load had46med_full_sp60_merra_krig.mat %HadCRUT4.6 GLASSO GraphEM
 load cw17.mat %Cowtan and Way Kriging
-load had43med_graphem_cr1000_step2.mat %HadCRUT4.3 Neighborhood GraphEM
+load had46med_full_cr1000_merra_krig.mat %HadCRUT4.3 Neighborhood GraphEM
 
 %% Set vars
 H.t = H46med.tfrac;
 G.t = H.t;
 C.t = cw17.tfrac;
-N.t = H43med.tfrac;
+N.t = H.t;
 
 
 H.X = rawH46med;
 G.X = SP1.X;
 C.X = cw17.temp2d;
-N.X = Xf;
+N.X = CR.X;
 
 lon = loc(:,1);
 lat = loc(:,2);
@@ -155,13 +155,13 @@ for ii = 1:12
 	%axes(ha(ax{ii}));
 	%axes(ha(ii));	
 	m_proj('Robinson', 'clong', 0);
-	m_grid('xtick',[-180:60:180],'xticklabels',[],'tickdir','out','ytick',[-90:30:90], 'yticklabels',[],'color','k', 'fontsize',10, 'linestyle', 'none');
-	m_coast('color','k');
 	%m_line(lons,lats);
 	hold on;
 	p = m_pcolor(lons, lats, D);
 	set(p, 'EdgeColor', 'none');
-	colormap('default');	
+	colormap('default');
+		m_grid('xtick',[-180:60:180],'xticklabels',[],'tickdir','out','ytick',[-90:30:90], 'yticklabels',[],'color','k', 'fontsize',10, 'linestyle', 'none');
+	m_coast('color','k');
 	hold off;
 	caxis([-3 3]);
 	if ii == 1
@@ -179,12 +179,13 @@ end
 %axes(ha(10:12));
 subplot(5,3,13:15)
 cb = colorbar('north');
+ylabel(cb, '\circC')
 caxis([-3 3]);
 axis('off');
 
 
-otagf = './figs/nino1878_4x3.jpeg';
-otag = './figs/nino1878_4x3.pdf';
+otagf = './figs/nino1878_4x3_sp60.jpeg';
+otag = './figs/nino1878_4x3_sp60.pdf';
 print(otagf, '-djpeg', '-cmyk', '-r500')
 print(otag, '-dpdf', '-cmyk')
 

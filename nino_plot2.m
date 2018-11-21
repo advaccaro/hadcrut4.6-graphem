@@ -12,7 +12,7 @@ C = COBE_NINO;
 CW = C46MED_EXP;
 E = ERSSTv5_NINO;
 HR = H46MED_EXP;
-HG = H46M80_EXP;
+HG = H46M60_EXP;
 K = Kext_NINO;
 %E = ENS;
 ENS.NINO34m = ENS.nino34;
@@ -149,8 +149,8 @@ datetick('x','yyyy')
 fancyplot_deco('Same, difference from HadCRUT 4.6 median raw', 'Time (Year)', '{\Delta}T ({\circ}C)',14,'Helvetica')
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
-oname = 'nino_ens_plot1.pdf';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
+oname = 'nino_ens_plot1_sp60.pdf';
 otag = [odir oname];
 %hepta_figprint(otag)
 print(otag, '-dpdf', '-cmyk', '-fillpage');
@@ -169,7 +169,7 @@ p3=plot(CW.tmdn,CW.NINO34m,'color','r');
 p1=plot(HG.tmdn,HG.NINO34m,'color','k');
 datetick('x','yyyy')
 %[hleg,objh] = legend([p1,p2,p3],{'GraphEM ensemble median (0.8% sparsity)', 'HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
-[hleg,objh] = legend([p1,hp2,hp1,p2,p3],{'GraphEM ensemble median (0.8% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%','HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
+[hleg,objh] = legend([p1,hp2,hp1,p2,p3],{'GraphEM ensemble median (0.6% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%','HadCRUT4.6 median raw', 'HadCRUT4.6 Cowtan & Way'});
 set(hleg,'Location','SouthEast')
 set(objh,'linewidth',2)
 legend('boxoff')
@@ -184,15 +184,15 @@ p5=plot(HR.tmdn(CWind1),HR.NINO34m_Cdiff,'color','g');
 p4=plot(HG.tmdn,HG.NINO34m_Cdiff,'color','k');
 datetick('x','yyyy')
 %[hleg,objh] = legend([p4,p5], {'GraphEM ensemble median (0.8% sparsity)', 'HadCRUT4.6 Cowtan & Way'});
-[hleg,objh] = legend([p4,hp4,hp3,p5],{'GraphEM ensemble median (0.8% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'HadCRUT4.6 median raw'});
+[hleg,objh] = legend([p4,hp4,hp3,p5],{'GraphEM ensemble median (0.6% sparsity)', 'GraphEM ensemble 25-75%', 'GraphEM ensemble 2.5-97.5%', 'HadCRUT4.6 median raw'});
 set(hleg,'Location','SouthEast')
 set(objh,'linewidth',2)
 legend('boxoff')
 fancyplot_deco('Same, difference to HadCRUT 4.6 Cowtan and Way', 'Time (Year)', '{\Delta}T ({\circ}C)',14,'Helvetica')
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
-oname = 'nino_ens_plot3.pdf';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
+oname = 'nino_ens_plot3_sp60.pdf';
 otag = [odir oname];
 %hepta_figprint(otag)
 print(otag, '-dpdf', '-cmyk', '-fillpage');
@@ -227,7 +227,7 @@ datetick('x','yyyy')
 ylim([-7 4]);
 %[hleg,objh] = legend([p6,p7,p8,p9,p10], {'GraphEM ensemble median (0.8% sparsity)','Kaplan','Bunge & Clarke','ERSSTv4','COBE'});
 %[hleg,objh] = legend([p6,hp6,hp5,p7,p8,p9,p10], {'GraphEM ensemble median (0.8% sparsity)','GraphEM ensemble 25-75%','GraphEM ensemble 2.5-97.5%','Kaplan','Bunge & Clarke','ERSSTv5','COBE'});
-[hleg,objh] = legend([p6,hp2,hp1,p7,p8,p9,p10], {'GraphEM ensemble median (0.8% sparsity)','GraphEM ensemble 25-75%','GraphEM ensemble 2.5-97.5%','Kaplan','Bunge & Clarke','ERSSTv5','COBE'});
+[hleg,objh] = legend([p6,hp2,hp1,p7,p8,p9,p10], {'GraphEM ensemble median (0.6% sparsity)','GraphEM ensemble 25-75%','GraphEM ensemble 2.5-97.5%','Kaplan','Bunge & Clarke','ERSSTv5','COBE'});
 set(hleg,'Location','SouthEast')
 set(objh,'linewidth',2)
 legend('boxoff')
@@ -259,8 +259,8 @@ datetick('x','yyyy');
 fancyplot_deco('Same, difference to Kaplan', 'Time (Year)', '{\Delta}T ({\circ}C)',14,'Helvetica')
 
 %save/print
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
-oname = 'nino_ens_plot2.pdf';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
+oname = 'nino_ens_plot2_sp60.pdf';
 otag = [odir oname];
 %hepta_figprint(otag)
 print(otag, '-dpdf', '-cmyk', '-fillpage');
