@@ -1,0 +1,1430 @@
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
+#!/bin/bash
+#SBATCH --job-name=H46M_SP75
+#SBATCH --mem=14GB
+#SBATCH --output=had46med_graphem_sp75.o
+#SBATCH --error=had46med_graphem_sp75.e
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/
+/usr/bin/matlab -nodesktop -nosplash > ./out/had46med_graphem_sp75.out << EOF
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+target_spars = 75
+target_spars = target_spars/100;
+had46med_graphem_merra_krig_sp_full(target_spars)
+exit
+EOF
