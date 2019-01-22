@@ -1,4 +1,4 @@
-% had43med_graphem_sp_CV.m
+% had46med_graphem_sp_CV_step2.m
 % Cross-validation for cutoff radius for GraphEM
 function [Xg_k] = had46med_graphem_sp_CV_step2(sparsity,Kfold)
 
@@ -7,7 +7,6 @@ tic;
 %% Initialize
 addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath(genpath('/home/scec-02/avaccaro/GraphEM/'))
-%addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/graphem_sp/data/';
 target_spars = sparsity
 Kfold = Kfold
@@ -42,12 +41,10 @@ C0 = corrcoef(cw17s.temp2d); %estimate correlation coefficients matrix
 
 %Load ADJ
 load('had46med_sparse_adjs.mat')
-%adjs = [.5:.05:1.1]; for some reason, this doesn't work for values greater than .8
 adjs = [.5, .55, .6, .65, .7, .75, .8, .85, .9, .95, 1, 1.05, 1.1];
 adj_ind = find(adjs == target_spars);
 adjM = ADJ(adj_ind).adjacency_matrix;
 spars_f = ADJ(adj_ind).estimated_sparsity;
-%Cg = ADJ(adj_ind).Cg;
 
 %% GraphEM stage
 

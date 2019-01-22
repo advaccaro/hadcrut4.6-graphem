@@ -57,26 +57,6 @@ G.DJFt = H.DJFt;
 N.DJFt = N.t(N.DJFind);
 C.DJFt = C.t(C.DJFind);
 
-H.MAMind = find(H.t > mar - 1/100 & H.t < may + 1/100);
-G.MAMind = H.MAMind;
-N.MAMind = find(N.t > mar - 1/100 & N.t < may + 1/100);
-C.MAMind = find(C.t > mar - 1/100 & C.t < may + 1/100);
-
-H.MAMt = H.t(H.MAMind);
-G.MAMt = H.MAMt;
-N.MAMt = N.t(N.MAMind);
-C.MAMt = C.t(C.MAMind);
-
-H.JJAind = find(H.t > jun - 1/100 & H.t < aug + 1/100); 
-G.JJAind = H.JJAind;
-N.JJAind = find(N.t > jun - 1/100 & N.t < aug + 1/100);
-C.JJAind = find(C.t > jun - 1/100 & C.t < aug + 1/100);
-
-H.JJAt = H.t(H.JJAind);
-G.JJAt = H.JJAt;
-N.JJAt = N.t(N.JJAind);
-C.JJAt = C.t(C.JJAind);
-
 %% Calculate means
 %DJF
 H.DJFm = H.X(H.DJFind, :);
@@ -89,56 +69,25 @@ G.DJF = nmean(G.DJFm);
 N.DJF = nmean(N.DJFm);
 C.DJF = nmean(C.DJFm);
 
-%MAM
-H.MAMm = H.X(H.MAMind, :);
-G.MAMm = G.X(G.MAMind, :);
-N.MAMm = N.X(N.MAMind, :);
-C.MAMm = C.X(C.MAMind, :);
-
-H.MAM = nmean(H.MAMm);
-G.MAM = nmean(G.MAMm);
-N.MAM = nmean(N.MAMm);
-C.MAM = nmean(C.MAMm);
-
-%JJA
-H.JJAm = H.X(H.JJAind, :);
-G.JJAm = G.X(G.JJAind, :);
-N.JJAm = N.X(N.JJAind, :);
-C.JJAm = C.X(C.JJAind, :);
-
-H.JJA = nmean(H.JJAm);
-G.JJA = nmean(G.JJAm);
-N.JJA = nmean(N.JJAm);
-C.JJA = nmean(C.JJAm);
 
 %% Set up for plotting
 cmap = flipud(cbrewer('div','RdYlBu',31)); %Colormap
 
 %DATA = cell{9,1};
 DATA{1} = H.DJF; % Panel 1 - Raw DJF
-%ax{1} = [1,4,7];
-DATA{2} = H.MAM; % Panel 2 - Raw MAM
-%ax{2} = [2,5,8];
-DATA{3} = H.JJA; % Panel 3 - Raw JJA
-%ax{3} = [3,6,9];
-DATA{4} = G.DJF; % Panel 4 - GraphEM GLASSO DJF
-%ax{4} = [10,13,16];
-DATA{5} = G.MAM; % Panel 5 - GraphEM GLASSO MAM
-%ax{5} = [11,14,17];
-DATA{6} = G.JJA; % Panel 6 - GraphEM GLASSO JJA
-%ax{6} = [12,15,18];
-DATA{7} = N.DJF; % Panel 7 - GraphEM Neigh DJF
-DATA{8} = N.MAM; % Panel 8 - GraphEM Neigh MAM
-DATA{9} = N.JJA; % Panel 9 - GraphEM Neigh JJA
-DATA{10} = C.DJF; % Panel 10 - CW DJF
-%ax{7} = [19,22,25];
-DATA{11} = C.MAM; % Panel 11 - CW MAM
-%ax{8} = [20,23,26];
-DATA{12} = C.JJA; % Panel 12 - CW JJA
-%ax{9} = [21,24,27];
+DATA{2} = G.DJF; % Panel 4 - GraphEM GLASSO DJF
+DATA{3} = C.DJF; % Panel 7 - GraphEM Neigh DJF
+DATA{4} = H.DJF; % Panel 10 - CW DJF
+DATA{4}(isnan(H.DJF)) = C.DJF(isnan(H.DJF));
+DATA{5} = H.DJF;
+for x = 1:length(DATA{5})
+	if isnan(DATA{5}(x)) == 1
+		DATA{5}(x) = randn/10;
+	end
+end
 
-nRows = 10;
-nCols = 3;
+nRows = 5;
+nCols = 1;
 
 
 % Panels 10:12 - Colorbar
@@ -147,9 +96,9 @@ nCols = 3;
 
 fig('NINO Snapshots'); clf;
 %[ha,pos] = tight_subplot(3,3,[.00003 .03],[.003 .003],[.003 .003]);
-for ii = 1:12
+for ii = 1:5
 	%subplot(nRows,nCols,ax{ii});
-	subplot(5,3,ii);	
+	subplot(6,1,ii);	
 	D = reshape(DATA{ii}',[nlon,nlat])';
 	%non_nan = ~isnan(D);
 	%axes(ha(ax{ii}));
@@ -164,28 +113,19 @@ for ii = 1:12
 	m_coast('color','k');
 	hold off;
 	caxis([-3 3]);
-	if ii == 1
-		title('DJF');
-	elseif ii == 2
-		title('MAM');
-	elseif ii == 3
-		title('JJA');
-	else
-		title('');	
-	end
 end
 
 % Colorbar
 %axes(ha(10:12));
-subplot(5,3,13:15)
+subplot(6,1,6)
 cb = colorbar('north');
 ylabel(cb, '\circC')
 caxis([-3 3]);
 axis('off');
 
 
-otagf = './figs/nino1878_4x3_sp60.jpeg';
-otag = './figs/nino1878_4x3_sp60.pdf';
+otagf = './figs/nino1878_5x1.jpeg';
+otag = './figs/nino1878_5x1.pdf';
 print(otagf, '-djpeg', '-cmyk', '-r500')
 print(otag, '-dpdf', '-cmyk')
 

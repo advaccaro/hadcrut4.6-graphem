@@ -20,4 +20,4 @@ load('/home/geovault-02/avaccaro/hadCRUT4.6/data/C46MED_EXP.mat');
 load('/home/geovault-02/avaccaro/hadCRUT4.6/NOAA_GMT/data/NOAA_GMT_EXP.mat');
 
 %GraphEM ensemble
-load('/home/geovault-02/avaccaro/hadCRUT4.6/ensemble/data/ENS.mat');
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/ensemble/data/ENS_sp60.mat');

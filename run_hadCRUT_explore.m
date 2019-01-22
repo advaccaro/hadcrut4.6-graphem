@@ -14,3 +14,6 @@ save('/home/geovault-02/avaccaro/hadCRUT4.6/data/H46M80_EXP.mat','H46M80_EXP')
 
 C46MED_EXP = had43med_explore(cw17.temp2d,lonin, latin, datenum(cw17.tvec), loc);
 save('/home/geovault-02/avaccaro/hadCRUT4.6/data/C46MED_EXP.mat','C46MED_EXP')
+
+H46MNE_EXP = had_explore(CR.X, lonin, latin, H46med.tser, loc);
+save('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/H46MNE_EXP.mat', 'H46MNE_EXP');

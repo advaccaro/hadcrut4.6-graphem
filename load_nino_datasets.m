@@ -1,7 +1,7 @@
 %load_nino_datasets.m
 
 %HadCRUT4.6 raw explored
-load('/home/geovault-02/avaccaro/hadCRUT4.6/data/H46MED_EXP.mat');
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/H46MED_EXP.mat');
 
 
 %HadCRUT4.6 graphem infilled (sparsity 0.8%) explored
@@ -26,4 +26,4 @@ load('/home/geovault-02/avaccaro/hadCRUT4.6/SST_datasets/ERSSTv5/data/ERSSTv5_NI
 load('/home/geovault-02/avaccaro/hadCRUT4.6/data/C46MED_EXP.mat');
 
 %GraphEM ensemble
-load('/home/geovault-02/avaccaro/hadCRUT4.6/ensemble/data/ENS.mat');
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/ensemble/data/ENS_sp60.mat');

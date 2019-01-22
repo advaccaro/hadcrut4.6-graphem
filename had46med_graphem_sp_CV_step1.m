@@ -1,4 +1,4 @@
-%had43med_graphem_sp_CV_step1.m
+%had46med_graphem_sp_CV_step1.m
 %Do CR infilling for k-folds
 
 function [Xcr_k,Mcr_k,Ccr_k] = had46med_graphem_sp_CV_step1(Kfold)

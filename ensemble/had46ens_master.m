@@ -1,10 +1,10 @@
-%had44ens_master.m
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+%had46ens_master.m
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 
 %% Initialize (define vars, preallocate, etc.)
 
 %Load raw data (median)
-raw = load('/home/geovault-02/avaccaro/hadCRUT4.6/data/had46med.mat');
+raw = load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/had46med.mat');
 [nlon,nlat,nmon] = size(raw.H46med.x);
 %nm = 1973; %nmons defined explicitly! (ONLY FOR INFILLED ENS MEMBERS, NOT MEDIAN)
 lon = raw.H46med.lon;
@@ -27,8 +27,8 @@ weights = repmat(cosd(loc(:,2)), [1 nmon]);
 
 
 %% Unpack .mat files/Assemble 100-member ensemble
-datadir = '/home/geovault-02/avaccaro/hadCRUT4.6/ensemble/data/graphem_sp/';
-datalist = dir([datadir '/*sp80_merra_krig.mat']); %list of .mat files
+datadir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/ensemble/data/';
+datalist = dir([datadir '/*sp60_merra_krig.mat']); %list of .mat files
 ndata = length(datalist);
 
 %ENS.globalmean = nan(ny,ndata);
@@ -108,8 +108,8 @@ ENS.nino34_sum = nino34_sum;
 ENS.tser = raw.H46med.tser;
 ENS.tfrac = raw.H46med.tfrac;
 
-odir = '/home/geovault-02/avaccaro/hadCRUT4.6/ensemble/data/';
-ofile = 'ENS.mat';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/ensemble/data/';
+ofile = 'ENS_sp60.mat';
 
 opath = [odir ofile];
 save(opath, 'ENS')

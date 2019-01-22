@@ -1,9 +1,8 @@
-% had43med_graphem_sp_CV_step0.m
-% Get CV indices for H43med cross-validation
+% had46med_graphem_sp_CV_step0.m
+% Get CV indices for H46med cross-validation
 
 %% Initialize
 addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
-%addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 
 odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/graphem_sp/data/';

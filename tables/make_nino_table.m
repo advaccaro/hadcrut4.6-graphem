@@ -1,7 +1,7 @@
 %make_nino_table.m
 
 %% Initialize
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 load_nino_datasets
 
 HR = H46MED_EXP;

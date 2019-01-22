@@ -1,4 +1,4 @@
-%% nino_ss_map.m
+%% sp60_sp80_comparison.m
 % USC Climate Dynamics Lab
 % Adam Vaccaro
 % Summer 2018
@@ -12,9 +12,12 @@ addpath(genpath(working_dir))
 
 %% Load datasets
 load had46med.mat %HadCRUT4.6 Raw
-load had46med_full_sp60_merra_krig.mat %HadCRUT4.6 GLASSO GraphEM
+load had46med_full_sp60_merra_krig.mat %HadCRUT4.6 GLASSO 0.6% sparsity
+G.X = SP1.X;
+load had46med_full_sp80_merra_krig.mat % HadCRUT4.6 GLASSO 0.8% sparsity
+N.X = SP1.X;
 load cw17.mat %Cowtan and Way Kriging
-load had46med_full_cr1000_merra_krig.mat %HadCRUT4.6 Neighborhood GraphEM
+%load had46med_full_cr1000_merra_krig.mat %HadCRUT4.3 Neighborhood GraphEM
 
 %% Set vars
 H.t = H46med.tfrac;
@@ -24,9 +27,9 @@ N.t = H.t;
 
 
 H.X = rawH46med;
-G.X = SP1.X;
+%G.X = SP1.X;
 C.X = cw17.temp2d;
-N.X = CR.X;
+%N.X = CR.X;
 
 lon = loc(:,1);
 lat = loc(:,2);
@@ -184,8 +187,8 @@ caxis([-3 3]);
 axis('off');
 
 
-otagf = './figs/nino1878_4x3_sp60.jpeg';
-otag = './figs/nino1878_4x3_sp60.pdf';
+otagf = './figs/nino1878_4x3_sp60_sp80.jpeg';
+otag = './figs/nino1878_4x3_sp60_sp80.pdf';
 print(otagf, '-djpeg', '-cmyk', '-r500')
 print(otag, '-dpdf', '-cmyk')
 
