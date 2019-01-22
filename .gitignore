@@ -9,6 +9,8 @@
 *.e
 *.out
 
+*.txt
+
 graphem_sp/slurm/had46med_graphem_sp*_k*.e
 
 test.sh
@@ -16,3 +18,5 @@ test.sh
 suplabel/
 
 out/
+
+kriging/
