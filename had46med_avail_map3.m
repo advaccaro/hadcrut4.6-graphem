@@ -1,7 +1,8 @@
-%had43med_avail_map2.m
+%had46med_avail_map3.m
 clear all
 
 addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
+%includes greatCircleDistance.m from GraphEM directory
 
 
 %load data sets
@@ -12,28 +13,47 @@ load('crutem4nobs.mat')
 %bar graph w/ calculations
 [ntime,nstations] = size(rawH46med);
 
+%initialize array for areas per lat/lon
+areas = zeros(nstations,1);
+
+% Calculate area of each 5 degree lat-lon rectangle
+for i = 1:nstations
+	lat_center = loc(i,2);
+	lon_center = loc(i,1);
+	lat1 = lat_center-2.5;
+	lat2 = lat_center+2.5;
+	lon1 = lon_center-2.5;
+	lon2 = lon_center+2.5;
+	areas(i) = ((pi/180)*6371^2)*abs(sind(lat1)-sind(lat2))*abs(lon1-lon2);
+end
+
+% Surface area of the Earth in km2
+surface_area = sum(areas);
+
+%initialize array for area covered per year
+area_covered = zeros(ntime,1);
+per_area_covered=zeros(ntime,1);
 for i = 1:ntime
-	navail(i,1) = sum(~isnan(HadSST3nobs.nobs2d(i,:)));
-	navail(i,2) = sum(~isnan(CRUTEM4nobs.nobs2d(i,:)));
-end	
+	yd = rawH46med(i,:);
+	nn = ~isnan(yd);
+	area_covered(i) = sum(areas(nn));
+	per_area_covered(i) = 100*area_covered(i)/surface_area;
+end
+
 
 fig('nobs map'); clf;
 %orient landscape
 subplot(3,2,5:6); hold on;
-hb = bar(H46med.tfrac,navail,'stacked');
-ocean_color = hb(1).FaceColor;
-hb(1).EdgeColor = ocean_color;
-land_color = hb(2).FaceColor;
-hb(2).EdgeColor = land_color;
-%hb.BarWidth = 1;
-%hb.EdgeColor = dkgr;
-axis([1850 2018 0 2500])
-title('HadCRUT4.6 number of observations over time');
-xlabel('Time (Year)'); ylabel('# observations')
+p = plot(H46med.tfrac, per_area_covered);
+set(p, 'LineWidth', 1);
+axis([1850 2018 0 100])
+title('HadCRUT4.6 sampling over time');
+xlabel('Time (Year)'); ylabel('% of global area')
 set(gca,'TickDir', 'out', 'TickLength', [.02 .02]);
 set(gca, 'XTick', 1850:25:2000);
+set(gca, 'YTick',0:25:100);
 set(gca, 'XMinorTick', 'on');
-hL = legend('Ocean', 'Land');
+hL = legend('% of global area sampled');
 set(hL, 'Location', 'NorthWest')
 legend('boxoff')
 
@@ -50,18 +70,16 @@ combined_nobs = hnobs(:,:,1:ntime) + cnobs(:,:,1:ntime);
 
 %%%%%%%%%%%%%%%%%%%%%
 years = [1850, 1900, 1950, 2000];
-titles{1} = {'HadCRUT4.6 number of observations per month',
+titles{1} = {'HadCRUT4.6 sampling per month',
  'January 1850'}; 
 titles{2} = 'January 1900'; 
 titles{3} = 'January 1950'; 
 titles{4} = 'January 2000';
 
-%lons = loc(:,1);
-%lats = loc(:,2);
+
 lon = H46med.lon;
-%nlon = length(lon);
 lat = H46med.lat;
-%nlat = length(lat);
+
 
 cmap = cbrewer('seq', 'Purples', 14);
 
@@ -91,26 +109,11 @@ ax(4).Position = ax4_original_position;
 cbar = colorbar;
 cbar.Position(1) = cbar.Position(1) + .09;
 cbar.Position(4) = cbar.Position(4)*3;
-%ax4 = gca;
-%original_position = ax4.Position;
-%cbar = colorbar2('horiz');
-%cbar.Position(4) = cbar.Position(4) * 2;
-%cbar.Position(3) = cbar.Position(3)*1.5;
-%cbar.Position(1) = cbar.Position(1) - .31;
-%cbar.Position(2) = cbar.Position(2) - .03;
-%l = [0 0.25 .5
-%L = [2 5 10 25 50 100 250 500 1000 2000 4000];
-%l = log10(L);
-%set(cbar, 'Xtick', l, 'XTicklabel', L);
-
-%ax4.Position = original_position;
-%set(cbar,'Location','SouthWestOutside');
 
 
 
 odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/';
-otagf = [odir 'had46med_availmap_nobs.jpeg'];
-otag = [odir 'had46med_availmap_nobs.pdf'];;
+otagf = [odir 'had46med_availmap_coverage.jpeg'];
+otag = [odir 'had46med_availmap_coverage.pdf'];;
 print(otagf, '-djpeg', '-cmyk', '-r500')
 print(otag, '-dpdf', '-cmyk', '-bestfit')
-
