@@ -237,23 +237,18 @@ subplot(1,nTrends+1,1); hold on;
 hL.FontSize = 18; 
 hT = findobj(hObj, 'type', 'line');
 set(hT, 'linewidth', 2);
-legend boxoff
+%legend boxoff
 %newPosition = [0.1128 0.0986 0.2745 0.800]; %[0.0850 0.1029 0.2000 0.8800]; %[0.05 0.6 0.2 0.15];
 newPosition = [0.0210 0.1745 0.3605 0.6500];
 newUnits = 'normalized';
 set(hL, 'Position', newPosition, 'Units', newUnits);
 axis off
 hold off
-%legend boxoff
-%legend('Location', 'West')
-
-%axis off
-%h = findobj('type', 'axes');
-%set(h(1), 'visible', 'off');
 
 pause;
 
-legend('boxoff')
+set(hL, 'color','none');
+set(hL, 'Box', 'off');
 
 %suplabel(xlabel_str);
 
