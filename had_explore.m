@@ -40,12 +40,63 @@ nt=length(t);  nyrs = floor(nt/12);
 % GMMT
 GRID = grid_2d;
 temp = nan(nt,1);
-weights = repmat(cosd(loc(:,2)),[1,nt]);
-for i = 1:nt
-	weights(isnan(GRID(i,:))) = 0;
-	GRID(i,(isnan(GRID(i,:)))) = 0;
-	temp(i) = (GRID(i,:)*weights(:,i))/sum(weights(:,i));
+temp_area = nan(nt,1);
+tempsh = nan(nt,1);
+tempnh = nan(nt,1);
+weights = flipud(repmat(cosd(loc(:,2)),[1,nt]));
+% weight by area
+for i = 1:ns
+	lat_center = loc(i,2);
+	lon_center = loc(i,1);
+	lat1 = lat_center-2.5;
+	lat2 = lat_center+2.5;
+	lon1 = lon_center-2.5;
+	lon2 = lon_center+2.5;
+	areas(i) = ((pi/180)*6371^2)*abs(sind(lat1)-sind(lat2))*abs(lon1-lon2);
 end
+area_weights = repmat(areas, [nt,1])';
+nh = find(loc(:,2)>0);
+sh = find(loc(:,2)<0);
+%weights(isnan(GRID)) = 0;
+%area_weights(isnan(GRID)) = 0;
+%GRID(isnan(GRID)) = 0;
+for i = 1:nt
+	% normalize weights to sum to one
+	%weights(:,i) = weights(:,i)/sum(weights(:,i));
+	%area_weights(:,i) = area_weights(:,i)/sum(area_weights(:,i));
+	%shweights = area_weights(sh,i)/sum(area_weights(sh,i));
+	%nhweights = area_weights(nh,i)/sum(area_weights(nh,i));
+	%area_weights(isnan(GRID(
+	%weights(isnan(GRID(i,:))) = 0;
+	%GRID(i,(isnan(GRID(i,:)))) = 0;
+	%temp(i) = (GRID(i,:)*weights(:,i))/sum(weights(:,i));
+	%temp_area(i) = (GRID(i,:)*area_weights(:,i))/sum(area_weights(:,i));
+	%tempsh(i) = (GRID(i,sh)*area_weights(sh,i))/sum(area_weights(sh,i));
+	%tempnh(i) = (GRID(i,nh)*area_weights(nh,i))/sum(area_weights(nh,i));
+	%tempsh(i) = GRID(i,sh)*shweights;
+	%tempnh(i) = GRID(i,nh)*nhweights;
+	g = GRID(i,:);
+	nn = ~isnan(g);
+	gnn = g(nn);
+	wnn = weights(nn,i);
+	wnn = wnn/sum(wnn);
+	temp(i) = gnn*wnn;
+	aw = area_weights(:,i);
+	awnn = aw(nn)/sum(aw(nn));
+	temp_area(i) = gnn*awnn;
+	gsh = g(sh);
+	nnsh = ~isnan(gsh);
+	awsh = aw(sh);
+	awshnn = awsh(nnsh)/sum(awsh(nnsh));
+	tempsh(i) = gsh(nnsh)*awshnn;
+	gnh = g(nh);
+	nnnh = ~isnan(gnh);
+	awnh = aw(nh);
+	awnhnn = awnh(nnnh)/sum(awnh(nnnh));
+	tempnh(i) = gnh(nnnh)*awnhnn;
+	
+end
+nhsh = (tempsh+tempnh)/2;
 GMMT = temp;
 GMTm = GMMT;
 
