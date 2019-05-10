@@ -97,7 +97,8 @@ for i = 1:nt
 	
 end
 nhsh = (tempsh+tempnh)/2;
-GMMT = temp;
+%GMMT = temp;
+GMMT = nhsh;
 GMTm = GMMT;
 
 for i = 1:nyrs
@@ -325,6 +326,8 @@ DATASET.NINO34d_djf = NINO34d_djf;
 DATASET.NINO34d_yr = NINO34d_yr;
 DATASET.NINO34d_full = NINO34d_full;
 DATASET.GMTm = GMMT;
+DATASET.GMTm_sh = tempsh;
+DATASET.GMTm_nh = tempnh;
 DATASET.GMTa_djf = GMMTa_djf;
 DATASET.GMTa_yr = GMMTa_yr;
 DATASET.GMTd_djf = GMMTd_djf;
