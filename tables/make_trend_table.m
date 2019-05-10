@@ -1,12 +1,12 @@
 %make_trend_table.m
 
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 
 load_gmt_datasets
 
 %shorten dataset names
 HR = H46MED_EXP;
-HG = H46M80_EXP;
+HG = H46M60_EXP;
 G = GISTEMP_GMT;
 CW = C46MED_EXP;
 N = NOAA_GMT;
