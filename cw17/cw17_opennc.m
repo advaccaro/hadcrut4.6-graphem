@@ -2,7 +2,7 @@
 %opens the cowtan and way 2013 temperature series
 %clear all; %close all; %clc;
 %addpath(genpath('/Users/adam/Desktop/HadCRUT4.2.0.0'))
-%addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3'))
+%addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem'))
 
 %addpath(genpath('/Users/adam/Desktop/Treerings/matlib'))
 %addpath(genpath('/home/geovault-02/avaccaro/matlib'))
@@ -11,7 +11,7 @@
 indir = '/home/geovault-00/rverna/hadCRUT4.6/cw17/data/';
 
 %odir = '/Users/adam/Desktop/HadCRUT4.2.0.0/data/';
-%odir = '/home/scec-02/avaccaro/HadCRUT4.3/data/';
+%odir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/data/';
 odir = indir;
 outfile = [odir 'cw17.mat'];
 

@@ -1,10 +1,10 @@
 %pseudoworld1_lsat_graphem_sp_step0.m
 
 %% INITIALIZE
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
-odir = '/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld1/lsat/data/';
+odir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld1/lsat/data/';
 
 
 N = 500; %Number of regularization parameters (start w/ high value to obtain upper limit)

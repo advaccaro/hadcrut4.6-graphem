@@ -7,13 +7,13 @@
 
 
 %% Add paths to necessary functions
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 
 %% Open HadCRUT4 and CW datasets
-homedir = '/home/scec-02/avaccaro/HadCRUT4.3/'
-%indir = '/home/scec-02/avaccaro/HadCRUT4.3/data/';
+homedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/'
+%indir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/data/';
 indir = [homedir 'data/'];
 %infile = ['HadCRUT.4.3.0.0.anomalies.' num2str(filenum) '.mat'];
 infile = 'had43med.mat';
@@ -25,7 +25,7 @@ load(cwpath)
 
 %% Set script parameters and outpaths
 target_spars = .8; %target sparsity
-outdir = '/home/scec-02/avaccaro/HadCRUT4.3/graphem_sp/data/';
+outdir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/graphem_sp/data/';
 spadjtag = [outdir 'had43med_sp' num2str(target_spars*100) '_CW_GL_adj.mat'];
 sponetag = [outdir 'had43med_sp' num2str(target_spars*100) '_CW_GL_step1.mat'];
 sptwotag = [outdir 'had43med_sp' num2str(target_spars*100) '_CW_GL_step2.mat'];

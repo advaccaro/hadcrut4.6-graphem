@@ -6,12 +6,12 @@ function [Xcv, cv_in, cv_out] = pseudoworld_graphem_sp_CV_step0(dataset,datatype
 
 
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 truth = truth;
 worldname = ['pseudoworld' num2str(worldnum)];
 fullname = [worldname '_' datatype];
 truthname = [fullname '_truth'];
-basedir = '/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/';
+basedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 

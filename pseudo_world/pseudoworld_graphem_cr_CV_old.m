@@ -6,11 +6,11 @@ function [epe,sigg] = pseudoworld_graphem_cr_CV(dataset,datatype,worldnum,Crcase
 % Cross-validation of target sparsity for GraphEM
 tic
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 worldname = ['pseudoworld' num2str(worldnum)];
-basedir = '/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/';
+basedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 

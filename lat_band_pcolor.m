@@ -1,7 +1,7 @@
 %lat_band_pcolor.m
 clear all; 
 close all;
-%rmpath('/home/s%cec-02/avaccaro/HadCRUT4.3/opendap/loaddap-3.7.3/testsuite/matlab/grid.m')l
+%rmpath('/home/s%cec-02/avaccaro/hadcrut4.6-graphem/opendap/loaddap-3.7.3/testsuite/matlab/grid.m')l
 addpath('./cbrewer')
 load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/had46med_full_sp60_merra_krig.mat');
 

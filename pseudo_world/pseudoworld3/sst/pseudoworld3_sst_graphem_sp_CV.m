@@ -2,7 +2,7 @@
 % Cross-validation of target sparsity for GraphEM
 %tic
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 %addpath('/home/scec-02/julieneg/matlib/graphem')
 
 Scases = [.25:.25:3.25,3.44];
@@ -139,7 +139,7 @@ fancyplot_deco('10-fold Cross-validation scores for choosing target sparsity (Ps
 %hepta_figprint('had4med_graphemsp_co_rr_all_CVscores_MC100_v3.eps')
 
 
-savedir = '/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld3/sst/data/';
+savedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/sst/data/';
 savetag = 'pseudoworld3_sst_CVscores10.mat';
 savepath = [savedir savetag];
 save(savepath,'Scases', 'epe3', 'sigg3', 'train', 'test')

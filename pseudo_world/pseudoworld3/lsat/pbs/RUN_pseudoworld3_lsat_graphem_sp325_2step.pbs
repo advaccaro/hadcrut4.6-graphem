@@ -3,7 +3,7 @@
 #PBS -l mem=24gb
 
 
-cd /home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld3/lsat/
+cd /home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/
 
 /usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld3_lsat_graphem_sp325_2step.out << EOF
 

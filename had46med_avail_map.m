@@ -1,5 +1,5 @@
 %had43med_avail_map.m
-addpath(genpath('/home/geovault-02/avaccaro/hadCRUT4.6/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 
 
 %load data sets
@@ -75,7 +75,7 @@ for i = 1:4
 	%m_grid('xtick',[-180:60:180],'tickdir','out','ytick',[-90:30:90], 'color','k', 'fontsize',10,'fontname','Times New Roman');
 	m_grid('xtick',[-180:60:180],'xticklabels',[],'tickdir','out','ytick',[-90:30:90], 'yticklabels',[],'color','k', 'fontsize',10, 'linestyle', 'none');
 	%m_grid('xtick','no','ytick','no', 'color','k')% 'fontsize',10,'fontname','Times New Roman');
-	%m_grid('color','k');	
+	%m_grid('color','k');
 	m_coast('color','k');
 	%hl=m_line(plons{i},plats{i},'color',dkgr,'marker','^','MarkerFaceColor',dkgr,'MarkerSize',8.5,'LineStyle','none');
 	hl1=m_line(plons{i},plats{i},'color',dkgr,'marker','*','MarkerFaceColor',dkgr,'MarkerSize',3.7,'LineStyle','none');
@@ -88,7 +88,7 @@ odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
 oname = 'had46med_avail_map_nogrid.pdf'; opath = [odir oname];
 print(opath, '-painters', '-dpdf', '-cmyk', '-fillpage');
 %print -painters -dpdf -cmyk -r1000 '/home/scec-02/avaccaro/hadCRUT4.6/figs/had43med_avail_map.pdf'
-%print -painters -dpdf -cmyk -r1000 '/home/scec-02/avaccaro/HadCRUT4.3/figs/had43med_avail_map.eps'
+%print -painters -dpdf -cmyk -r1000 '/home/scec-02/avaccaro/hadcrut4.6-graphem/figs/had43med_avail_map.eps'
 
 %for j = 1:3
 %    np = length(group(j).nproxy);
@@ -106,7 +106,7 @@ print(opath, '-painters', '-dpdf', '-cmyk', '-fillpage');
 
 
 
-%[LEGH,OBJH]=legend(hl(:),icon{:,3});%pause; 
+%[LEGH,OBJH]=legend(hl(:),icon{:,3});%pause;
 %set(LEGH,'FontName','Times','FontSize',14,'Location','SouthEast');
 %set( findobj(OBJH,'Type','line'), 'Markersize', 12)
 %legend('boxon')

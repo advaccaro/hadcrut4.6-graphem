@@ -3,7 +3,7 @@
 #PBS -l mem=24gb
 
 
-cd /home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld1/sst/
+cd /home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld1/sst/
 
 /usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > PW1_SST_CR_CV_TEST_RED.out << EOF
 

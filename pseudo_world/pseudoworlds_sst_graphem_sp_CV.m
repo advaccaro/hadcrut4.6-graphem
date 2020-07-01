@@ -1,8 +1,8 @@
 %pseudoworlds_sst_graphem_sp_CV.m
 
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/'))
 addpath('/home/scec-02/avaccaro/HadCRUT4.2/ensemble/')
-addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/data/truth/'))
+addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/data/truth/'))
 
 %% load raw data
 load('pseudoworld1_sst.mat'); [ntime1,nspace1] = size(PW1_sst.grid_2d);
