@@ -1,0 +1,13 @@
+#PBS -N pseudoworld4_sst_graphem_sp_step0
+#PBS -l nodes=1:ppn=1
+#PBS -k oe
+
+
+cd /home/scec-02/avaccaro/HadCRUT4.2/pseudo_world/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld4_sst_graphem_sp_step0.out << EOF
+pseudoworld4sst_graphem_sp_step0
+
+exit
+
+EOF

@@ -1,0 +1,13 @@
+#PBS -N pseudoworld4_lsat_graphem_sp_step0
+#PBS -l nodes=1:ppn=1
+#PBS -l mem=12gb
+#PBS -k oe
+
+
+cd /home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld4/lsat/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld4_lsat_graphem_sp_step0.out << EOF
+pseudoworld4_lsat_graphem_sp_step0
+
+exit
+EOF

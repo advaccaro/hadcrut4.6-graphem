@@ -1,0 +1,14 @@
+#PBS -N pseudoworld4_lsat_graphem_sp_step0
+#PBS -l nodes=1:ppn=1
+#PBS -k oe
+
+
+cd /home/scec-02/avaccaro/HadCRUT4.2/pseudo_world/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > had4med_graphem_sp110_co_rr.out << EOF
+target_TT = 1.10
+had4med_graphem_sp_co_rr
+
+exit
+
+EOF

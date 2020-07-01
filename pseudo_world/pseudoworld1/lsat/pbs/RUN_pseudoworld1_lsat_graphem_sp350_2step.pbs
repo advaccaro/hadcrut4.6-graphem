@@ -1,0 +1,14 @@
+#PBS -N pseudoworld1_lsat_graphem_sp350_2step
+#PBS -k oe
+#PBS -l mem=24gb
+
+
+cd /home/scec-02/avaccaro/HadCRUT4.3/pseudo_world/pseudoworld1/lsat/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld1_lsat_graphem_sp350_2step.out << EOF
+
+target_spars = 3.50;
+pseudoworld1_lsat_graphem_sp_2step
+exit
+
+EOF

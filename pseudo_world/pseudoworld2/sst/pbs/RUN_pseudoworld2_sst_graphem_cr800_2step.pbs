@@ -1,0 +1,13 @@
+#PBS -N pseudoworld2_sst_graphem_cr800_2step
+#PBS -l nodes=1:ppn=1
+#PBS -l mem=40gb
+#PBS -k oe
+
+
+cd /home/scec-02/avaccaro/HadCRUT4.2/pseudo_world/pseudoworld2/sst/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld2_sst_graphem_cr800_2step.out << EOF
+pseudoworld2_sst_graphem_cr800_2step
+
+exit
+EOF

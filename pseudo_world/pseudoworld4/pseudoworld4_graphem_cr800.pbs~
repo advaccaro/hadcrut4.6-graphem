@@ -1,0 +1,13 @@
+#PBS -N pseudoworld4_graphem_cr800.pbs
+#PBS -l nodes=1:ppn=1
+#PBS -k oe
+#PBS -l mem=80gb;
+
+cd /home/scec-02/avaccaro/HadCRUT4.2/pseudo_world/
+
+/usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld4_graphem_cr800.out << EOF
+pseudoworld4_graphem_cr800
+
+exit
+
+EOF

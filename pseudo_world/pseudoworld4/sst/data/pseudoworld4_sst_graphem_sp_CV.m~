@@ -1,0 +1,149 @@
+% pseudoworld4_sst_graphem_sp_CM.m
+% Cross-validation of target sparsity for GraphEM
+%tic
+%% Initialize
+addpath(genpath('/home/scec-02/avaccaro/HadCRUT4.2/'))
+%addpath('/home/scec-02/julieneg/matlib/graphem')
+
+Scases = [.25:.25:3];
+%Scases2 = [1.25:.25:3];
+%Scases = horzcat(Scases,Scases2);
+Ncases = length(Scases);
+
+Kcv = 10;
+
+% Load raw data
+raw = load('pseudoworld4_sst.mat');
+Xraw = raw.PW4_sst.grid_2d;
+Xraw = center(Xraw);
+%[nt, np] = size(Xin);
+%[Xc, XM] = center(Xin);
+%indavl = ind2sub([nt,np],~isnan(Xin));
+%XM = nmean(X);
+%indavl1 = ~isnan(Xin);
+
+
+
+
+%for r = 1:Ncases
+%loadtag = ['pseudoworld4_sst_graphem_sp' num2str(Scases(r)*100) '_step2.mat'];
+%h4inf{r} = load(loadtag);
+
+
+%h4inf{r}.X = nan(nt,np);
+%h4inf{r}.X(:,ocean) = h4inf{r}.Xf;
+%h4inf{r}.Xc = center(h4inf{r}.X);
+
+
+
+%Set variables
+Kcv = 10; %number of folds
+
+%for j = 1:Nsteps
+for r = 1:Ncases
+for i = 1:Kcv
+% Load infilled data
+loadtag = ['pseudoworld4_sst_graphem_sp' num2str(Scases(r)*100) '_step2.mat'];
+h4inf{r} = load(loadtag);
+%display(['h4inf{' num2str(r) '} = ' loadtag])
+h4inf{r}.Xc = center(h4inf{r}.Xf);
+ocean = h4inf{r}.PW4_sst.ocean;
+Xin = Xraw(:,ocean);
+[nt,np] = size(Xin);
+indavl1 = ~isnan(Xin);
+ida = randsample(np,floor(np/Kcv)); %index of available
+idm = setdiff([1:np],ida); %index of missing
+%X_k = Xin(:,idm); %verification sample
+X_k = Xin(:,ida);
+%indavl2 = ~isnan(Xin(:,idm));
+indavl2 = ~isnan(Xin(:,ida));
+
+%% Prediction stage
+
+
+B = ols(h4inf{r}.Cf, idm, ida);
+
+
+Y{r} = h4inf{r}.Xc(:,idm)*B;
+
+
+%Mra = repmat(h4inf{r}.M(ida),nt,1);
+%Mra = repmat(XM(ida), nt, 1);
+%Mrm = repmat(h4inf{r}.M(idm),nt,1);
+%Y{r} = Mrm + (Xin(:,ida) - Mra)*B; %Prediction
+
+
+
+%Y{r} = Mrm + Xin(:,ida)*B; %Prediction
+%Y{r} = Mrm + Xc(:,ida)*B;
+
+
+
+%Mra = repmat(XM(ida), nt, 1);
+%Mrm = repmat(XM(idm), nt, 1);
+
+%Y{r} = Mrm + Xc(:,ida)*B;
+%Y{r} = Mrm + (Xin(:,ida) - Mra)*B;
+
+
+err(r,i) = nmean(nmean((X_k(indavl2)-Y{r}(indavl2)).^2));
+%err(r,i) = nmean(nmean((X_k(indavl2) - Y{r}(indavl2)).^2)); %MSE
+
+[bias(r,i),varsig(r,i),err2(r,i)] = MSE_decomp(X_k(indavl2), Y{r}(indavl2));
+
+
+
+%% Cross-validation stage
+epe(r) = (1/Kcv) * sum(err(r,:));
+epe2(r) = (1/Kcv) * sum(err2(r,:));
+epv(r) = (1/Kcv) * sum(varsig(r,:))/10;
+epvs(r) = (epv(r))^(.5);
+sigg(r) = std(err(r,:));
+%epe(r) = (1/Kcv) * sum(err(r,:));
+%epe2(r) = (1/Kcv) * sum(err2(r,:));
+%epv(r) = (1/Kcv) * sum(varsig(r,:))/10;
+%epvs(r) = (epv(r))^(.5);
+%sigg(r) = std(err(r,:));
+end
+end
+%end
+%end
+%for r = 1:Ncases
+%epef(r) = (1/nit) * sum(epe(r,:));
+%epe2f(r) = (1/nit) * sum(epe2(r,:));
+%epvf(r) = (1/nit) * sum(epv(r,:));
+%epvsf(r) = (1/nit) * sum(epvs(r,:));
+%siggf(r) = (1/nit) * sum(sigg(r,:));
+%siggf(r) = std(epe(r,:));
+%end
+
+%for r = 1:Ncases
+%siggf(r) = std(epe(r,:));
+%end
+
+%plot(Rcases,epe,Rcases,epe+2*epvs,Rcases,epe-2*epvs)
+fig('pseudoworld4 sst CV scores')
+hold on
+plot(Scases,epe,'ko-')
+plot(Scases,epe-sigg,'k--')
+plot(Scases,epe+sigg,'k--')
+fancyplot_deco('10-fold Cross-validation scores for choosing target sparsity (Pseudo-world 1 SST)', 'Target sparsity', 'Average MSE', 14, 'Helvetica');
+%hepta_figprint('had4med_graphemsp_co_rr_all_CVscores.eps')
+
+%fig('3')
+%hold on
+%plot(Scases,epef,'ko-')
+%plot(Scases,epef-siggf,'k--')
+%plot(Scases,epef+siggf,'k--')
+%fancyplot_deco('10-fold Cross-validation scores for choosing target sparsity', 'Target sparsity', 'Average MSE', 14, 'Helvetica');
+%hepta_figprint('had4med_graphemsp_co_rr_all_CVscores_MC100_v3.eps')
+
+
+savedir = '/home/scec-02/avaccaro/HadCRUT4.2/pseudo_world/pseudoworld4/sst/data/';
+savetag = 'pseudoworld4_sst_CVscores.mat';
+savepath = [savedir savetag];
+
+save(savepath, 'epe', 'sigg', 'err', 'Scases')
+
+%toc
+
