@@ -5,7 +5,7 @@
 load_gmt_datasets
 
 %Load ensemble
-%load('/home/scec-02/avaccaro/hadcrut4.6-graphem/ensemble/data/ENS_SP80.mat')
+%load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/ensemble/data/ENS_SP80.mat')
 
 %Abbreviate dataset names
 HR = H46MED_EXP;

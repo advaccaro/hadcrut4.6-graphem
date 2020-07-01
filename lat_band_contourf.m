@@ -1,8 +1,8 @@
 %lat_band_contourf.m
 clear all; close all;
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/cbrewer/'));
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/cbrewer/'));
 
-load('/home/scec-02/avaccaro/hadcrut4.6-graphem/graphem_sp/data/had43med_graphem_sp80_step2.mat');
+load('/home/geovault-02/avaccaro/hadcrut4.6-graphem/graphem_sp/data/had43med_graphem_sp80_step2.mat');
 
 lat = loc(:,2); nlat = length(lat); %get latitudes and length
 years = tvec(:,1); %get years

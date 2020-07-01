@@ -3,14 +3,14 @@
 function [Xcr_k,Mcr_k,Ccr_k] = pseudoworld_graphem_sp_CV_step1(dataset,datatype,worldnum,truth,Kfold)
 
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 Kfold = Kfold
 truth = truth
 worldname = ['pseudoworld' num2str(worldnum)];
 fullname = [worldname '_' datatype];
 truthname = [fullname '_truth'];
-basedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
+basedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 %Load raw data

@@ -2,7 +2,7 @@
 % ******WARNING******: target_spars must be defined in .pbs script!!!
 
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 
 %load('ccsm4_5x5_global_fields_hist.mat') %contains ocean pts indices
 %ocean = ocean;
@@ -11,10 +11,10 @@ addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
 
 
 
-indir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/data/';
+indir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/data/';
 inname = 'pseudoworld3_lsat.mat';
 inpath = [indir inname];
-odir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/data/';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/data/';
 %oname = 'pseudoworld3_lsat_graphem_cr800.mat';
 %opath = [odir oname];
 %onename = 'pseudoworld3_lsat_graphem_cr800_step1.mat';
@@ -22,7 +22,7 @@ onepath = [odir 'pseudoworld3_lsat_graphem_sp' num2str(target_spars*100) '_step1
 %twoname = 'pseudoworld3_lsat_graphem_cr800_step2.mat';
 twopath = [odir 'pseudoworld3_lsat_graphem_sp' num2str(target_spars*100) '_step2.mat'];
 
-adjdir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/data/';
+adjdir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/data/';
 adjtag = [adjdir 'pseudoworld3_lsat_adj_sp' num2str(target_spars*100) '.mat'];
 load(adjtag)
 

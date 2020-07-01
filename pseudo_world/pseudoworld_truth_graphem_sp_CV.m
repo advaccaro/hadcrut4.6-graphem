@@ -7,13 +7,13 @@ function [epe,sigg] = pseudoworld_truth_graphem_sp_CV(dataset,datatype,worldnum,
 tic
 
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 worldname = ['pseudoworld' num2str(worldnum)];
 fullname = [worldname '_' datatype];
 truthname = [fullname '_truth'];
-basedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
+basedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 

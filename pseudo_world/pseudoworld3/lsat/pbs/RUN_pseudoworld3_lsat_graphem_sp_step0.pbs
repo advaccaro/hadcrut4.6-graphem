@@ -4,7 +4,7 @@
 #PBS -k oe
 
 
-cd /home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/
+cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld3/lsat/
 
 /usr/local/MATLAB/R2014b/bin/matlab -nodesktop -nosplash > pseudoworld3_lsat_graphem_sp_step0.out << EOF
 pseudoworld3_lsat_graphem_sp_step0

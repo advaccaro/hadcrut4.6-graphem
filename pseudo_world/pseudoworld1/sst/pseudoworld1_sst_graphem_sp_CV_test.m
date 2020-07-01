@@ -2,7 +2,7 @@
 % Cross-validation of target sparsity for GraphEM
 %tic
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 %addpath('/home/scec-02/julieneg/matlib/graphem')
 
@@ -10,7 +10,7 @@ Scases = [.5:.5:3]; %sparsities tested
 Ncases = length(Scases);
 target_cr = 800; %cutoff radius for neighborhood graph
 
-odir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld1/sst/data/';
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/pseudoworld1/sst/data/';
 %cradjname = ['pseudoworld1_sst_adj_cr' num2str(target_cr) 'test.mat'];
 %cradjpath = [odir cradjname];
 %crname = ['pseudoworld1_sst_graphem_cr' num2str(target_cr) 'test.mat'];

@@ -88,7 +88,7 @@ odir = '/home/geovault-02/avaccaro/hadCRUT4.6/figs/';
 oname = 'had46med_avail_map_nogrid.pdf'; opath = [odir oname];
 print(opath, '-painters', '-dpdf', '-cmyk', '-fillpage');
 %print -painters -dpdf -cmyk -r1000 '/home/scec-02/avaccaro/hadCRUT4.6/figs/had43med_avail_map.pdf'
-%print -painters -dpdf -cmyk -r1000 '/home/scec-02/avaccaro/hadcrut4.6-graphem/figs/had43med_avail_map.eps'
+%print -painters -dpdf -cmyk -r1000 '/home/geovault-02/avaccaro/hadcrut4.6-graphem/figs/had43med_avail_map.eps'
 
 %for j = 1:3
 %    np = length(group(j).nproxy);

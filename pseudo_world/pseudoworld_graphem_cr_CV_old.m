@@ -6,16 +6,16 @@ function [epe,sigg] = pseudoworld_graphem_cr_CV(dataset,datatype,worldnum,Crcase
 % Cross-validation of target sparsity for GraphEM
 tic
 %% Initialize
-addpath(genpath('/home/scec-02/avaccaro/hadcrut4.6-graphem/'))
+addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 addpath('/home/scec-02/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 worldname = ['pseudoworld' num2str(worldnum)];
-basedir = '/home/scec-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
+basedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 
 
-%Crcases = [250:500:3250]; %radii tested 
+%Crcases = [250:500:3250]; %radii tested
 %Kcv = 10;
 
 
@@ -55,7 +55,7 @@ for i = 1:ntime
 end
 
 %Xgrid_red = Xgrid(1:220,1:300); %select reduced grid for testing
- %indCol = [1:100]; 
+ %indCol = [1:100];
 
 N = 25; %number of iterations for greedy search (quick search for now)
 
@@ -86,10 +86,10 @@ for k = 1:Kcv
 	for n = 1:Ncases
 	target_cr = Crcases(n);
 	opt.adj = neigh_radius_adj(lonlat,target_cr);
-	%opt.adj = neigh_radius_adj(lonlat_red,target_cr);	
+	%opt.adj = neigh_radius_adj(lonlat_red,target_cr);
 	[Xcr{k,n},Mcr{k,n},Ccr{k,n}] = graphem_JW(Xcv{k},opt);
 	Xf = Xcr{k,n};
-	%crtag = [worldname '_' datatype '_graphem_cr' num2str(target_cr) '.mat'];	
+	%crtag = [worldname '_' datatype '_graphem_cr' num2str(target_cr) '.mat'];
 	%crpath = [odir crtag];
 	%save(crpath, 'Xf', 'target_cr')
 	%clear crpath Xf
@@ -120,11 +120,11 @@ for k = 1:Kcv
 	%mse0{k,n} = (Xcr{k,n} - Xgrid_red).^2;
 	indavl_t = ~isnan(mse0);
 	lats_t = lats_2d(indavl_t);
-	%lats_t = lats_2d_red(indavl_t);	
+	%lats_t = lats_2d_red(indavl_t);
 	mse_t = mse0(indavl_t);
 	f_num(k,n) = nsum(nsum(mse_t.*cosd(lats_t)));
 	f_den(k,n) = nsum(nsum(cosd(lats_t)));
-	f_mse(k,n) = f_num(k,n)/f_den(k,n);	
+	f_mse(k,n) = f_num(k,n)/f_den(k,n);
 	end
 end
 
@@ -146,5 +146,3 @@ runtime = toc;
 CVtag = [worldname '_' datatype '_cr_CVscores_test1.mat'];
 savepath = [odir CVtag];
 save(savepath, 'Crcases', 'epe', 'sigg', 'cv_in', 'cv_out','runtime')
-
-		
