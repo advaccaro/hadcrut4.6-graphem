@@ -105,8 +105,9 @@ for n = 1:Ncases
 	'Producing a well-conditioned C'
 	sigma_opt = rmfield(sigma_opt, 'adj');
 	sigma_opt.adj = adjM;
-	[Cg,sp_level] = Sigma_G(C0,sigma_opt);
+	[Cw,sp_level] = Sigma_G(C0,sigma_opt);
 	'Sigma_G Complete'
+	opt.C0 = Cw;
 
 	for k = 1:Kcv
 		['Fold:' num2str(k)]
