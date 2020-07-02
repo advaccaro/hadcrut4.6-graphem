@@ -7,7 +7,7 @@ function [epe,sigg] = pseudoworld_graphem_sp_CV(dataset,datatype,worldnum,Scases
 tic
 
 %% Initialize
-homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem'
+homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/'
 addpath(genpath(homedir))
 
 worldname = ['pseudoworld' num2str(worldnum)];
@@ -16,6 +16,11 @@ basedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
 odir = [basedir worldname '/' datatype '/data/'];
 
 Ncases = length(Scases);
+
+% Set up output matrices
+Xg = cell(Kcv, Ncases);
+Mg = cell(Kcv, Ncases);
+Cg = cell(Kcv, Ncases);
 
 % Load raw data data matrix
 raw = load(dataset);
@@ -58,13 +63,16 @@ cwspath = [homedir 'cw17/data/cw17_short.mat']
 load(cwspath)
 % Correct tfrac (THIS IS MIGHT HAVE CAUSED PROBLEMS ELSE WHERE)
 %cw17s.tfrac = double(cw17s.year) + (double(cw17s.month)-1)/12;
+cw17s_red = cw17s.temp2d(:,index);
 
 %% Estimate correlation matrix
-C0 = corrcoef(cw17s.temp2d); %estimate correlation coefficients matrix
+'Estimating correlation matrix'
+toc
+C0 = corr(cw17s_red); %estimate correlation coefficients matrix
 greedy_maxit = 50; %maximum iterations
 
 %Sigma_G options
-sigma_opt.ggm_tol = 5e-3
+sigma_opt.ggm_tol = 5e-3;
 sigma_opt.ggm_maxit = 200;
 sigma_opt.ggm_thre = 50;
 sigma_opt.adj = 0; %placeholder
@@ -77,35 +85,55 @@ opt.adj = 0; % placeholder
 
 %for k = 1:Kcv
 %	for n = 1:Ncases
+'Beginning loop'
+toc
 for n = 1:Ncases
+	['n:' num2str(n)]
 	target_spars = Scases(n);
 	% Estimate concentration graph using greedy search
+	'Estimate concentration graph using greedy search'
+	toc
+	'Update'
 	[spars, adj] = greedy_search_TT(C0, target_spars, greedy_maxit);
+	'Greedy search complete'
 	spars_f = spars(end);
 	adjM = adj{end};
 	opt = rmfield(opt, 'adj');
 	opt.adj = adjM;
 
 	% Produce a well-conditioned C
+	'Producing a well-conditioned C'
 	sigma_opt = rmfield(sigma_opt, 'adj');
 	sigma_opt.adj = adjM;
 	[Cg,sp_level] = Sigma_G(C0,sigma_opt);
+	'Sigma_G Complete'
 
 	for k = 1:Kcv
+		['Fold:' num2str(k)]
+		toc
 		% save concentration graph
 		adjtag = [fullname 'adj_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 		adjpath = [odir adjtag];
 		save(adjpath, 'spars_f', 'adjM', 'Cg', 'target_spars')
 
 		% Run GraphEM
+		'Running GraphEM'
+		toc
 		[Xg{k,n},Mg{k,n},Cg{k,n}] = graphem(Xcv{k},opt);
+		'Finished GraphEM'
 		Xg_kn = Xg{k,n};
+		'Extracted Xg_kn'
 		SPkfoldtag = [fullname '_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 		SPkfoldpath = [odir SPkfoldtag];
+		'Saving...'
 		save(SPkfoldpath, 'Xg_kn', 'target_spars', 'adjM', 'index');
+		'Saved results'
+		toc
 		clear Xg_kn;
 	end
 end
+'Loop end'
+toc
 
 indavl_t = ~isnan(Xgrid);
 lats_t = lats_2d(indavl_t);
@@ -113,6 +141,8 @@ weights = cosd(lats_t);
 normfac = nsum(nsum(weights));
 
 %% Cross-validation stage
+'Cross-validaiton stage'
+toc
 for k = 1:Kcv
 	for n = 1:Ncases
 		mse0{k,n} = (Xg{k,n} - Xgrid).^2;
