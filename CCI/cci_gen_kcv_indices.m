@@ -24,7 +24,7 @@ n_index = length(index);
 
 Xgrid = nan(nt,n_index);
 for i = 1:nt
-	Xgrid(i,:) = xraw(:,index);
+	Xgrid(i,:) = xraw(i,index);
 end
 
 
