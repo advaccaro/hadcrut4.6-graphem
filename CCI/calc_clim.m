@@ -7,7 +7,7 @@ function clim = calc_clim(data2d)
 	step_full = 12*[0:1:cil(nt/12)-1]; %jump 12 months at a time
 	step_partial = step_full(1:end-1);
 
-	if (mod(nt,12) != 0) %if there are incomplete years
+	if (mod(nt,12) ~= 0) %if there are incomplete years
 		% treat full years
 		step = step_full;
 		for month = 1:mod(nt,12)
