@@ -4,7 +4,7 @@ function clim = calc_clim(data2d)
 
 	[nt, ns] = size(data2d);
 	clim = zeros(12,ns);
-	step_full = 12*[0:1:cil(nt/12)-1]; %jump 12 months at a time
+	step_full = 12*[0:1:ceil(nt/12)-1]; %jump 12 months at a time
 	step_partial = step_full(1:end-1);
 
 	if (mod(nt,12) ~= 0) %if there are incomplete years
