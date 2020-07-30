@@ -8,7 +8,7 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 	odir = data_dir; %writing to input directory, for now
 
 	% Load CCI data
-	datapath = [data_dir, 'cci_combined_include_ice.mat'];
+	datapath = [data_dir 'cci_combined_include_ice.mat'];
 	raw = load(datapath);
 	Xraw = raw.cci_anom;
 	[nt,ns] = size(Xraw);
@@ -23,7 +23,7 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 	% load(adj_path)
 
 	indavl_t = ~isnan(Xgrid);
-	lonlat = double(CCI.loc(index,:));
+	lonlat = double(loc(index,:));
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 	lats_t = lats_2d(indavl_t);
