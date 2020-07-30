@@ -2,7 +2,7 @@
 
 
 tic;
-
+Kcv = 10;
 data_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI/data/';
 odir = data_dir; %writing to input directory, for now
 
@@ -41,7 +41,7 @@ for k = 1:Kcv
 	Xg_k = Xg{k};
 	SPkfoldtag = ['cci_combined_CV_null_k' num2str(k) '.mat'];
 	SPkfoldpath = [odir SPkfoldtag];
-	save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'index')
+	save(SPkfoldpath, 'Xg_k', 'index')
 	clear Xg_k
 end
 
