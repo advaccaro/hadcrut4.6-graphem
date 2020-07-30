@@ -73,6 +73,11 @@ function CCI = combine_netcdf(indir, ofile, odir)
 	loc = [y(:),x(:)];
 
 	% save raw and updated combined CCI data
+	if odir(end) == '/'
+		opath = [odir ofile];
+	else
+		opath = [odir '/' ofile];
+	end
 	save(opath, 'CCI', 'cci_anom', 'loc')
 end
 
