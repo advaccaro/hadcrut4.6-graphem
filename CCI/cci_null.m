@@ -29,6 +29,7 @@ for t = 1:nt
 	end
 	missing_ind = isnan(tmp(t,:));
 	Xg(t, missing_ind) = clim(month, missing_ind);
+end
 
 
 otag = 'cci_combined_null.mat';
