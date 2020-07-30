@@ -22,7 +22,7 @@ test_sum = sum(test,1);
 index = find(test_sum > (1/Kcv)*nt);
 n_index = length(index);
 
-xgrid = nan(ntime,n_index);
+xgrid = nan(nt,n_index);
 for i = 1:nt
 	xgrid(i,:) = xraw(1,index);
 end
