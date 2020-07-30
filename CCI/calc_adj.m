@@ -32,7 +32,7 @@ function adjM = calc_adj(target_spars, Kcv)
 	sigma_opt.adj = 0; %placeholder
 
 	[spars, adj] = greedy_search_TT(C0, target_spars, greedy_maxit);
-	spars_f = spars{end};
+	spars_f = spars(end);
 	adjM = adj{end};
 
 	% Product well-conditioned C
