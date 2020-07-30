@@ -64,6 +64,6 @@ epe = (1/Kcv) * sum(f_mse(:));
 sigg = std(f_mse(:));
 runtime = toc;
 
-CVtag = 'cci_combined_sp_CVscores.mat';
+CVtag = 'cci_combined_null_CVscores.mat';
 savepath = [odir CVtag];
 save(savepath, 'epe', 'sigg', 'runtime', 'cv_in', 'cv_out')
