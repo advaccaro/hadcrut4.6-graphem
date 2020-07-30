@@ -42,6 +42,6 @@ function adjM = calc_adj(target_spars, Kcv)
 
 	% Save adjM and Cw
 	adjpath = [home_dir, 'CCI/data/adj_SPCV_sp' num2str(target_spars*100) '.mat'];
-	save(adjpath, 'spars_f', 'adjM', 'Cg', 'target_spars')
+	save(adjpath, 'spars_f', 'adjM', 'Cw', 'target_spars')
 
 end
