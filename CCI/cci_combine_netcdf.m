@@ -19,7 +19,7 @@ function CCI = combine_netcdf(indir, ofile, odir)
 
 
 	% initialize storage structure time axis
-	CCI.tfrac = zeros(nfiles);
+	CCI.tfrac = zeros(nfiles,1);
 
 	% Set first element flag
 	first = true;
