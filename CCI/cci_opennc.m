@@ -9,14 +9,14 @@ function CCI = cci_opennc(inpath, save_flag)
 
 	% find correct indices for each variable
 	% time_indx = netcdf.inqVarID(ncidin,'time'); %What to do with time?
-	lat_indx = netcdf.getVarID(ncidin,'lat');
-	lon_indx = netcdf.getVarID(ncidin,'lon');
-	sst_indx = netcdf.getVarID(ncidin,'sst');
-	uncertainty_indx = netcdf.getVarID(ncidin,'sst_uncertainty');
-	sea_ice_fraction_indx = netcdf.getVarID(ncidin,'sea_ice_fraction');
-	sea_fraction_indx = netcdf.getVarID(ncidin,'sea_fraction');
-	year_indx = netcdf.getVarID(ncidin,'calendar_year');
-	month_indx = netcdf.getVarID(ncidin,'calendar_month');
+	lat_indx = netcdf.inqVarID(ncidin,'lat');
+	lon_indx = netcdf.inqVarID(ncidin,'lon');
+	sst_indx = netcdf.inqVarID(ncidin,'sst');
+	uncertainty_indx = netcdf.inqVarID(ncidin,'sst_uncertainty');
+	sea_ice_fraction_indx = netcdf.inqVarID(ncidin,'sea_ice_fraction');
+	sea_fraction_indx = netcdf.inqVarID(ncidin,'sea_fraction');
+	year_indx = netcdf.inqVarID(ncidin,'calendar_year');
+	month_indx = netcdf.inqVarID(ncidin,'calendar_month');
 
 	% extract from netCDF
 	CCI.lat = netcdf.getVar(ncidin,lat_indx);
