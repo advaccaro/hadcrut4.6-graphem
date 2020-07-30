@@ -1,7 +1,7 @@
 % load cw14 short
 function adjM = calc_adj(target_spars, Kcv)
 	%% load data
-	home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/'];
+	home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 
 	% cci
 	ccipath = [home_dir 'CCI/data/cci_combined_include_ice.mat'];
