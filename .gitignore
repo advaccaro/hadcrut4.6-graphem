@@ -4,10 +4,11 @@
 *.mat
 *.nc
 *.csv
-
+*.pkl
 *.o
 *.e
 *.out
+*.zip
 
 *.txt
 *.ipynb
