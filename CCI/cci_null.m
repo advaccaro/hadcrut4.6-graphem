@@ -27,7 +27,7 @@ for t = 1:nt
 	if month == 0
 		month = 12;
 	end
-	missing_ind = isnan(tmp(t,:));
+	missing_ind = isnan(Xg(t,:));
 	Xg(t, missing_ind) = clim(month, missing_ind);
 end
 
