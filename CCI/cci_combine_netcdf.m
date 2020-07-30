@@ -65,7 +65,7 @@ function CCI = combine_netcdf(indir, ofile, odir)
 	cci2d = cci2d';
 
 	% convert to anomaly (1982 - 2010)
-	clim = calc_clim(cci2d(tfrac >= 1982 & tfrac < 2011, :));
+	clim = calc_clim(cci2d(CCI.tfrac >= 1982 & CCI.tfrac < 2011, :));
 	cci_anom = cci2d - repmat(clim, [ny, 1]);
 
 	% make loc (2d locations)
