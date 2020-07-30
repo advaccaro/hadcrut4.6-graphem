@@ -32,10 +32,11 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 	opt.maxit = 100;
 	opt.useggm = 1;
 	opt.adj = adjM;
+	opt.C0 = Cw;
 
 	for k = 1:Kcv
 		% Run GraphEM
-		[Xg{k},Mg{k},Cg{k}] = graphem(Xck{k},opt);
+		[Xg{k},Mg{k},Cg{k}] = graphem(Xcv{k},opt);
 		Xg_k = Xg{k};
 		SPkfoldtag = ['cci_combined_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 		SPkfoldpath = [odir SPkfoldtag];
