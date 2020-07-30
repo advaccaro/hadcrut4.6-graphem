@@ -20,7 +20,7 @@ Kcv = 10;
 test = ~isnan(xraw);
 test_sum = sum(test,1);
 index = find(test_sum > (1/Kcv)*nt);
-n_index = length(indx);
+n_index = length(index);
 
 xgrid = nan(ntime,n_index);
 for i = 1:nt
