@@ -14,11 +14,6 @@ function cci_graphem_cr(target_cr)
 	lonlat = double(raw.loc);
 
 
-	% Set up output matrices
-	Xg = cell(Kcv);
-	Mg = cell(Kcv);
-	Cg = cell(Kcv);
-
 	% GraphEM options
 	opt.stagtol = 5e-3;
 	opt.maxit = 30;
@@ -30,7 +25,7 @@ function cci_graphem_cr(target_cr)
 	CRkfoldtag = ['cci_graphem_cr' num2str(target_cr) '.mat'];
 	CRkfoldpath = [odir CRkfoldtag];
 	% Run GraphEM
-	[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
-	save(CRkfoldpath, 'Xg_k', 'target_cr', 'adjM', 'index')
+	[Xg,Mg,Cg] = graphem(double(Xcv{k}),opt);
+	save(CRkfoldpath, 'Xg', 'Cg', target_cr, 'adjM', 'index')
 
 	
