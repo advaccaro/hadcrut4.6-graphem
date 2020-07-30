@@ -41,7 +41,7 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 		SPkfoldtag = ['cci_combined_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 		SPkfoldpath = [odir SPkfoldtag];
 		save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'index')
-		clear Xg_kn
+		clear Xg_k
 	end
 
 	indavl_t = ~isnan(Xgrid);
@@ -53,7 +53,7 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 	normfac = nsum(nsum(weights));
 
 	for k = 1:Kcv
-		mse0 = (Xg{k} - Xgrid).^2;
+		mse0{k} = (Xg{k} - Xgrid).^2;
 		mse_t{k} = mse0{k}(indavl_t);
 		f_num(k) = nsum(nsum(mse_t{k}.*weights));
 		f_mse(k) = f_num(k)/normfac;

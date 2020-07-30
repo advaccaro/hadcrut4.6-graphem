@@ -55,7 +55,7 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 	end
 
 	for k = 1:Kcv
-		mse0 = (Xg{k} - Xgrid).^2;
+		mse0{k} = (Xg{k} - Xgrid).^2;
 		mse_t{k} = mse0{k}(indavl_t);
 		f_num(k) = nsum(nsum(mse_t{k}.*weights));
 		f_mse(k) = f_num(k)/normfac;
