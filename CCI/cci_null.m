@@ -16,7 +16,7 @@ Xraw = raw.cci_anom;
 Xg = cell(Kcv);
 
 % compute climatology
-clim = calc_clim(Xgrid);
+clim = calc_clim(Xraw);
 step_full =12*[0:1:ceil(nt/12)-1];
 
 
