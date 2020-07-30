@@ -22,17 +22,17 @@ test_sum = sum(test,1);
 index = find(test_sum > (1/Kcv)*nt);
 n_index = length(index);
 
-xgrid = nan(nt,n_index);
+Xgrid = nan(nt,n_index);
 for i = 1:nt
-	xgrid(i,:) = xraw(1,index);
+	Xgrid(i,:) = xraw(1,index);
 end
 
 
 % get KCV indices
 Kcv = 10;
-[Xcv,cv_in,cv_out] = kcv_indices2d(xgrid,Kcv);
+[Xcv,cv_in,cv_out] = kcv_indices2d(Xgrid,Kcv);
 
 % Save indices to file
 cv_indices_tag = 'cci_kcv_indices.mat';
 cv_indices_path = [odir cv_indices_tag];
-save(cv_indices_path, 'Xcv', 'cv_in', 'cv_out', 'index')
+save(cv_indices_path, 'Xcv', 'cv_in', 'cv_out', 'index', 'Xgrid')
