@@ -23,7 +23,7 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 	% load(adj_path)
 
 	indavl_t = ~isnan(Xgrid);
-	lonlat = double(loc(index,:));
+	lonlat = double(raw.loc(index,:));
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 	lats_t = lats_2d(indavl_t);

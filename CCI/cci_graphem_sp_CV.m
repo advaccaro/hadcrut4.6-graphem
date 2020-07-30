@@ -29,7 +29,7 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 
 	% GraphEM options
 	opt.stagtol = 5e-3;
-	opt.maxit = 100;
+	opt.maxit = 30;
 	opt.useggm = 1;
 	opt.adj = adjM;
 	opt.C0 = Cw;
@@ -45,7 +45,7 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 	end
 
 	indavl_t = ~isnan(Xgrid);
-	lonlat = double(loc(index,:));
+	lonlat = double(raw.loc(index,:));
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 	lats_t = lats_2d(indavl_t);
