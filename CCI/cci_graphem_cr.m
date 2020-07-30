@@ -25,7 +25,7 @@ function cci_graphem_cr(target_cr)
 	CRkfoldtag = ['cci_graphem_cr' num2str(target_cr) '.mat'];
 	CRkfoldpath = [odir CRkfoldtag];
 	% Run GraphEM
-	[Xg,Mg,Cg] = graphem(double(Xcv{k}),opt);
+	[Xg,Mg,Cg] = graphem(Xraw,opt);
 	save(CRkfoldpath, 'Xg', 'Cg', target_cr, 'adjM', 'index')
 
 	
