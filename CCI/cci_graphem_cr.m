@@ -1,10 +1,6 @@
 % cci_graphem_cr.m
 
 function cci_graphem_cr(target_cr)
-	if ~exist('complete', 'var')
-		complete = false;
-	end
-
 	tic;
 
 	data_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI/data/';
@@ -15,7 +11,7 @@ function cci_graphem_cr(target_cr)
 	raw = load(datapath);
 	Xraw = raw.cci_anom;
 	[nt,ns] = size(Xraw);
-	lonlat = double(raw.loc(index,:));
+	lonlat = double(raw.loc);
 
 
 	% Set up output matrices
@@ -36,7 +32,5 @@ function cci_graphem_cr(target_cr)
 	% Run GraphEM
 	[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
 	save(CRkfoldpath, 'Xg_k', 'target_cr', 'adjM', 'index')
-
-	clear Xg_k
 
 	
