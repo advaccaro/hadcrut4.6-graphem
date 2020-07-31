@@ -6,7 +6,7 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 	raw = load(datapath);
 	Xraw = raw.cci_anom;
 	[nt,ns] = size(Xraw);
-	
+
 	% Load KCV indices
 	cv_indices_tag = 'cci_kcv_indices.mat';
 	cv_indices_path = [data_dir, cv_indices_tag];
@@ -44,6 +44,6 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 	sigg = std(f_mse(:));
 	runtime = toc;
 
-	CVtag = 'cci_combined_sp_CVscores_all.mat';
+	CVtag = ['cci_combined_sp' num2str(target_spars*100) '_CVscores_all.mat'];
 	savepath = [odir CVtag];
 	save(savepath, 'epe', 'sigg', 'cv_in', 'cv_out')
