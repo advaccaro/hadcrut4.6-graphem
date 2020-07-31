@@ -68,4 +68,5 @@ legend('boxoff')
 figname = 'cci_cvscores_nonull.jpeg';
 figpath = [fig_dir figname];
 print(figpath, '-djpeg', '-cmyk');
+close all;
 
