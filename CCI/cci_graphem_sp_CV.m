@@ -1,6 +1,9 @@
 % cci_graphem_sp_CV.m
 
-function cci_graphem_sp_CV(target_spars, Kcv)
+function epe = cci_graphem_sp_CV(target_spars, Kcv, complete)
+	if ~exist('complete', 'var')
+		complete = false;
+	end
 
 	tic;
 
@@ -35,12 +38,17 @@ function cci_graphem_sp_CV(target_spars, Kcv)
 	opt.C0 = Cw;
 
 	for k = 1:Kcv
-		% Run GraphEM
-		[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
-		Xg_k = Xg{k};
 		SPkfoldtag = ['cci_combined_SPCV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 		SPkfoldpath = [odir SPkfoldtag];
-		save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'index')
+		if ~complete
+		% Run GraphEM
+			[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
+			Xg_k = Xg{k};
+			save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'index')
+		else
+			else
+				load(SPkfoldpath)
+				Xg{k} = Xg_k;
 		clear Xg_k
 	end
 

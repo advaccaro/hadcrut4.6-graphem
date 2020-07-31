@@ -1,6 +1,9 @@
 % cci_graphem_cr_CV.m
 
-function cci_graphem_cr_CV(target_cr, Kcv)
+function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
+	if ~exist('complete', 'var')
+		complete = false;
+	end
 
 	tic;
 
@@ -17,10 +20,6 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 	cv_indices_tag = 'cci_kcv_indices.mat';
 	cv_indices_path = [data_dir, cv_indices_tag];
 	load(cv_indices_path)
-
-	% % Load adjacency matrix and well-conditioned C
-	% adj_path = [data_dir 'adj_SPCV_sp' num2str(target_spars*100) '.mat'];
-	% load(adj_path)
 
 	indavl_t = ~isnan(Xgrid);
 	lonlat = double(raw.loc(index,:));
@@ -45,12 +44,16 @@ function cci_graphem_cr_CV(target_cr, Kcv)
 
 
 	for k = 1:Kcv
-		% Run GraphEM
-		[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
-		Xg_k = Xg{k};
 		CRkfoldtag = ['cci_combined_CRCV_cr' num2str(target_cr) '_k' num2str(k) '.mat'];
 		CRkfoldpath = [odir CRkfoldtag];
-		save(CRkfoldpath, 'Xg_k', 'target_cr', 'adjM', 'index')
+		if ~complete
+			% Run GraphEM
+			[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
+			Xg_k = Xg{k};
+			save(CRkfoldpath, 'Xg_k', 'target_cr', 'adjM', 'index')
+		else
+			load(Crkfoldpath)
+			Xg{k} = Xg_k;
 		clear Xg_k
 	end
 
