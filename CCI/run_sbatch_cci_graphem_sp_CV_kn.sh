@@ -10,7 +10,7 @@ touch $fn
 echo "#!/bin/bash" >> $fn
 echo "#SBATCH --jobname=$rn" >> $fn
 echo "#SBATCH --mem=250MB" >> $fn
-echo "#SBATCH --nodelist=equake-02"
+echo "#SBATCH --nodelist=equake-02" >> $fn
 echo "cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI" >> $fn
 echo "/usr/bin/matlab -nodesktop -nosplash > ./out/$out.out << EOF" >> $fn
 echo "addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem'));" >> $fn
