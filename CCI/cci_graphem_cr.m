@@ -13,6 +13,11 @@ function cci_graphem_cr(target_cr)
 	[nt,ns] = size(Xraw);
 	lonlat = double(raw.loc);
 
+	% Load KCV indices (to get Xgrid and index)
+	cv_indices_tag = 'cci_kcv_indices.mat';
+	cv_indices_path = [data_dir cv_indices_tag];
+	load(cv_indices_tag)
+
 
 	% GraphEM options
 	opt.stagtol = 5e-3;
@@ -25,7 +30,7 @@ function cci_graphem_cr(target_cr)
 	CRkfoldtag = ['cci_graphem_cr' num2str(target_cr) '.mat'];
 	CRkfoldpath = [odir CRkfoldtag];
 	% Run GraphEM
-	[Xg,Mg,Cg] = graphem(double(Xraw),opt);
+	[Xg,Mg,Cg] = graphem(double(Xgrid),opt);
 	save(CRkfoldpath, 'Xg', 'Cg', 'target_cr', 'adjM', 'index')
 
 	
