@@ -18,7 +18,8 @@ function cci_graphem_cr(target_cr)
 	cv_indices_path = [data_dir cv_indices_tag];
 	load(cv_indices_tag)
 
-
+	lonlat = lonlat(index,:);
+	
 	% GraphEM options
 	opt.stagtol = 5e-3;
 	opt.maxit = 30;

@@ -48,7 +48,7 @@ function cci_graphem_sp(target_spars)
 
 
 	% Run GraphEM
-	[Xg,Mg,Cg] = graphem(xraw,opt);
+	[Xg,Mg,Cg] = graphem(Xraw,opt);
 
 	SPtag = ['cci_graphem_sp' num2str(target_spars*100) '.mat'];
 	SPpath = [odir SPtag];
