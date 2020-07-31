@@ -55,17 +55,17 @@ p2 = plot(sparsities, cr_epe, 'b');
 plot(sparsities, cr_epe-cr_sigg, 'b--');
 plot(sparsities, cr_epe+cr_sigg, 'b--');
 
-% null reconstruction
-p3 = plot(sparsities, null_epe, 'r');
-plot(sparsities, null_epe-null_sigg, 'r--')
-plot(sparsities, null_epe+null_sigg, 'r--')
+% % null reconstruction
+% p3 = plot(sparsities, null_epe, 'r');
+% plot(sparsities, null_epe-null_sigg, 'r--')
+% plot(sparsities, null_epe+null_sigg, 'r--')
 
 xlabel('Sparsity (%)');
 ylabel('Expected prediction error (K^{2})');
 title('CCI comparison cross-validation scores');
-[hleg,objh] = legend([p1,p2,p3], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
+[hleg,objh] = legend([p1,p2,p3], {'GLASSO', 'Neighborhood radius: 1000km'}); %, 'Null reconstruction'});
 legend('boxoff')
-figname = 'cci_cvscores.jpeg';
+figname = 'cci_cvscores_nonull.jpeg';
 figpath = [fig_dir figname];
 print(figpath, '-djpeg', '-cmyk');
 
