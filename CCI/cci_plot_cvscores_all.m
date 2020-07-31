@@ -67,5 +67,5 @@ title('CCI comparison cross-validation scores');
 legend('boxoff')
 figname = 'cci_cvscores.jpeg';
 figpath = [fig_dir figname];
-print(figpath, '-djpeg', '-cmyk', '-fillpage');
+print(figpath, '-djpeg', '-cmyk';
 
