@@ -9,7 +9,7 @@ touch $fn
 
 echo "#!/bin/bash" >> $fn
 echo "#SBATCH --job-name=$rn" >> $fn
-echo "#SBATCH --mem=250MB" >> $fn
+echo "#SBATCH --mem=1GB" >> $fn
 echo "#SBATCH --nodelist=equake-03" >> $fn
 echo "cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI" >> $fn
 echo "/usr/bin/matlab -nodesktop -nosplash > ./out/$out.out << EOF" >> $fn
