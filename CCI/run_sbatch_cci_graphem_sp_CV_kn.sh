@@ -1,5 +1,6 @@
 #!/bin/bash
 run_sbatch_cci_graphem_sp_CV_kn () {
+	echo "#!/bin/bash
 	#SBATCH --mem=250MB
 	#SBATCH --job-name=CCI_SP$1_K$2
 	#SBATCH --nodelist=equake-01,equake-02,equake-03,equake-04,equake-05
@@ -10,5 +11,7 @@ run_sbatch_cci_graphem_sp_CV_kn () {
 	Kcv = $2;
 	cci_graphem_sp_CV_kn(target_spars, Kcv);
 	exit
-	EOF
+	EOF" >> tmp.slurm
+	sbatch tmp.slurm
+	rm tmp.slurm
 }
