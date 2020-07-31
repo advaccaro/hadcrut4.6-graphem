@@ -1,5 +1,5 @@
 % load cw14 short
-function adjM = calc_adj(target_spars, Kcv)
+function adjM = calc_adj(target_spars)
 	%% load data
 	home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 
