@@ -29,7 +29,7 @@ for i = 1:nspars
 end
 
 % prepare null and neighborhood graph
-nulltag = 'cci_combined_CVscores.mat';
+nulltag = 'cci_combined_null_CVscores.mat';
 nullpath = [data_dir nulltag];
 n = load(nullpath);
 null_epe = null_epe + n.epe;
