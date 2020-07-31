@@ -71,7 +71,7 @@ function epe = cci_graphem_sp_CV(target_spars, Kcv, complete)
 	sigg = std(f_mse(:));
 	runtime = toc;
 
-	CVtag = 'cci_combined_sp_CVscores.mat';
+	CVtag = ['cci_combined_sp' num2str(target_spars*100) '_CVscores.mat'];
 	savepath = [odir CVtag];
 	save(savepath, 'epe', 'sigg', 'runtime', 'cv_in', 'cv_out')
 	
