@@ -1,6 +1,5 @@
-function pseudoworld_gen_kcv_indices(dataset,datatype,worldnum)
+function pseudoworld_gen_kcv_indices(dataset,datatype,worldnum,Kcv)
 	addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem'))
-
 	raw = load(dataset);
 	PW = identifyPW(raw, worldnum, datatype);
 
