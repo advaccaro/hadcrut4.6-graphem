@@ -7,7 +7,7 @@ function pseudoworlds_plot_cvscores(worldtype)
 
 	% run -> pseudoworld_graphem_sp_CV(mat, lsat/sst, worldnum, Scases, 10)
 	home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
-	fig_dir = [home_dir 'pseudo_world/figs'];
+	fig_dir = [home_dir 'pseudo_world/figs/'];
 
 	addpath(genpath(home_dir))
 
