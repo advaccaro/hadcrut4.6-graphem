@@ -48,6 +48,7 @@ function epe = cci_graphem_sp_CV(target_spars, Kcv, complete)
 		else
 			load(SPkfoldpath)
 			Xg{k} = Xg_k;
+		end
 		clear Xg_k
 	end
 

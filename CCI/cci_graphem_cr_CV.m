@@ -54,6 +54,7 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 		else
 			load(Crkfoldpath)
 			Xg{k} = Xg_k;
+		end
 		clear Xg_k
 	end
 
