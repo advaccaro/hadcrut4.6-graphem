@@ -46,9 +46,8 @@ function epe = cci_graphem_sp_CV(target_spars, Kcv, complete)
 			Xg_k = Xg{k};
 			save(SPkfoldpath, 'Xg_k', 'target_spars', 'adjM', 'index')
 		else
-			else
-				load(SPkfoldpath)
-				Xg{k} = Xg_k;
+			load(SPkfoldpath)
+			Xg{k} = Xg_k;
 		clear Xg_k
 	end
 
