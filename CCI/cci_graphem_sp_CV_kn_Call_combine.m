@@ -2,6 +2,11 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 	data_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI/data/';
 	odir = data_dir; %writing to input directory, for now
 
+	datapath = [data_dir 'cci_combined_include_ice.mat'];
+	raw = load(datapath);
+	Xraw = raw.cci_anom;
+	[nt,ns] = size(Xraw);
+	
 	% Load KCV indices
 	cv_indices_tag = 'cci_kcv_indices.mat';
 	cv_indices_path = [data_dir, cv_indices_tag];
