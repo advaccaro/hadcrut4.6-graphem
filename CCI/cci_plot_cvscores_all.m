@@ -8,7 +8,7 @@ function cci_plot_cvscores_all(include_null)
 	fig_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/CCI/figs/';
 
 	% Target sparsities
-	sparsities = .5:.1:1;
+	sparsities = .5:.1:1.1;
 	nspars = length(sparsities);
 
 	% initialize arrays
