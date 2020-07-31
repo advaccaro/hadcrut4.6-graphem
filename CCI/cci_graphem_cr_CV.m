@@ -52,7 +52,7 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 			Xg_k = Xg{k};
 			save(CRkfoldpath, 'Xg_k', 'target_cr', 'adjM', 'index')
 		else
-			load(Crkfoldpath)
+			load(CRkfoldpath)
 			Xg{k} = Xg_k;
 		end
 		clear Xg_k
