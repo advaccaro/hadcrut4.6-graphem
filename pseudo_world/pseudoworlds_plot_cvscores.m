@@ -152,7 +152,7 @@ function pseudoworlds_plot_cvscores(worldtype)
 	end
 
 	figpath = [fig_dir figname];
-	print(figpath, '-ditff', '-noui', '-r250')
+	print(figpath, '-dtiff', '-noui', '-r250')
 
 end
 
