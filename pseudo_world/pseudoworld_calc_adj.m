@@ -18,7 +18,7 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 
 	Xgrid = K.Xgrid;
 
-	cwspath = [homedir 'cw17/data/cw17_short.mat'];
+	cwspath = [home_dir 'cw17/data/cw17_short.mat'];
 	load(cwspath);
 	cw17s_red = cws.temp2d(:,index);
 	C0 = corr(cws17_red);
