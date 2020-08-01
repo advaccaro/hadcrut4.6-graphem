@@ -21,6 +21,7 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 	cv_indices_path = [data_dir, cv_indices_tag];
 	load(cv_indices_path)
 
+	lonlat = double(raw.loc);
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 	lonlat_r = double(raw.loc(index,:));
