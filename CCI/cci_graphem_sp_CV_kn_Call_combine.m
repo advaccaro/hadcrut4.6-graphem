@@ -27,7 +27,7 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 
 	% indavl_t = ~isnan(Xgrid);
 	% lonlat = double(raw.loc(index,:));
-	lonlat = double(raw.loc));
+	lonlat = double(raw.loc);
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 	% lats_t = lats_2d(indavl_t);
