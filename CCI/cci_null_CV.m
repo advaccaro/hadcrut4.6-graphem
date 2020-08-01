@@ -18,7 +18,7 @@ cv_indices_path = [data_dir, cv_indices_tag];
 load(cv_indices_path)
 
 % Set up output matrices
-Xg = cell(Kcv);
+Xg = cell(1,Kcv);
 
 % compute climatology
 clim = calc_clim(Xgrid);
@@ -37,7 +37,7 @@ for k = 1:Kcv
 		tmp(t, missing_ind) = clim(month, missing_ind);
 	end
 
-	Xg{k} = tmp; 
+	Xg{k} = tmp;
 	Xg_k = Xg{k};
 	SPkfoldtag = ['cci_combined_CV_null_k' num2str(k) '.mat'];
 	SPkfoldpath = [odir SPkfoldtag];
@@ -45,17 +45,21 @@ for k = 1:Kcv
 	clear Xg_k
 end
 
-indavl_t = ~isnan(Xgrid);
-lonlat = double(raw.loc(index,:));
+% indavl_t = ~isnan(Xgrid);
+% lonlat = double(raw.loc(index,:));
+% lats_t = lats_2d(cv_out);
+lonat = double(raw.loc));
 lats = lonlat(:,2);
 lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
-lats_t = lats_2d(indavl_t);
-weights = cosd(lats_t);
-normfac = nsum(nsum(weights));
+% weights = cosd(lats_2d);
+% normfac = nsum(nsum(weights));
 
 for k = 1:Kcv
-	mse0{k} = (Xg{k} - Xgrid).^2;
-	mse_t{k} = mse0{k}(indavl_t);
+	test_ind = cv_out{k};
+	weights = cosd(lats_2d(test_ind));
+	normfac = nsum(nsum(weights));
+	mse0{k} = (Xg{k}(test_ind) - Xgrid(test_ind)).^2;
+	mse_t{k} = mse0{k};
 	f_num(k) = nsum(nsum(mse_t{k}.*weights));
 	f_mse(k) = f_num(k)/normfac;
 end
