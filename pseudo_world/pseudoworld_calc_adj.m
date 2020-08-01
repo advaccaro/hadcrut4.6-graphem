@@ -20,7 +20,7 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 
 	cwspath = [home_dir 'cw17/data/cw17_short.mat'];
 	load(cwspath);
-	cw17s_red = cws.temp2d(:,index);
+	cw17s_red = cw17s.temp2d(:,index);
 	C0 = corr(cws17_red);
 	greedy_maxit = 50;
 
