@@ -2,7 +2,7 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 	home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 	addpath(genpath(home_dir))
 	raw = load(dataset)
-	PW = indentifyPW(raw, worldnum, datatype);
+	PW = identifyPW(raw, worldnum, datatype);
 	[nt,ns] = size(PW.grid_2d);
 
 	% select points with > (1/Kcv)% coverage
