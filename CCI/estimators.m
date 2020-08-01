@@ -36,7 +36,8 @@ function cov = prepare_cov(tmap, dist) %dist = 1000
 	lns = repmat(ys, [1 length(xs)]);
 	dists = zeros(numel(tmap), numel(tmap));
 	for i = 1:numel(tmap)
-		ST = dbstack; dbstop('in', ST(1).file, 'at', str2num(ST(1).line+1));
+		STOP
+		% ST = dbstack; dbstop('in', ST(1).file, 'at', str2num(ST(1).line+1));
 	    dists(i,:) = 6371.0*acos( clip( sin(las(i))*sin(las) + cos(las(i)).*cos(las).*cos(lns(i)-lns), -1.0, 1.0 ) );
 	end
 	cov = exp(-dists/dist);
@@ -80,4 +81,10 @@ function tn = gta1(t, cov)
 	wi = pinv(w);
 	sqi = sum(wi,1);
 	tn = dot(swi,y)/sum(swi);
+end
+
+function STOP
+  ST = dbstack;
+  if length(ST) < 2; return; end
+  dbstop('in', ST(2).file, 'at', str2num(ST(2).line+1));
 end
