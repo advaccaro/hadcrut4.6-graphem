@@ -60,9 +60,9 @@ function cci_plot_cvscores_all(include_null)
 	% line(sparsities, epes - siggs, '--', 'Parent', AX(1));
 	line(AX(1), sparsities, epes + siggs, 'LineStyle', '--');
 	% line(sparsities, epes+siggs, '--')
-	p2 = line(AX(1), sparsities, cr_epe, 'b');
-	line(AX(1), sparsities, cr_epe-cr_sigg, 'b--');
-	line(AX(1), sparsities, cr_epe+cr_sigg, 'b--');
+	p2 = line(AX(1), sparsities, cr_epe, 'Color', 'b');
+	line(AX(1), sparsities, cr_epe-cr_sigg, 'Color', 'b', 'LineStyle', '--');
+	line(AX(1), sparsities, cr_epe+cr_sigg, 'Color', 'b', 'LineStyle', '--');
 	% [hAx2, lgl, lrl] = plotyy(sparsities, epes-siggs, sparsities, null_epe-null_sigg);
 	% [hAx3, lgu, lru] = plotyy(sparsities, epes+siggs, sparsities, null_epe+null_sigg);
 	%
