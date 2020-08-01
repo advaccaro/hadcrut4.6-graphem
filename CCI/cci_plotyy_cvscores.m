@@ -52,15 +52,22 @@ function cci_plot_cvscores_all(include_null)
 	%% plotting
 	fig('CCI CV scores'); clf;
 	hold on;
-	[hAx1, lg, lr] = plotyy(sparsities, epes, sparsities, null_epe);
-	[hAx2, lgl, lrl] = plotyy(sparsities, epes-siggs, sparsities, null_epe-null_sigg);
-	[hAx3, lgu, lru] = plotyy(sparsities, epes+siggs, sparsities, null_epe+null_sigg);
-
-	% neigh graph
+	[AX, H1, H2] = plotyy(sparsities, epes, sparsities, null_epe);
+	hold(AX(1));
+	hold(AX(2));
+	plot(AX(1), sparsities, epes - siggs, '--');
+	plot(AX(1), sparsities, epes + siggs, '--');
+	p2 = plot(AX(1), sparsities, cr_epe, 'b');
+	plot(AX(1), sparsities, cr_epe-cr_sigg, 'b--');
+	plot(AX(1), sparsities, cr_epe+cr_sigg, 'b--');
+	% [hAx2, lgl, lrl] = plotyy(sparsities, epes-siggs, sparsities, null_epe-null_sigg);
+	% [hAx3, lgu, lru] = plotyy(sparsities, epes+siggs, sparsities, null_epe+null_sigg);
+	%
+	% % neigh graph
 	%[hAx2, lc, lr = plotyy(sparsities, cr_epe, 'b');
-	lc = plot(sparsities, cr_epe, 'b');
-	plot(sparsities, cr_epe-cr_sigg, 'b--');
-	plot(sparsities, cr_epe+cr_sigg, 'b--');
+	% lc = plot(sparsities, cr_epe, 'b');
+	% plot(sparsities, cr_epe-cr_sigg, 'b--');
+	% plot(sparsities, cr_epe+cr_sigg, 'b--');
 
 	% if include_null
 	% 	% % null reconstruction
@@ -73,7 +80,7 @@ function cci_plot_cvscores_all(include_null)
 	ylabel('Expected prediction error (K^{2})');
 	title('CCI comparison cross-validation scores');
 	if include_null
-		[hleg,objh] = legend([lg,lc,lr], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
+		[hleg,objh] = legend([H1,p2,H2], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
 	else
 		[hleg,objh] = legend([p1,p2], {'GLASSO', 'Neighborhood radius: 1000km'});
 	end
