@@ -1,6 +1,6 @@
 % cci_graphem_sp_CV.m
 
-function epe = cci_graphem_sp_CV_kn_Call(target_spars, Kcv)
+function Xg_k = cci_graphem_sp_CV_kn_Call(target_spars, Kcv)
 	if ~exist('complete', 'var')
 		complete = false;
 	end
