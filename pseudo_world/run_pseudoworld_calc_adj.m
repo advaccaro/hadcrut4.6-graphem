@@ -1,4 +1,4 @@
-home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/'
+home_dir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/'
 addpath(genpath(home_dir))
 
 datasets = cell(1,8);
