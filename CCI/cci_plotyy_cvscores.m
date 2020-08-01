@@ -54,7 +54,7 @@ function cci_plot_cvscores_all(include_null)
 	hold on;
 	[hAx1, lg, lr] = plotyy(sparsities, epes, sparsities, null_epe);
 	[hAx2, lgl, lrl] = plotyy(sparsities, epes-siggs, sparsities, null_epe-null_sigg);
-	[hAx3, lgu, lru] = plotyy(sparsities, epe+siggs, sparsities, null_epe+null_sigg);
+	[hAx3, lgu, lru] = plotyy(sparsities, epes+siggs, sparsities, null_epe+null_sigg);
 
 	% neigh graph
 	%[hAx2, lc, lr = plotyy(sparsities, cr_epe, 'b');
