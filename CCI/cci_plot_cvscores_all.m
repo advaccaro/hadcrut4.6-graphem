@@ -53,19 +53,19 @@ function cci_plot_cvscores_all(include_null)
 	fig('CCI CV scores'); clf;
 	hold on;
 	p1 = plot(sparsities, epes, 'ko-');
-	plot(sparsities, epes-siggs, 'k--')
-	plot(sparsities, epes+siggs, 'k--')
+	plotyy(sparsities, epes-siggs, 'k--')
+	plotyy(sparsities, epes+siggs, 'k--')
 
 	% neigh graph
 	p2 = plot(sparsities, cr_epe, 'b');
-	plot(sparsities, cr_epe-cr_sigg, 'b--');
-	plot(sparsities, cr_epe+cr_sigg, 'b--');
+	plotyy(sparsities, cr_epe-cr_sigg, 'b--');
+	plotyy(sparsities, cr_epe+cr_sigg, 'b--');
 
 	if include_null
 		% % null reconstruction
-		p3 = plot(sparsities, null_epe, 'r');
-		plot(sparsities, null_epe-null_sigg, 'r--')
-		plot(sparsities, null_epe+null_sigg, 'r--')
+		p3 = plotyy(sparsities, null_epe, 'r');
+		plotyy(sparsities, null_epe-null_sigg, 'r--')
+		plotyy(sparsities, null_epe+null_sigg, 'r--')
 	end
 
 	xlabel('Sparsity (%)');
