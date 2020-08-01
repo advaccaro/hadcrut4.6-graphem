@@ -55,6 +55,8 @@ function cci_plot_cvscores_all(include_null)
 	[AX, H1, H2] = plotyy(sparsities, epes, sparsities, null_epe);
 	hold(AX(1));
 	hold(AX(2));
+	p1 = plot(AX(1), sparsities, epes);
+	p2 = plot(AX(2), sparsities, null_epe);
 	plot(AX(1), sparsities, epes - siggs, '--');
 	plot(AX(1), sparsities, epes + siggs, '--');
 	p2 = plot(AX(1), sparsities, cr_epe, 'b');
@@ -80,7 +82,7 @@ function cci_plot_cvscores_all(include_null)
 	ylabel('Expected prediction error (K^{2})');
 	title('CCI comparison cross-validation scores');
 	if include_null
-		[hleg,objh] = legend([H1,p2,H2], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
+		[hleg,objh] = legend([p1,p2,p3], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
 	else
 		[hleg,objh] = legend([p1,p2], {'GLASSO', 'Neighborhood radius: 1000km'});
 	end
