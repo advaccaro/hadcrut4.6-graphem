@@ -57,7 +57,7 @@ function cci_plot_cvscores_all(include_null)
 	% hold(AX(2));
 	% p1 = plot(AX(1), sparsities, epes);
 	% p2 = plot(AX(2), sparsities, null_epe);
-	line(AX(1), sparsities, epes - siggs, '--');
+	line(sparsities, epes - siggs, '--', 'Parent', AX(1));
 	line(AX(1), sparsities, epes + siggs, '--');
 	p2 = line(AX(1), sparsities, cr_epe, 'b');
 	line(AX(1), sparsities, cr_epe-cr_sigg, 'b--');
