@@ -74,4 +74,3 @@ function Xg_k = cci_graphem_sp_CV_kn_Call(target_spars, Kcv)
 	% CVtag = 'cci_combined_sp_CVscores.mat';
 	% savepath = [odir CVtag];
 	% save(savepath, 'epe', 'sigg', 'runtime', 'cv_in', 'cv_out')
-	

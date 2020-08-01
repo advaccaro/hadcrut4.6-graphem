@@ -55,4 +55,3 @@ function cci_graphem_sp(target_spars)
 
 	savepath = [odir SPpath];
 	save(savepath, 'Xg' ,'Mg' ,'C')
-	
