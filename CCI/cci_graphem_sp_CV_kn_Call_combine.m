@@ -11,7 +11,7 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 	cv_indices_tag = 'cci_kcv_indices.mat';
 	cv_indices_path = [data_dir, cv_indices_tag];
 	load(cv_indices_path)
-	
+
 	% Set up output matrices
 	Xg = cell(Kcv);
 
@@ -25,16 +25,20 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 		clear a
 	end
 
-	indavl_t = ~isnan(Xgrid);
-	lonlat = double(raw.loc(index,:));
+	% indavl_t = ~isnan(Xgrid);
+	% lonlat = double(raw.loc(index,:));
+	lonlat = double(raw.loc));
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
-	lats_t = lats_2d(indavl_t);
-	weights = cosd(lats_t);
-	normfac = nsum(nsum(weights));
+	% lats_t = lats_2d(indavl_t);
+	% weights = cosd(lats_t);
+	% normfac = nsum(nsum(weights));
 
 	for k = 1:Kcv
-		mse0{k} = (Xg{k} - Xgrid).^2;
+		test_ind = cv_out{k};
+		weights = cosd(lats_2d(test_ind));
+		normfac = nsum(nsum(weights));
+		mse0{k} = (Xg{k}(test_ind) - Xgrid(test_ind)).^2;
 		mse_t{k} = mse0{k}(indavl_t);
 		f_num(k) = nsum(nsum(mse_t{k}.*weights));
 		f_mse(k) = f_num(k)/normfac;
