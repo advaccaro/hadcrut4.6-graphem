@@ -52,7 +52,7 @@ function cci_plot_cvscores_all(include_null)
 	%% plotting
 	fig('CCI CV scores'); clf;
 	hold on;
-	[AX, H1, H2] = plotyy(sparsities, epes, sparsities, null_epe);
+	[AX, H1, H2] = plotyy(sparsities, epes, sparsities, null_epe, 'plot');
 	hold(AX(1));
 	hold(AX(2));
 	p1 = plot(AX(1), sparsities, epes);
