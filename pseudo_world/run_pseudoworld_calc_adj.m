@@ -16,7 +16,7 @@ for i = 1:length(datasets)
 	pieces = split(dataset, '.mat');
 	pieces2 = split(pieces{1}, '_');
 	datatype = pieces2{end};
-	worldnum = pieces2{end-1}(end);
+	worldnum = str2num(pieces2{end-1}(end));
 
 	for spars = [1.1,1.25,1.5]
 		pseudoworld_calc_adj(dataset, datatype, worldnum, spars);
