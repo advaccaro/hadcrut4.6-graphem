@@ -39,8 +39,7 @@ function epe = cci_graphem_sp_CV_kn_Call_combine(target_spars, Kcv)
 		weights = cosd(lats_2d(test_ind));
 		normfac = nsum(nsum(weights));
 		mse0{k} = (Xg{k}(test_ind) - Xgrid(test_ind)).^2;
-		mse_t{k} = mse0{k}(indavl_t);
-		f_num(k) = nsum(nsum(mse_t{k}.*weights));
+		f_num(k) = nsum(nsum(mse0{k}.*weights));
 		f_mse(k) = f_num(k)/normfac;
 	end
 
