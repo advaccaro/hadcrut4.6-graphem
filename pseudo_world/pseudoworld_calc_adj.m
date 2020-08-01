@@ -12,7 +12,7 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 	odir = [basedir worldname '/' datatype '/data/'];
 
 	kcv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
-	kcv_indices_path = [odir cv_indices_tag];
+	kcv_indices_path = [odir kcv_indices_tag];
 	K = load(kcv_indices_path);
 	index = K.index;
 
