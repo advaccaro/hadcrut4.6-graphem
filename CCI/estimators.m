@@ -16,8 +16,6 @@ function estimators(tobs, tfrac, dist)
 		t2 = meanh(t,w);
 		t3 = meanh(t,w);
 		t4 = gta1(t,cov);
-		
-
 end
 
 function weights = prepare_areas(tmap)
@@ -71,11 +69,10 @@ end
 % calculate GTA1 estimator for a given map using the correlation matrix
 function tn = gta1(t, cov)
 	data = flatten(t);
-	# Set up matrices
 	unobsflag = isnan(data);
 	obsflag = ~(unobsflag);
 	y = data(obsflag);
-	w = cov(obsflag,:)(:,obsflag)
+	w = cov(obsflag,:)(:,obsflag);
 	% Solve for gls mean
 	wi = pinv(w);
 	sqi = sum(wi,1);
