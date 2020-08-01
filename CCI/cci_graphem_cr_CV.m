@@ -21,13 +21,13 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 	cv_indices_path = [data_dir, cv_indices_tag];
 	load(cv_indices_path)
 
-	indavl_t = ~isnan(Xgrid);
-	lonlat = double(raw.loc(index,:));
 	lats = lonlat(:,2);
 	lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
-	lats_t = lats_2d(indavl_t);
-	weights = cosd(lats_t);
-	normfac = nsum(nsum(weights));
+	lonlat_r = double(raw.loc(index,:));
+
+	% lats_t = lats_2d(indavl_t);
+	% weights = cosd(lats_t);
+	% normfac = nsum(nsum(weights));
 
 
 	% Set up output matrices
@@ -39,7 +39,7 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 	opt.stagtol = 5e-3;
 	opt.maxit = 30;
 	opt.useggm = 1;
-	adjM = neigh_radius_adj(lonlat,target_cr);
+	adjM = neigh_radius_adj(lonlat_r,target_cr);
 	opt.adj = adjM;
 
 
@@ -59,8 +59,11 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 	end
 
 	for k = 1:Kcv
-		mse0{k} = (Xg{k} - Xgrid).^2;
-		mse_t{k} = mse0{k}(indavl_t);
+		test_ind = cv_out{k};
+		weights = cosd(lats_2d(test_ind));
+		normfac = nsum(nsum(weights));
+		mse0{k} = (Xg{k}(test_ind) - Xgrid(test_ind)).^2;
+		% mse_t{k} = mse0{k}(indavl_t);
 		f_num(k) = nsum(nsum(mse_t{k}.*weights));
 		f_mse(k) = f_num(k)/normfac;
 	end
@@ -72,4 +75,3 @@ function epe = cci_graphem_cr_CV(target_cr, Kcv, complete)
 	CVtag = 'cci_combined_cr_CVscores.mat';
 	savepath = [odir CVtag];
 	save(savepath, 'epe', 'sigg', 'runtime', 'cv_in', 'cv_out')
-	
