@@ -73,7 +73,8 @@ function tn = gta1(t, cov)
 	unobsflag = isnan(data);
 	obsflag = ~(unobsflag);
 	y = data(obsflag);
-	w = cov(obsflag,:)(:,obsflag);
+	w = cov(obsflag,:);
+	w = w(:,obsflag);
 	% Solve for gls mean
 	wi = pinv(w);
 	sqi = sum(wi,1);
