@@ -16,13 +16,13 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 	K = load(kcv_indices_path);
 	index = K.index;
 
-	Xgrid = PW.grid_2d(:,index);
+	Xgrid = K.Xgrid;
 
 	cwspath = [homedir 'cw17/data/cw17_short.mat'];
 	load(cwspath);
 	cw17s_red = cws.temp2d(:,index);
 	C0 = corr(cws17_red);
-	% greedy_maxit = 50;
+	greedy_maxit = 50;
 
 	%Sigma_G options
 	sigma_opt.ggm_tol = 5e-3;
@@ -40,7 +40,7 @@ function adjM = pseudoworld_calc_adj(dataset, datatype, worldnum, target_spars)
 	[Cw,sp_level] = Sigma_G(C0,sigma_opt);
 
 	% Save adjM and Cw
-	adjtag = [worldnum '_' datatype '_sp' num2str(target_spars*100) '_adj.mat'];
+	adjtag = [fullname '_sp' num2str(target_spars*100) '_adj.mat'];
 	adjpath = [odir adjtag];
 	save(adjpath, 'spars_f', 'adjM', 'Cw', 'target_spars')
 end
