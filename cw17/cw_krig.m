@@ -115,6 +115,7 @@ end
 
 function flattened = flatten(fatten)
 	flattened = reshape(fatten.',1,[]);
+end
 
 function result = interpolate(tmap, cov)
 	% set up matrices
