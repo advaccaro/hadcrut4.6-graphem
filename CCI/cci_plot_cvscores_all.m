@@ -18,6 +18,8 @@ function cci_plot_cvscores_all(include_null)
 	null_sigg = zeros(1,nspars);
 	cr_epe = zeros(1,nspars);
 	cr_sigg = zeros(1,nspars);
+	krig_epe = zeros(1,nspars);
+	krig_sigg = zeros(1,nspars);
 
 
 	% sparsities
@@ -41,12 +43,19 @@ function cci_plot_cvscores_all(include_null)
 		null_sigg = null_sigg + n.sigg;
 	end
 
-
+	% prepare neighborhood graph
 	neightag = 'cci_combined_cr_CVscores.mat';
 	neighpath = [data_dir neightag];
 	cr = load(neighpath);
 	cr_epe = cr_epe + cr.epe;
 	cr_sigg = cr_sigg + cr.sigg;
+
+	% prepare kriging
+	krigtag = 'cci_combined_krig800_CVscores.mat';
+	krigpath = [data_dir krigtag];
+	krig = load(krigpath);
+	krig_epe = krig_epe + krig.epe;
+	krig_sigg = krig_sigg + krig.sigg;
 
 
 	%% plotting
@@ -68,13 +77,18 @@ function cci_plot_cvscores_all(include_null)
 		plot(sparsities, null_epe+null_sigg, 'r--')
 	end
 
+	% kriging
+	p4 = plot(sparsities, krig_epe, 'y');
+	plot(sparsities, krig_epe-krig_sigg, 'y--')
+	plot(sparsities, krig_epe+krig_sigg, 'y--')
+
 	xlabel('Sparsity (%)');
 	ylabel('Expected prediction error (K^{2})');
 	title('CCI comparison cross-validation scores');
 	if include_null
-		[hleg,objh] = legend([p1,p2,p3], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction'});
+		[hleg,objh] = legend([p1,p2,p3], {'GLASSO', 'Neighborhood radius: 1000km', 'Null reconstruction', 'Kriging'});
 	else
-		[hleg,objh] = legend([p1,p2], {'GLASSO', 'Neighborhood radius: 1000km'});
+		[hleg,objh] = legend([p1,p2,p4], {'GLASSO', 'Neighborhood radius: 1000km', 'Kriging'});
 	end
 
 	legend('boxoff')
