@@ -6,8 +6,8 @@ function t4 = estimators(tobs, tfrac, dist)
 	w = prepare_areas(tobs(1,:,:));
 
 	% covariance matrix
-	tmap0 = reshape(tobs(1,:,:), [nlat, nlon])
-	cov = prepare_cov(tobs(1,:,:), dist);
+	tmap0 = reshape(tobs(1,:,:), [nlat, nlon]);
+	cov = prepare_cov(tobs(tmap0, dist);
 
 
 
@@ -20,6 +20,7 @@ function t4 = estimators(tobs, tfrac, dist)
 		% t1 = meana(t,w);
 		% t2 = meanh(t,w);
 		% t3 = meanh(t,w);
+		keyboard;
 		t4 = gta1(t,cov);
 		keyboard;
 	end
