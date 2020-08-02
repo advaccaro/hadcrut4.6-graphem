@@ -1,4 +1,4 @@
-function [t1,t2,t3,t4] = estimators(tobs, tfrac, dist)
+function t4 = estimators(tobs, tfrac, dist)
 	% % flag missing values
 	% tobs(tobs < - 90 | tobs > 490) = NaN;
 	% calculate area weights
@@ -12,9 +12,9 @@ function [t1,t2,t3,t4] = estimators(tobs, tfrac, dist)
 		% make masked map
 		t = tobs(m,:,:);
 		% calculate means
-		t1 = meana(t,w);
-		t2 = meanh(t,w);
-		t3 = meanh(t,w);
+		% t1 = meana(t,w);
+		% t2 = meanh(t,w);
+		% t3 = meanh(t,w);
 		t4 = gta1(t,cov);
 		keyboard;
 	end
@@ -44,31 +44,31 @@ function cov = prepare_cov(tmap, dist) %dist = 1000
 	cov = exp(-dists/dist);
 end
 
-function tn = meana(t,w)
-	wm = w;
-	tm = t;
-	wm(isnan(t)) = 0.0;
-	tm(isnan(t)) = 0.0;
-	tn = sum(wm*tm)/sum(wm);
-end
-
-function tn = meanh(t,w)
-	wm = w;
-	tm = t;
-	wm(isnan(t)) = 0.0;
-	tm(isnan(t)) = 0.0;
-	n2 = size(t,1)/2;
-	tn = 0.5*(sum(wm(1:n2,:) * tm(1:n2,:)) / sum(wm(1:n2,:)) + sum(wm(n2+1:end,:) * tm(n2+1:end))/sum(wm(n2+1:end,:)));
-end
-
-function tn = meanz(t,w)
-	wm = w;
-	tm = t;
-	tm = reshape(repelem(nmean(tm,2), size(t,2))', size(wm)); %THE RESHAPE IN THIS LINE COULD BE INCORRECT
-	wm(isnan(tm)) = 0.0;
-	tm(isnan(tm)) = 0.0;
-	tn = sum(wm * tm) / sum(wm);
-end
+% function tn = meana(t,w)
+% 	wm = w;
+% 	tm = t;
+% 	wm(isnan(t)) = 0.0;
+% 	tm(isnan(t)) = 0.0;
+% 	tn = sum(wm*tm)/sum(wm);
+% end
+%
+% function tn = meanh(t,w)
+% 	wm = w;
+% 	tm = t;
+% 	wm(isnan(t)) = 0.0;
+% 	tm(isnan(t)) = 0.0;
+% 	n2 = size(t,1)/2;
+% 	tn = 0.5*(sum(wm(1:n2,:) * tm(1:n2,:)) / sum(wm(1:n2,:)) + sum(wm(n2+1:end,:) * tm(n2+1:end))/sum(wm(n2+1:end,:)));
+% end
+%
+% function tn = meanz(t,w)
+% 	wm = w;
+% 	tm = t;
+% 	tm = reshape(repelem(nmean(tm,2), size(t,2))', size(wm)); %THE RESHAPE IN THIS LINE COULD BE INCORRECT
+% 	wm(isnan(tm)) = 0.0;
+% 	tm(isnan(tm)) = 0.0;
+% 	tn = sum(wm * tm) / sum(wm);
+% end
 
 % calculate GTA1 estimator for a given map using the correlation matrix
 function tn = gta1(t, cov)
