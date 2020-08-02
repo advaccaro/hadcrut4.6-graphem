@@ -19,6 +19,7 @@ function t4 = estimators(tobs, tfrac, dist)
 		% t2 = meanh(t,w);
 		% t3 = meanh(t,w);
 		t4 = gta1(t,cov);
+		keyboard;
 	end
 end
 
@@ -82,7 +83,7 @@ function tn = gta1(t, cov)
 	w = w(:,obsflag);
 	% Solve for gls mean
 	wi = pinv(w);
-	sqi = sum(wi,1);
+	swi = sum(wi,1);
 	tn = dot(swi,y)/sum(swi);
 end
 
