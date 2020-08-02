@@ -85,9 +85,9 @@ function result = interpolate2(data, cov)
 	% here data is 2d (time x space)
 	unobsflag = isnan(data);
 	obsflag = ~isnan(data);
-	a1 = cov(obsflag,obsflag);
-	% tmp = cov(obsflag,:);
-	% a1 = tmp(:,obsflag);
+	% a1 = cov(obsflag,obsflag);
+	tmp = cov(obsflag,:);
+	a1 = tmp(:,obsflag);
 	b = tmp(:,unobsflag);
 	c = data(obsflag);
 	a2 = vertcat( horzcat(a1, ones(size(a1,1), 1)), horzcat(ones(1, size(a1,2)), 0)	);
