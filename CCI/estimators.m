@@ -7,7 +7,7 @@ function t4 = estimators(tobs, tfrac, dist)
 
 	% covariance matrix
 	tmap0 = reshape(tobs(1,:,:), [nlat, nlon]);
-	cov = prepare_cov(tobs(tmap0, dist);
+	cov = prepare_cov(tobs(tmap0, dist));
 
 
 
