@@ -84,8 +84,6 @@ function tn = gta1(t, cov)
 	tn = dot(swi,y)/sum(swi);
 end
 
-function STOP
-  ST = dbstack;
-  if length(ST) < 2; return; end
-  dbstop('in', ST(2).file, 'at', str2num(ST(2).line+1));
+function flattened = flatten(fatten)
+	flattened = reshape(fatten.',1,[]);
 end
