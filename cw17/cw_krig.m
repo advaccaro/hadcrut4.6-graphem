@@ -64,7 +64,8 @@ function result = interpolate(tmap, cov)
 	%solve for basis function weights
 	x = linsolve(a2,b2);
 	% calculate temperatures and store
-	t = dot(c2,x);
+	% t = dot(c2,x);
+	t = c2*x;
 	result = data;
 	result(unobsflag) = t;
 	result = reshape(result, size(tmap)); %CHECK THIS RESHAPE
