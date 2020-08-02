@@ -127,13 +127,13 @@ function result = interpolate(tmap, cov)
 	b = tmp(:,unobsflag);
 	c = data(obsflag);
 	a2 = vertcat( horzcat(a1, ones(size(a1,1), 1)), horzcat(ones(1, size(a1,2)), 0)	);
-	b = vertcat(b, ones(1,size(b,2)));
-	c = horzcat(c, zeros(1));
+	b2 = vertcat(b, ones(1,size(b,2)));
+	c2 = horzcat(c, zeros(1));
 	%solve for basis function weights
-	x = linsolve(a2,b);
+	x = linsolve(a2,b2);
 	% calculate temperatures and store
 	keyboard;
-	t = dot(c,x);
+	t = dot(c2,x);
 	result = data;
 	result(unobsflag) = t;
 	result = reshape(result, size(tmap)); %CHECK THIS RESHAPE
