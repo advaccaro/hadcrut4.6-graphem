@@ -132,6 +132,7 @@ function result = interpolate(tmap, cov)
 	%solve for basis function weights
 	x = linsolve(a2,b);
 	% calculate temperatures and store
+	keyboard;
 	t = dot(c,x);
 	result = data;
 	result(unobsflag) = t;
