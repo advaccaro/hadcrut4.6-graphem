@@ -50,6 +50,7 @@ end
 % lats_t = lats_2d(cv_out);
 lonat = double(raw.loc));
 lats = lonlat(:,2);
+lats = lats(index);
 lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
 % weights = cosd(lats_2d);
 % normfac = nsum(nsum(weights));

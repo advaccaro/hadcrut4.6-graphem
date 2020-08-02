@@ -25,6 +25,7 @@ function epe = cci_krig_kn_combine(dist, Kcv)
 
   lonlat = double(raw.loc);
   lats = lonlat(:,2);
+  lats = lats(index);
   lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d';
 
   for k = 1:Kcv

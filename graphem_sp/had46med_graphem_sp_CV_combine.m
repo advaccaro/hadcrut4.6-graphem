@@ -22,7 +22,7 @@ for i = 1:Ncases
 		zEPE(j,i) = mean(zkMSE(i,j,:));
 		zSigg(j,i) = std(zkMSE(i,j,:));
 	end
-	
+
 end
 
 for j = 1:nBands
@@ -88,6 +88,3 @@ plot(Scases, SPCV{1}.zMSE(:,j))
 end
 xlabel('Sparsity Parameter (%)')
 ylabel('MSE (Degrees^2)')
-
-
-
