@@ -82,6 +82,7 @@ function flattened = flatten(fatten)
 end
 
 function result = interpolate2(data, cov)
+	keyboard;
 	% here data is 2d (time x space)
 	unobsflag = isnan(data);
 	obsflag = ~isnan(data);
