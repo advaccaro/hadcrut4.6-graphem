@@ -1,13 +1,15 @@
 function t4 = estimators(tobs, tfrac, dist)
+	[ntime, nlat, nlon] = size(tobs);
 	% % flag missing values
 	% tobs(tobs < - 90 | tobs > 490) = NaN;
 	% calculate area weights
 	w = prepare_areas(tobs(1,:,:));
 
 	% covariance matrix
+	tmap0 = reshape(tobs(1,:,:), )
 	cov = prepare_cov(tobs(1,:,:), dist);
 
-	[ntime, nlat, nlon] = size(tobs);
+
 
 	% calculate temperatures
 	for m = 1:size(tobs,1)
