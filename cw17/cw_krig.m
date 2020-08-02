@@ -3,7 +3,7 @@ function xk = cw_krig(data2d, dist, lats, lons)
 	cov = prepare_cov2(lats, lons, dist);
 	xk = nan(size(data2d));
 	for i = 1:ntime
-		xk(i,:) = interpolate2(data2d, cov);
+		xk(i,:) = interpolate2(data2d(i,:), cov);
 		keyboard;
 	end
 
