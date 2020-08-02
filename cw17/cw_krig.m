@@ -13,6 +13,7 @@ function xk = cw_krig(tobs, tfrac, dist)
 	for i = 1:ntime
 		tmap = reshape(tobs(i,:,:), [nlat, nlon]);
 		result = interpolate(tmap, cov);
+		keyboard;
 		results{i} = result;
 	end
 end
