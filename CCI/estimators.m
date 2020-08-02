@@ -7,10 +7,13 @@ function t4 = estimators(tobs, tfrac, dist)
 	% covariance matrix
 	cov = prepare_cov(tobs(1,:,:), dist);
 
+	[ntime, nlat, nlon] = size(tobs);
+
 	% calculate temperatures
 	for m = 1:size(tobs,1)
 		% make masked map
 		t = tobs(m,:,:);
+		t = reshape(t, [nlat, nlon]);
 		% calculate means
 		% t1 = meana(t,w);
 		% t2 = meanh(t,w);
@@ -31,7 +34,7 @@ end
 
 % prepare a list of intercell distances for flattened maps
 function cov = prepare_cov(tmap, dist) %dist = 1000
-	[~, nlat, nlon] = size(tmap);
+	[nlat, nlon] = size(tmap);
 	xs = deg2rad( ((0:nlat-1)+.5)*180/nlat-90.0);
 	ys = deg2rad( ((0:nlon-1)+.5)*360/nlon-180.0);
 	las = repelem(xs,len(ys));
@@ -85,6 +88,6 @@ function tn = gta1(t, cov)
 end
 
 function flattened = flatten(fatten)
-	keyboard;
+	% [~,nlat, nlon] = size(fatten);
 	flattened = reshape(fatten.',1,[]);
 end
