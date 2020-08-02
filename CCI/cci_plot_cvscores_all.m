@@ -78,9 +78,9 @@ function cci_plot_cvscores_all(include_null)
 	end
 
 	% kriging
-	p4 = plot(sparsities, krig_epe, 'y');
-	plot(sparsities, krig_epe-krig_sigg, 'y--')
-	plot(sparsities, krig_epe+krig_sigg, 'y--')
+	p4 = plot(sparsities, krig_epe, 'g');
+	plot(sparsities, krig_epe-krig_sigg, 'g--')
+	plot(sparsities, krig_epe+krig_sigg, 'g--')
 
 	xlabel('Sparsity (%)');
 	ylabel('Expected prediction error (K^{2})');
