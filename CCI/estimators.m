@@ -37,7 +37,7 @@ function cov = prepare_cov(tmap, dist) %dist = 1000
 	lns = repmat(ys, [1 length(xs)]);
 	dists = zeros(numel(tmap), numel(tmap));
 	for i = 1:numel(tmap)
-		% keyboard
+		keyboard
 		% ST = dbstack; dbstop('in', ST(1).file, 'at', str2num(ST(1).line+1));
 	    dists(i,:) = 6371.0*acos( clip( sin(las(i))*sin(las) + cos(las(i)).*cos(las).*cos(lns(i)-lns), -1.0, 1.0 ) );
 	end
