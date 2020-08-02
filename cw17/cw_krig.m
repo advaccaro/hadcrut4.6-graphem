@@ -124,14 +124,14 @@ function result = interpolate(tmap, cov)
 	unobsflag = isnan(data);
 	obsflag = ~isnan(data);
 	tmp = cov(obsflag,:);
-	a = tmp(:,obsflag);
+	a1 = tmp(:,obsflag);
 	b = tmp(:,unobsflag);
 	c = data(obsflag);
-	a = vertcat( horzcat(a, ones(size(a,1), 1)), horzcat(ones(1, size(a,2)), 0)	);
+	a2 = vertcat( horzcat(a1, ones(size(a,1), 1)), horzcat(ones(1, size(a1,2)), 0)	);
 	b = vertcat(b, ones(1,size(b,2)));
 	c = horzcat(c, zeros(1));
 	%solve for basis function weights
-	x = linsolve(a,b);
+	x = linsolve(a2,b);
 	% calculate temperatures and store
 	t = dot(c,x);
 	result = data;
