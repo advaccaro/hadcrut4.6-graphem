@@ -3,7 +3,7 @@ function xk = cw_krig(tobs, tfrac, dist)
 	tmap0 = reshape(tobs(1,:,:), [nlat, nlon]);
 
 	% calculate area weights
-	w = prepare_areas(tmap0)
+	w = prepare_areas(tmap0);
 
 	% covariance matrix
 	cov = prepare_cov(tmap0, dist);
@@ -118,6 +118,7 @@ function flattened = flatten(fatten)
 end
 
 function result = interpolate(tmap, cov)
+	keyboard;
 	% set up matrices
 	data = flatten(tmap);
 	unobsflag = isnan(data);
