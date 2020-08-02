@@ -19,7 +19,6 @@ function t4 = estimators(tobs, tfrac, dist)
 		% t2 = meanh(t,w);
 		% t3 = meanh(t,w);
 		t4 = gta1(t,cov);
-		keyboard;
 	end
 end
 
