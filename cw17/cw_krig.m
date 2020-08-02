@@ -118,7 +118,6 @@ function flattened = flatten(fatten)
 end
 
 function result = interpolate(tmap, cov)
-	keyboard;
 	% set up matrices
 	data = flatten(tmap);
 	unobsflag = isnan(data);
@@ -137,6 +136,7 @@ function result = interpolate(tmap, cov)
 	result = data;
 	result(unobsflag) = t;
 	result = reshape(result, size(tmap)); %CHECK THIS RESHAPE
+	keyboard;
 end
 
 function r = rms(x)
