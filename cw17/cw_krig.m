@@ -1,4 +1,33 @@
-function xk = cw_krig(tobs, tfrac, dist)
+function xk = cw_krig(data2d, dist, lats, lons)
+	[ntime, nspace] = size(data2d);
+	cov = prepare_cov2(lats, lons, dist);
+	xk = nan(size(data2d));
+	for i = 1:ntime
+		xk(i,:) = interpolate2(data2d, cov);
+		keyboard;
+	end
+
+
+end
+
+function cov = prepare_cov2(lats, lons, dist) %dist = 1000
+	nlat = length(lats);
+	nlon = length(lons);
+	xs = deg2rad(lons);
+	ys = deg2rad(lats);
+	% xs = deg2rad( ((0:nlat-1)+.5)*180/nlat-90.0);
+	% ys = deg2rad( ((0:nlon-1)+.5)*360/nlon-180.0);
+	nspace = nlat * nlon;
+	las = repelem(xs,len(ys));
+	lns = repmat(ys, [1 length(xs)]);
+	dists = zeros(nspace, nspace);
+	for i = 1:nspace
+	    dists(i,:) = 6371.0*acos( clip( sin(las(i))*sin(las) + cos(las(i)).*cos(las).*cos(lns(i)-lns), -1.0, 1.0 ) );
+	end
+	cov = exp(-dists/dist);
+end
+
+function xk = cw_krig3d(tobs, tfrac, dist)
 	[ntime, nlat, nlon] = size(tobs);
 	tmap0 = reshape(tobs(1,:,:), [nlat, nlon]);
 
@@ -13,7 +42,6 @@ function xk = cw_krig(tobs, tfrac, dist)
 	for i = 1:ntime
 		tmap = reshape(tobs(i,:,:), [nlat, nlon]);
 		result = interpolate(tmap, cov);
-		keyboard;
 		results{i} = result;
 	end
 end
@@ -48,6 +76,26 @@ end
 
 function flattened = flatten(fatten)
 	flattened = reshape(fatten.',1,[]);
+end
+
+function result = interpolate2(data, cov)
+	% here data is 2d (time x space)
+	unobsflag = isnan(data);
+	obsflag = ~isnan(data);
+	tmp = cov(obsflag,:);
+	a1 = tmp(:,obsflag);
+	b = tmp(:,unobsflag);
+	c = data(obsflag);
+	a2 = vertcat( horzcat(a1, ones(size(a1,1), 1)), horzcat(ones(1, size(a1,2)), 0)	);
+	b2 = vertcat(b, ones(1,size(b,2)));
+	c2 = horzcat(c, zeros(1));
+	%solve for basis function weights
+	x = linsolve(a2,b2);
+	% calculate temperatures and store
+	% t = dot(c2,x);
+	t = c2*x;
+	result = data;
+	result(unobsflag) = t;
 end
 
 function result = interpolate(tmap, cov)
@@ -89,69 +137,6 @@ function tn = gta1(t, cov)
 	tn = dot(swi,y)/sum(swi);
 end
 
-
-
-% calculate temperatures
-% read data
-% tobs, time = read_data(data)
-% t2m = read_rean(rean)
-% ncidin = netcdf.open(nc_path);
-
-% % calculate uncorrelated error map
-% rng(1)
-% mobs = tfrac > 1981 & tfrac < 2011;
-% tobsm = tobs(mobs,:,:);
-% % baseline
-% for m = 1:12
-% 	norm = nmean(tobsm(m:12:end,:,:), 1);
-% 	tobsm(m:12:end,:,:) = tobsm(m:12:end,:,:) - norm;
-% end
-% % means
-% tobsm0 = reshape(tobsm(1,:,:), [nlon, nlat])
-% cov1000 = prepare_cov(tobsm0, 1000);
-% tave = nans(size(tobsm));
-% ncross = 5;
-% for f1 = 1:ncross
-% 	for f2 1 = 1:ncross
-% 		mskx = ones(size(tobs(1,:,:))) < 0;
-% 		mskk = ones(size(tobs(1,:,:))) < 0;
-% 		for i = 1:size(mskx,1)
-% 			for j = 1:size(mskx,2)
-% 				if mod(i+f1-1, ncross) <= 2 & mod(j+f2-1, ncross) <= 2
-% 					mskx(i,j) = true;
-% 				end
-% 				if mod(i+f1-1, ncross) == 11 & mod(j+f2-2, ncross) == 1
-% 					mskk(i,j) = true;
-% 				end
-% 			end
-% 		end
-% 		for m = 1:size(tobsm,1)
-% 			tmon = tobsm(m,:,:);
-% 			tmon[mskx] = NaN;
-% 			tmon = interpolate(tmon, cov1000);
-% 			tave(m,mskk) = tmon(mskk);
-% 		end
-% 	end
-% end
-% % mask to cells which are all present
-% diff = tobsm-tave;
-% sd = nan(size(diff(1,:,:)));
-% for i = 1:size(diff,1)
-% 	for j = 1:size(diff,2)
-% 		if sum(~isnan(diff(:,i,j))) >= 60
-% 			sd(i,j) = sqrt(nmean(square(diff(:,i,j))));
-% 		end
-% 	end
-% end
-% % short cut for quick testing
-% if ncross == 0
-% 	sd = max(0.5*nstd(tobsm,1),.01);
-% end
-% % truncate outliers
-% smax = percentile(sd(~isnan(sd)), 99.0);
-% sd = min(sd, smax);
-% % and infill
-% sd = interpolate(sd, cov1000);
-% % calculate std map
-% % e2m =
-%
+function data2d = reshape2d(flat, nlat, nlon)
+	data2d = reshape(flat, [nlat, nlon])';
+end
