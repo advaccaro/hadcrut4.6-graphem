@@ -85,6 +85,6 @@ function tn = gta1(t, cov)
 end
 
 function flattened = flatten(fatten)
-	keyboard
+	keyboard;
 	flattened = reshape(fatten.',1,[]);
 end
