@@ -20,7 +20,7 @@ function cov = prepare_cov2(lats, lons, dist) %dist = 1000
 	ys = deg2rad(lons);
 	% xs = deg2rad( ((0:nlat-1)+.5)*180/nlat-90.0);
 	% ys = deg2rad( ((0:nlon-1)+.5)*360/nlon-180.0);
-	% keyboard;
+	keyboard;
 	nspace = nlat * nlon;
 	las = repelem(xs,len(ys));
 	lns = repmat(ys, [1 length(xs)]);
