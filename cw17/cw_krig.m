@@ -13,8 +13,8 @@ end
 function cov = prepare_cov2(lats, lons, dist) %dist = 1000
 	nlat = length(lats);
 	nlon = length(lons);
-	xs = deg2rad(lons);
-	ys = deg2rad(lats);
+	xs = deg2rad(lats);
+	ys = deg2rad(lons);
 	% xs = deg2rad( ((0:nlat-1)+.5)*180/nlat-90.0);
 	% ys = deg2rad( ((0:nlon-1)+.5)*360/nlon-180.0);
 	nspace = nlat * nlon;
