@@ -4,10 +4,7 @@ function xk = cw_krig(data2d, dist, lats, lons)
 	xk = nan(size(data2d));
 	for i = 1:ntime
 		xk(i,:) = interpolate2(data2d(i,:), cov);
-		keyboard;
 	end
-
-
 end
 
 function cov = prepare_cov2(lats, lons, dist) %dist = 1000
@@ -142,5 +139,5 @@ function tn = gta1(t, cov)
 end
 
 function data2d = reshape2d(flat, nlat, nlon)
-	data2d = reshape(flat, [nlat, nlon])';
+	data2d = reshape(flat, [nlon, nlat])';
 end
