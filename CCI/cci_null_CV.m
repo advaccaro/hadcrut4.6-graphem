@@ -48,7 +48,7 @@ end
 % indavl_t = ~isnan(Xgrid);
 % lonlat = double(raw.loc(index,:));
 % lats_t = lats_2d(cv_out);
-lonat = double(raw.loc));
+lonlat = double(raw.loc);
 lats = lonlat(:,2);
 lats = lats(index);
 lats_2d = repmat(lats, [1,nt]); lats_2d = lats_2d'; %time x space
