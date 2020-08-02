@@ -14,76 +14,8 @@ function xk = cw_krig(tobs, tfrac, dist)
 		tmap = reshape(tobs(i,:,:), [nlat, nlon]);
 		result = interpolate(tmap, cov);
 		results{i} = result;
-		keyboard;
 	end
 end
-	% calculate temperatures
-	% read data
-	% tobs, time = read_data(data)
-	% t2m = read_rean(rean)
-	% ncidin = netcdf.open(nc_path);
-
-	% % calculate uncorrelated error map
-	% rng(1)
-	% mobs = tfrac > 1981 & tfrac < 2011;
-	% tobsm = tobs(mobs,:,:);
-	% % baseline
-	% for m = 1:12
-	% 	norm = nmean(tobsm(m:12:end,:,:), 1);
-	% 	tobsm(m:12:end,:,:) = tobsm(m:12:end,:,:) - norm;
-	% end
-	% % means
-	% tobsm0 = reshape(tobsm(1,:,:), [nlon, nlat])
-	% cov1000 = prepare_cov(tobsm0, 1000);
-	% tave = nans(size(tobsm));
-	% ncross = 5;
-	% for f1 = 1:ncross
-	% 	for f2 1 = 1:ncross
-	% 		mskx = ones(size(tobs(1,:,:))) < 0;
-	% 		mskk = ones(size(tobs(1,:,:))) < 0;
-	% 		for i = 1:size(mskx,1)
-	% 			for j = 1:size(mskx,2)
-	% 				if mod(i+f1-1, ncross) <= 2 & mod(j+f2-1, ncross) <= 2
-	% 					mskx(i,j) = true;
-	% 				end
-	% 				if mod(i+f1-1, ncross) == 11 & mod(j+f2-2, ncross) == 1
-	% 					mskk(i,j) = true;
-	% 				end
-	% 			end
-	% 		end
-	% 		for m = 1:size(tobsm,1)
-	% 			tmon = tobsm(m,:,:);
-	% 			tmon[mskx] = NaN;
-	% 			tmon = interpolate(tmon, cov1000);
-	% 			tave(m,mskk) = tmon(mskk);
-	% 		end
-	% 	end
-	% end
-	% % mask to cells which are all present
-	% diff = tobsm-tave;
-	% sd = nan(size(diff(1,:,:)));
-	% for i = 1:size(diff,1)
-	% 	for j = 1:size(diff,2)
-	% 		if sum(~isnan(diff(:,i,j))) >= 60
-	% 			sd(i,j) = sqrt(nmean(square(diff(:,i,j))));
-	% 		end
-	% 	end
-	% end
-	% % short cut for quick testing
-	% if ncross == 0
-	% 	sd = max(0.5*nstd(tobsm,1),.01);
-	% end
-	% % truncate outliers
-	% smax = percentile(sd(~isnan(sd)), 99.0);
-	% sd = min(sd, smax);
-	% % and infill
-	% sd = interpolate(sd, cov1000);
-	% % calculate std map
-	% % e2m =
-	%
-
-
-
 
 function weights = prepare_areas(tmap)
 		w = zeros(size(tmap));
@@ -132,12 +64,10 @@ function result = interpolate(tmap, cov)
 	%solve for basis function weights
 	x = linsolve(a2,b2);
 	% calculate temperatures and store
-	keyboard;
 	t = dot(c2,x);
 	result = data;
 	result(unobsflag) = t;
 	result = reshape(result, size(tmap)); %CHECK THIS RESHAPE
-	keyboard;
 end
 
 function r = rms(x)
@@ -156,3 +86,70 @@ function tn = gta1(t, cov)
 	swi = sum(wi,1);
 	tn = dot(swi,y)/sum(swi);
 end
+
+
+
+% calculate temperatures
+% read data
+% tobs, time = read_data(data)
+% t2m = read_rean(rean)
+% ncidin = netcdf.open(nc_path);
+
+% % calculate uncorrelated error map
+% rng(1)
+% mobs = tfrac > 1981 & tfrac < 2011;
+% tobsm = tobs(mobs,:,:);
+% % baseline
+% for m = 1:12
+% 	norm = nmean(tobsm(m:12:end,:,:), 1);
+% 	tobsm(m:12:end,:,:) = tobsm(m:12:end,:,:) - norm;
+% end
+% % means
+% tobsm0 = reshape(tobsm(1,:,:), [nlon, nlat])
+% cov1000 = prepare_cov(tobsm0, 1000);
+% tave = nans(size(tobsm));
+% ncross = 5;
+% for f1 = 1:ncross
+% 	for f2 1 = 1:ncross
+% 		mskx = ones(size(tobs(1,:,:))) < 0;
+% 		mskk = ones(size(tobs(1,:,:))) < 0;
+% 		for i = 1:size(mskx,1)
+% 			for j = 1:size(mskx,2)
+% 				if mod(i+f1-1, ncross) <= 2 & mod(j+f2-1, ncross) <= 2
+% 					mskx(i,j) = true;
+% 				end
+% 				if mod(i+f1-1, ncross) == 11 & mod(j+f2-2, ncross) == 1
+% 					mskk(i,j) = true;
+% 				end
+% 			end
+% 		end
+% 		for m = 1:size(tobsm,1)
+% 			tmon = tobsm(m,:,:);
+% 			tmon[mskx] = NaN;
+% 			tmon = interpolate(tmon, cov1000);
+% 			tave(m,mskk) = tmon(mskk);
+% 		end
+% 	end
+% end
+% % mask to cells which are all present
+% diff = tobsm-tave;
+% sd = nan(size(diff(1,:,:)));
+% for i = 1:size(diff,1)
+% 	for j = 1:size(diff,2)
+% 		if sum(~isnan(diff(:,i,j))) >= 60
+% 			sd(i,j) = sqrt(nmean(square(diff(:,i,j))));
+% 		end
+% 	end
+% end
+% % short cut for quick testing
+% if ncross == 0
+% 	sd = max(0.5*nstd(tobsm,1),.01);
+% end
+% % truncate outliers
+% smax = percentile(sd(~isnan(sd)), 99.0);
+% sd = min(sd, smax);
+% % and infill
+% sd = interpolate(sd, cov1000);
+% % calculate std map
+% % e2m =
+%
