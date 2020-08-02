@@ -1,6 +1,8 @@
-function xk = cw_krig(data2d, dist, lats, lons)
+function xk = cw_krig(data2d, dist, lats, lons, index)
 	[ntime, nspace] = size(data2d);
 	cov = prepare_cov2(lats, lons, dist);
+	% Select good points
+	cov = cov(index,index);
 	xk = nan(size(data2d));
 	for i = 1:ntime
 		xk(i,:) = interpolate2(data2d(i,:), cov);
