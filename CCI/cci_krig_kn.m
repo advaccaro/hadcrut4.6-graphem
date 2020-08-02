@@ -23,7 +23,7 @@ function x_k = cci_krig_kn(dist, Kcv)
   lats = double(raw.CCI.lat);
   lons = double(raw.CCI.lon);
   data2d = Xcv{k};
-  X_k = cw_krig(data2d, dist, lats, lons);
+  X_k = cw_krig(data2d, dist, lats, lons, index);
 
   % Save
   kfoldtag = ['cci_combined_krig_k' num2str(k) '.mat'];
