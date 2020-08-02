@@ -45,6 +45,7 @@ function cov = prepare_cov(tmap, dist) %dist = 1000
 	    dists(i,:) = 6371.0*acos( clip( sin(las(i))*sin(las) + cos(las(i)).*cos(las).*cos(lns(i)-lns), -1.0, 1.0 ) );
 	end
 	cov = exp(-dists/dist);
+	keyboard;
 end
 
 % function tn = meana(t,w)
