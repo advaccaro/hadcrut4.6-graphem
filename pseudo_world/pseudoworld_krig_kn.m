@@ -20,7 +20,7 @@ function X_k = pseudoworld_krig_kn(dist, Kcv, worldnum, datatype)
 
   % Load CV indices
   cv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
-  cv_indices_path = [data_dir cv_indices_tag];
+  cv_indices_path = [odir cv_indices_tag];
   load(cv_indices_path);
 
   k = Kcv;
