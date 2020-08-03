@@ -1,6 +1,6 @@
 % pseudoworld_krig_kn.m
 function X_k = pseudoworld_krig_kn(dist, Kcv, worldnum, datatype)
-  if ~eixt('dist', 'var')
+  if ~exist('dist', 'var')
     dist = 800;
   end
 
