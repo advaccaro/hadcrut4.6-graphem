@@ -16,7 +16,7 @@ function X_k = pseudoworld_krig_kn(dist, Kcv, worldnum, datatype)
   % Load pseudoworld
   raw = load(intag);
   PW = identifyPW(raw, worldnum, datatype);
-  pnt,ns] = size(PW.grid_2d);
+  [nt,ns] = size(PW.grid_2d);
 
   % Load CV indices
   cv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
