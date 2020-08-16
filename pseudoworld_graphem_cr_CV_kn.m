@@ -48,7 +48,7 @@ function epe = pseudoworld_graphem_cr_CV_kn(target_cr, Kcv, worldnum, datatype, 
 	opt.adj = adjM;
 
 
-	for k = 1:Kcv
+	for k = 3:Kcv
 		CRkfoldtag = [fullname '_cr' num2str(target_cr) '_k' num2str(k) '.mat'];
 		CRkfoldpath = [odir CRkfoldtag];
 		if ~complete
