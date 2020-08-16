@@ -21,6 +21,7 @@ function pseudoworld_graphem_sp_CV_kn(dataset,datatype,worldnum,target_spars,Kcv
 	kcv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
 	kcv_indices_path = [odir kcv_indices_tag];
 	K = load(kcv_indices_path);
+	Xcv = K.Xcv;
 
 	% Load adjacency matrix and well-conditioned C
 	index = K.index;
