@@ -5,12 +5,12 @@ function pseudoworld_graphem_sp_CV_kn(dataset,datatype,worldnum,target_spars,Kcv
 	tic
 
 	%% Initialize
-	homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
+	homedir = '/home/ubuntu/hadcrut4.6-graphem/';
 	addpath(genpath(homedir))
 
 	worldname = ['pseudoworld' num2str(worldnum)];
 	fullname = [worldname '_' datatype];
-	basedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/';
+	basedir = '/home/ubuntu/hadcrut4.6-graphem/pseudo_world/';
 	odir = [basedir worldname '/' datatype '/data/'];
 
 	% Load raw data data matrix
