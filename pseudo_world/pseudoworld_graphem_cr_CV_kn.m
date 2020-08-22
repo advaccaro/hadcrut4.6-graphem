@@ -1,4 +1,4 @@
-% cci_graphem_cr_CV.m
+% pseudoworld_graphem_cr_CV_kn.m
 
 function epe = pseudoworld_graphem_cr_CV_kn(target_cr, Kcv, worldnum, datatype, complete)
 	if ~exist('complete', 'var')
