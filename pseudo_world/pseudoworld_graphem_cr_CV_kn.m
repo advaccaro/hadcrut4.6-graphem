@@ -1,9 +1,15 @@
 % pseudoworld_graphem_cr_CV_kn.m
 
-function epe = pseudoworld_graphem_cr_CV_kn(target_cr, Kcv, worldnum, datatype, complete)
+function epe = pseudoworld_graphem_cr_CV_kn(target_cr, Kcv, worldnum, datatype, complete, full_run)
+	% Set missing optional arguments to false
 	if ~exist('complete', 'var')
 		complete = false;
 	end
+
+	if ~exist('full_run', 'var')
+		full_run = false;
+	end
+	% Initialize return value
 	epe = NaN;
 	tic;
 	addpath(genpath('/home/geovault-02/vaccaro/hadcrut4.6-graphem/pseudo_world'));
@@ -33,22 +39,33 @@ function epe = pseudoworld_graphem_cr_CV_kn(target_cr, Kcv, worldnum, datatype, 
 	lonlat_r = double(PW.loc(index,:));
 
 
-	if ~complete
+	if ~complete || full_run
 		% GraphEM options
 		opt.stagtol = 5e-3;
 		opt.maxit = 30;
 		opt.useggm = 1;
 		adjM = neigh_radius_adj(lonlat_r,target_cr);
 		opt.adj = adjM;
-		% One fold at a time
-		k = Kcv;
-		[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
-		Xg_k = Xg{k};
-		CRkfoldtag = [fullname '_cr' num2str(target_cr) '_k' num2str(k) '.mat'];
-		CRkfoldpath = [odir CRkfoldtag];
-		save(CRkfoldpath, 'Xg_k', 'target_cr');
 
-	else
+		if ~full_run
+			% One fold
+			kfolds = Kcv;
+		else
+			% All folds
+			kfolds = 1:Kcv;
+		end
+
+		% One fold at a time
+		for k = kfolds
+			[Xg{k},Mg{k},Cg{k}] = graphem(double(Xcv{k}),opt);
+			Xg_k = Xg{k};
+			CRkfoldtag = [fullname '_cr' num2str(target_cr) '_k' num2str(k) '.mat'];
+			CRkfoldpath = [odir CRkfoldtag];
+			save(CRkfoldpath, 'Xg_k', 'target_cr');
+		end
+	end
+
+	if complete || full_run
 		% Set up output matrices
 		Xg = cell(Kcv);
 
