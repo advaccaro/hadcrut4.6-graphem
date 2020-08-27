@@ -45,8 +45,25 @@ function epe = pseudoworld_graphem_sp_CV_kn(target_spars, Kcv, worldnum, datatyp
 			SPkfoldtag = [fullname '_CV_sp' num2str(target_spars*100) '_k' num2str(k) '.mat'];
 			SPkfoldpath = [odir SPkfoldtag];
 
+			% Do krigging
+			X_k = cw_krig(Xcv{k}, 800, double(PW.lat), double(PW.lon), index);
+
+			% Get index for 1980-2010
+			tfrac = zeros(nt,1);
+			if worldnum ~= 4
+				for i = 1:nt
+					tfrac(i) = 1850 + (i-1)/12;
+				end
+			else
+				for i = 1:nt
+					tfrac(i) = 1859 + i/12;
+				end
+			end
+			modern = find(tfrac >= 1979);
+
 			% Sample covariance
-			C0 = corr(Xcv{k});
+			C0 = corr(X_k(modern, :));
+			% C0 = corr(Xcv{k});
 			greedy_maxit = 50;
 
 			%Sigma_G options
