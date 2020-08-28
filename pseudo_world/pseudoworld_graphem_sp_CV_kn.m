@@ -110,7 +110,7 @@ function epe = pseudoworld_graphem_sp_CV_kn(target_spars, Kcv, worldnum, datatyp
 			SPkfoldpath = [odir SPkfoldtag];
 			load(SPkfoldpath)
 			Xg{k} = Xg_k;
-			test_ind = cv_out{k};
+			test_ind = K.cv_out{k};
 			weights = cosd(lats_2d(test_ind));
 			normfac = nansum(nansum(weights));
 			mse0{k} = (Xg{k}(test_ind) - Xgrid(test_ind)).^2;
