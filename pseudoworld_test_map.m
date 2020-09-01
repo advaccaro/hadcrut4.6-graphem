@@ -109,7 +109,7 @@ function pseudoworld_test_map(worldnum, datatype)
     for jj = 1:3
       ii = jj + (ji-1)*3;
       q(ji,jj).select();
-      D = nan(ns);
+      D = nan(ns,1);
       D(index) = DATA2{ii};
       D = reshape(D',[nlon,nlat]);
       map_sst(D, lons, lats, cmap, cx, clong);
