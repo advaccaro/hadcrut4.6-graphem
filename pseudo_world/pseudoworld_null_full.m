@@ -59,9 +59,8 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
     if nmiss > 0
       % If climatology is NaN, set to GMT for time step
       gmt = calc_gmt(tmp(t,:), lats_2d);
-      gmt
       missing_ind2 = isnan(tmp(t,:));
-      t(t,missing_ind2) = gmt;
+      tmp(t,missing_ind2) = gmt;
     end
   end
   X_n = tmp;
