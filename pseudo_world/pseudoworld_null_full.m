@@ -54,7 +54,7 @@ function X_k = pseudoworld_null_full(worldnum, datatype)
   savetag = [fullname '_null.mat'];
   savepath = [odir savetag];
 
-  save(savepath, X_n)
+  save(savepath, 'X_n', 'index')
 
 
 
