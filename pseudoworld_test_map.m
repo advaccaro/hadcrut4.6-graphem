@@ -20,9 +20,9 @@ function pseudoworld_test_map(worldnum, datatype)
   Stest = sum(test);
   index = find(Stest > 0);
   lons = double(PW.lon);
-  nlons = length(lons);
+  nlon = length(lons);
   lats = double(PW.lat);
-  nlats = length(lats);
+  nlat = length(lats);
 
   % Reduce truth
   truth_r = PWtruth.grid_2d(:, index);
