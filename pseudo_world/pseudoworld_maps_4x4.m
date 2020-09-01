@@ -10,6 +10,8 @@ metrics = {'bias2', 'var', 'MSE'};
 nm = length(metrics);
 cxs = {[0 2], [0 2], [0 15]};
 
+indices = {};
+
 for di = 1:ndt
   datatype = datatypes{di};
   DATA = {};
@@ -35,6 +37,7 @@ for di = 1:ndt
     test = ~isnan(PW.grid_2d);
     Stest = sum(test);
     index = find(Stest > 0);
+    indices{wn} = index;
     lons = double(PW.lon);
     nlon = length(lons);
     lats = double(PW.lat);
@@ -107,19 +110,20 @@ for di = 1:ndt
 
     % Meat of the plot
     q = p(2,1);
-    q.pack(4,3);
+    q.pack(4,4);
     q.margin = 4;
 
     col_labels = {'PW1', 'PW2', 'PW3', 'PW4'};
     cmap = brewermap(27,'*RdBu');
-    cx = [-4 4];
+    cx = cxs{mi};
     clong = 0; %180;
 
     for ji = 1:4
-      for jj = 1:3
-        ii = jj + (ji-1)*3;
+      for jj = 1:4
+        ii = jj + (ji-1)*4;
         q(ji,jj).select();
         D = nan(ns,1);
+        index = indices{ji};
         D(index) = DATA{ii};
         D = reshape(D',[nlon,nlat])';
         map_sst(D, lons, lats, cmap, cx, clong);
