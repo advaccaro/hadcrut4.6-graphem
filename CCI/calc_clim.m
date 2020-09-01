@@ -11,14 +11,14 @@ function clim = calc_clim(data2d)
 		% treat full years
 		step = step_full;
 		for month = 1:mod(nt,12)
-			T_ind = month*step;
+			T_ind = month + step;
 			tmp = squeeze(data2d(T_ind,:));
 			clim(month,:) = nmean(tmp,1);
 		end
 		% treat partial years
 		step = step_partial;
 		for month = mod(nt,12)+1:12
-			T_ind = mont*step;
+			T_ind = month + step;
 			tmp = squeeze(data2d(T_ind,:));
 			clim(month,:,:) = nmean(tmp,1);
 		end
@@ -30,4 +30,3 @@ function clim = calc_clim(data2d)
 		end
 	end
 end
-
