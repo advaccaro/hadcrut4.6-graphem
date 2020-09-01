@@ -1,5 +1,5 @@
 % pseudoworld_null.m
-function X_k = pseudoworld_null_full(worldnum, datatype)
+function X_n = pseudoworld_null_full(worldnum, datatype)
   % if ~exist('dist', 'var')
   %   dist = 800;
   % end
