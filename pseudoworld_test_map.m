@@ -15,7 +15,6 @@ function pseudoworld_test_map(worldnum, datatype)
   rawtag = [fullname '.mat'];
   raw = load(rawtag);
   PW = identifyPW(raw, worldnum, datatype);
-  [nt,ns] = size(PW.grid_2d);
   test = ~isnan(PW.grid_2d);
   Stest = sum(test);
   index = find(Stest > 0);
@@ -26,6 +25,7 @@ function pseudoworld_test_map(worldnum, datatype)
 
   % Reduce truth
   truth_r = PWtruth.grid_2d(:, index);
+  [nt,ns] = size(PWtruth.grid_2d);
 
 
   % Load interpolated datasets
