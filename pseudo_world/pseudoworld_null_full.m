@@ -29,6 +29,10 @@ function X_k = pseudoworld_null_full(worldnum, datatype)
 
   % % Set up output matrices
   % Xg = cell(1,Kcv);
+  test = ~isnan(PW.grid_2d);
+  Stest = sum(test);
+  index = find(Stest > 0);
+  Xgrid = PW.grid_2d(:, index);
 
   % compute climatology
   clim = calc_clim(Xgrid);
@@ -36,7 +40,7 @@ function X_k = pseudoworld_null_full(worldnum, datatype)
 
 
   % Fill in missing values
-  tmp = PW.grid_2d;
+  tmp = Xgrid;
   for t = 1:nt
     month = mod(t,12);
     if month == 0
