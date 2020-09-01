@@ -111,7 +111,7 @@ function pseudoworld_test_map(worldnum, datatype)
       q(ji,jj).select();
       D = nan(ns,1);
       D(index) = DATA2{ii};
-      D = reshape(D',[nlon,nlat]);
+      D = reshape(D',[nlon,nlat])';
       map_sst(D, lons, lats, cmap, cx, clong);
       if j1 == 1
         title(col_labels{jj}, 'FontWeight','bold');
