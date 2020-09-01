@@ -53,15 +53,15 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
       month = 12;
     end
     % First, try to set missing values to climatology
-    missing_ind = isnan(tmp(t,:));
-    tmp(t, missing_ind) = clim(month, missing_ind);
-    nmiss = sum(isnan(tmp(t,:)));
-    if nmiss > 0
+    % missing_ind = isnan(tmp(t,:));
+    % tmp(t, missing_ind) = clim(month, missing_ind);
+    % nmiss = sum(isnan(tmp(t,:)));
+    % if nmiss > 0
       % If climatology is NaN, set to GMT for time step
-      gmt = calc_gmt(tmp(t,:), lats_2d);
-      missing_ind2 = isnan(tmp(t,:));
-      tmp(t,missing_ind2) = gmt;
-    end
+    gmt = calc_gmt(tmp(t,:), lats_2d);
+    missing_ind = isnan(tmp(t,:));
+    tmp(t,missing_ind) = gmt;
+    % end
   end
   X_n = tmp;
 
