@@ -36,7 +36,7 @@ function Xg = pseudoworld_graphem_cr_full(worldnum, datatype, target_cr)
   Xgrid = PW.grid_2d(:, index);
 
   lonlat = double(PW.loc);
-  lonlat_r = lonloat(index,:);
+  lonlat_r = lonlat(index,:);
   lats = lonlat(:,2);
   lats_2d = repmat(lats(index), [1,nt]);
   lats_2d = lats_2d';
