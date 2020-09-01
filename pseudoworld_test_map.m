@@ -12,7 +12,7 @@ function pseudoworld_test_map(worldnum, datatype)
   PWtruth = identifyPWtruth(truth, worldnum, datatype);
 
   % Load raw pseudoworld
-  rawtag = [fullname '.mat']
+  rawtag = [fullname '.mat'];
   raw = load(rawtag);
   PW = identifyPW(raw, worldnum, datatype);
   [nt,ns] = size(PW.grid_2d);
@@ -20,7 +20,9 @@ function pseudoworld_test_map(worldnum, datatype)
   Stest = sum(test);
   index = find(Stest > 0);
   lons = double(PW.lon);
+  nlons = length(lons);
   lats = double(PW.lat);
+  nlats = length(lats);
 
   % Reduce truth
   truth_r = PWtruth.grid_2d(:, index);
