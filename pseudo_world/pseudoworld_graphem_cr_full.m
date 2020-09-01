@@ -42,7 +42,7 @@ function Xg = pseudoworld_graphem_cr_full(worldnum, datatype, target_cr)
   lats_2d = lats_2d';
 
   % Neighborhood graph
-  adjM = niegh_radius_adj(lonlat_r, target_cr);
+  adjM = neigh_radius_adj(lonlat_r, target_cr);
 
   % GraphEM options
   opt.stagtol = 5e-3;
