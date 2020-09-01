@@ -7,8 +7,8 @@ ndt = length(datatypes);
 worldnums = [1:4];
 nw = length(worldnums);
 metrics = {'bias2', 'var', 'MSE'};
-nm = length(metrics)
-cxs = {[0 2], [0 2], [0 15]}
+nm = length(metrics);
+cxs = {[0 2], [0 2], [0 15]};
 
 for di = 1:ndt
   datatype = datatypes{di};
@@ -75,7 +75,7 @@ for di = 1:ndt
     %sp60
     sptag = [fullname '_sp60.mat'];
     sp = load(sptag);
-    [sp.bias2, sp.var, sp.MSE] = MSE_decomp1d(truth_r, sps{i}.Xg);
+    [sp.bias2, sp.var, sp.MSE] = MSE_decomp1d(truth_r, sp.Xg);
     BIAS2{idx} = sp.bias2;
     VAR{idx} = sp.var;
     MSE{idx} = sp.MSE;
