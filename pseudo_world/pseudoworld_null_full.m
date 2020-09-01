@@ -39,7 +39,7 @@ function X_k = pseudoworld_null_full(worldnum, datatype)
   tmp = PW.grid_2d;
   for t = 1:nt
     month = mod(t,12);
-    if month == 0:
+    if month == 0
       month = 12;
     end
     missing_ind = isnan(tmp(t,:));
