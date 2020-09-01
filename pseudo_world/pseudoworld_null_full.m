@@ -72,8 +72,8 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
 
 end
 
-function gmt = calc_gmt(grid2d, lats2d)
+function gmt = calc_gmt(grid_2d, lats_2d)
   weights = cosd(lats_2d);
   normfac = nansum(nansum(weights));
-  gmt = nansum(nansum(grid2d*weights))/normfac;
+  gmt = nansum(nansum(grid_2d*weights))/normfac;
 end
