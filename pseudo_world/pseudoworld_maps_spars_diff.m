@@ -7,23 +7,17 @@ ndt = length(datatypes);
 worldnums = [1:2];
 nw = length(worldnums);
 metrics = {'bias2', 'var', 'MSE'};
+metric_strings = {'Bias^{2}', 'Variance', 'MSE'};
 nm = length(metrics);
 cxs = {};
 cxs{1} = {[-.05 .05], [-1 1], [-1 1]};
 cxs{2} = {[-.1 .1], [-2 2], [-2 2]};
-sparsities = [50:10:100];
+sparsities = [40:20:120];
 nspars = length(sparsities);
 
 nsets = nw*ndt; %number of data sets ("fullnames")
 nmethods = 1 + nspars; %null + sparsities
 
-% col_labels = {};
-% for i = 1:nspars
-%   col_labels{i} = [sprintf('%.1f', sparsities(i)/100) '%'];
-%   if i == 1
-%     col_labels{i} = ['Sparsity:  ' col_labels{i}];
-%   end
-% end
 row_labels = {};
 indices = {};
 DATA = {};
@@ -38,7 +32,7 @@ for di = 1:ndt
   for worldnum = worldnums
     set_idx = set_idx + 1;
     lookup{di, worldnum} = set_idx;
-    row_labels{set_idx} = ['PW' worldnum upper(datatype)];
+    row_labels{set_idx} = ['PW' num2str(worldnum) ' ' upper(datatype)];
 
     % Prepare pseudoworld name
     worldname = ['pseudoworld' num2str(worldnum)];
@@ -75,7 +69,7 @@ for di = 1:ndt
     BIAS2{set_idx, method_idx} = null.bias2;
     VAR{set_idx, method_idx} = null.var;
     MSE{set_idx, method_idx} = null.MSE;
-    col_labels{method_idx} = 'Null'
+    col_labels{method_idx} = 'Null';
 
 
     % Load interpolated datasets
@@ -89,14 +83,15 @@ for di = 1:ndt
       BIAS2{set_idx, method_idx} = null.bias2 - sps{si}.bias2;
       VAR{set_idx, method_idx} = null.var - sps{si}.var;
       MSE{set_idx, method_idx} = null.MSE - sps{si}.MSE;
-      col_labels{method_idx} = ['Null - glasso ' sprintf('%.1f', sparsities(i)/100) '%'];
+      col_labels{method_idx} = ['Null - ' sprintf('%.1f', sparsities(si)/100) '%'];
       % idx = idx + 1;
     end
   end
 end
 DATAS = {BIAS2, VAR, MSE};
-[nmethods, nsets] = size(BIAS2); %should be same as at top
-
+[nsets, nmethods] = size(BIAS2); %should be same as at top
+cmap = flipud(cbrewer('div','RdBu',31));
+clong = 0; %180;
 %% Plotting
 for mi = 1:nm
   metric = metrics{mi};
@@ -106,29 +101,40 @@ for mi = 1:nm
   figtitle = [metric ' difference snapshots'];
   fig(figtitle); clf;
   p = panel();
-  p.pack('h', {1/7 []},'v',{9/10 []})
+  % p.pack('h', {1/7 []},'v',{9/10 []})
+  p.pack({9/20 1/20 9/20 []}, {1/15 []})
   % set margins and properties
-  p.de.margin = 2;
-  p.fontsize = 8;
+  p.de.margin = 1;
+  p.fontsize = 7;
 
   % Labels in left column
-  p(1,1).pack(nsets)
-  for k = 1:nsets
-    p(1,1,k).select();  text(-.2,.5,row_labels{k},'FontSize',8)
+  p(1,1).pack(nsets/2)
+  for k = 1:2
+    p(1,1,k).select();  text(-.2,.5,row_labels{k},'FontSize',7)
     set(gca, 'xtick', [], 'ytick', [],'visible','off');
   end
 
-  % Meat of the plot
-  q = p(2,1);
-  q.pack(nsets,nmethods);
-  q.margin = 4;
+  p(3,1).pack(nsets/2)
+  for k = 3:4
+    ka = k-2;
+    p(3,1,ka).select();  text(-.2,.5,row_labels{k},'FontSize',7)
+    set(gca, 'xtick', [], 'ytick', [],'visible','off');
+  end
+
+  % SST
+  q = p(1,2);
+  q.pack(nsets/2,nmethods);
+  q.margin = 1;
+  q.de.margin = 1;
 
 
-  cmap = flipud(cbrewer('div','RdYlBu',31));
-  cx = cxs{2}{mi}; % 2 IS HARD-CODED
-  clong = 0; %180;
 
-  for set_idx = 1:nsets
+  %cx = cxs{1}{mi}/2; % 2 IS HARD-CODED
+  % cx = [nanmedian(DATA{1,1})-2*nanstd(DATA{1,1}) nanmedian(DATA{1,1})+2*nanstd(DATA{1,1})];
+  % amax = max(abs([nanmin(DATA{1,2}) nanmax(DATA{1,2})]));
+  % cx = [-amax amax];
+  cx = [nanmin(DATA{1,2}) nanmax(DATA{1,2})];
+  for set_idx = 1:2
     for method_idx = 1:nmethods
       q(set_idx,method_idx).select();
       D = nan(ns,1);
@@ -143,22 +149,60 @@ for mi = 1:nm
   end
 
   % Colorbar
-  p(nsets,nmethods).select()
+  p(2,2).select()
   cbax = gca;
   set(cbax, 'xtick', [], 'ytick', [],'visible','off');
   caxis(cbax, cx);
 
-  c = colorbar('peer', cbax, 'southoutside');
+  c = colorbar('peer', cbax, 'south');
   pos = c.Position;
-  c.Position = [.3 pos(2)-.03 0.6 0.03];
-  c.Label.String = 'SST anomaly (\circC^{2})';
+  c.Position = [.4 pos(2)-.01 0.4 0.015];
+  c.Label.String = metric_strings{mi};
+
+  % LSAT
+  q = p(3,2);
+  q.pack(nsets/2,nmethods);
+  q.margin = 1;
+  q.de.margin =1;
+
+  % cx = cxs{2}{mi}/2; % 2 IS HARD-CODED
+  % cx = [nanmedian( DATA{3,1} ) - 2*nanstd( DATA{3,1} ) nanmedian( DATA{3,1} ) + 2*nanstd(DATA{1,1} )];
+  cx = [nanmin(DATA{3,2}) nanmax(DATA{3,2})];
+  % amax = max(abs([nanmin(DATA{3,2}) nanmax(DATA{3,2})]));
+  % cx = [-amax amax];
+  for set_idx = 3:4
+    for method_idx = 1:nmethods
+      q(set_idx-2,method_idx).select();
+      D = nan(ns,1);
+      index = indices{set_idx};
+      D(index) = DATA{set_idx, method_idx};
+      D = reshape(D',[nlon,nlat])';
+      map_sst(D, lons, lats, cmap, cx, clong);
+    end
+  end
+
+  % Colorbar
+  p(4,2).select()
+  cbax = gca;
+  set(cbax, 'xtick', [], 'ytick', [],'visible','off');
+  caxis(cbax, cx);
+
+  c = colorbar('peer', cbax, 'south');
+  pos = c.Position;
+  c.Position = [.4 pos(2)-.01 0.4 0.015];
+  c.Label.String = metric_strings{mi};
+  p.de.margin = 1;
+
+  % h=gcf;
+  % set(h,'PaperOrientation','landscape');
+  % set(h,'PaperPosition', [1 1 28 19]);
 
   figdir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/figs/';
   figtag = [figdir 'pseudoworld_' metric '_sparsities_diff'];
   figtag_jpeg = [figtag '.jpeg'];
   figtag_pdf = [figtag '.pdf'];
   print(figtag_jpeg, '-djpeg', '-cmyk', '-r500')
-  print(figtag_pdf, '-dpdf', '-cmyk')
+  print(figtag_pdf, '-dpdf', '-cmyk', '-fillpage')
 end
 
 
@@ -179,7 +223,7 @@ function map_sst(grid, lons, lats, cmap, cx, clong)
   hold on;
   p = m_pcolor(lons, lats, grid);
   set(p, 'EdgeColor', 'none');
-  colormap('default');
+  colormap(cmap);
   m_grid('xtick',[-180:60:180],'xticklabels',[],'tickdir','out','ytick',[-90:30:90], 'yticklabels',[],'color','k', 'fontsize',10, 'linestyle', 'none');
   m_coast('color','k');
   hold off;
