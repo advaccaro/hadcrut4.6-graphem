@@ -8,7 +8,9 @@ worldnums = [1:4];
 nw = length(worldnums);
 metrics = {'bias2', 'var', 'MSE'};
 nm = length(metrics);
-cxs = {[0 2], [0 2], [0 15]};
+cxs = {}
+cxs{1} = {[0 1], [0 1], [0 5]};
+cxs{2} = {[0 1], [0 3], [0 10]};
 
 indices = {};
 
@@ -89,7 +91,7 @@ for di = 1:ndt
   for mi = 1:nm
     metric = metrics{mi};
     DATA = DATAS{mi};
-    cx = cxs{mi};
+    cx = cxs{di}{mi};
 
     %% Plotting
     figtitle = [datatype ' ' metric ' snapshots'];
@@ -145,7 +147,7 @@ for di = 1:ndt
     c.Label.String = 'SST anomaly (\circC^{2})';
 
     figdir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world/figs/';
-    figtag = ['pseudoworld_' datatype '_' metric '_4x4'];
+    figtag = [figdir 'pseudoworld_' datatype '_' metric '_4x4'];
     figtag_jpeg = [figtag '.jpeg'];
     figtag_pdf = [figtag '.pdf'];
     print(figtag_jpeg, '-djpeg', '-cmyk', '-r500')
