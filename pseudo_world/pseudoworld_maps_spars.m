@@ -103,7 +103,7 @@ for di = 1:ndt
 
     for ji = 1:nspars
       for jj = 1:nw
-        ii = jj + (ji-1)*npars;
+        ii = jj + (ji-1)*nspars;
         q(ji,jj).select();
         D = nan(ns,1);
         index = indices{ji};
