@@ -27,8 +27,8 @@ for di = 1:ndt
   BIAS2 = {};
   VAR = {};
   MSE = {};
-  idx = 1;
   for worldnum = 1:nw
+    idx = 1 +nw*(worldnum-1);
     % Prepare pseudoworld name
     worldname = ['pseudoworld' num2str(worldnum)];
     fullname = [worldname '_' datatype];
@@ -68,15 +68,6 @@ for di = 1:ndt
       MSE{idx} = sps{si}.MSE;
       idx = idx + 1;
     end
-    %
-    % %sp60
-    % sptag = [fullname '_sp60.mat'];
-    % sp = load(sptag);
-    % [sp.bias2, sp.var, sp.MSE] = MSE_decomp1d(truth_r, sp.Xg);
-    % BIAS2{idx} = sp.bias2;
-    % VAR{idx} = sp.var;
-    % MSE{idx} = sp.MSE;
-    % idx = idx + 1;
   end
   DATAS = {BIAS2, VAR, MSE};
   %% Plotting
@@ -102,7 +93,7 @@ for di = 1:ndt
 
     % Meat of the plot
     q = p(2,1);
-    q.pack(nspars,4);
+    q.pack(nspars,nw);
     q.margin = 4;
 
     col_labels = {'PW1', 'PW2', 'PW3', 'PW4'};
@@ -110,9 +101,9 @@ for di = 1:ndt
     cx = cxs{di}{mi};
     clong = 0; %180;
 
-    for ji = 1:4
-      for jj = 1:4
-        ii = jj + (ji-1)*4;
+    for ji = 1:nspars
+      for jj = 1:nw
+        ii = jj + (ji-1)*npars;
         q(ji,jj).select();
         D = nan(ns,1);
         index = indices{ji};
