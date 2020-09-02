@@ -8,7 +8,7 @@ worldnums = [1:4];
 nw = length(worldnums);
 metrics = {'bias2', 'var', 'MSE'};
 nm = length(metrics);
-cxs = {}
+cxs = {};
 cxs{1} = {[0 1], [0 1], [0 5]};
 cxs{2} = {[0 1], [0 3], [0 10]};
 
@@ -91,7 +91,6 @@ for di = 1:ndt
   for mi = 1:nm
     metric = metrics{mi};
     DATA = DATAS{mi};
-    cx = cxs{di}{mi};
 
     %% Plotting
     figtitle = [datatype ' ' metric ' snapshots'];
@@ -117,7 +116,7 @@ for di = 1:ndt
 
     col_labels = {'PW1', 'PW2', 'PW3', 'PW4'};
     cmap = brewermap(27,'*RdBu');
-    cx = cxs{mi};
+    cx = cxs{di}{mi};
     clong = 0; %180;
 
     for ji = 1:4
