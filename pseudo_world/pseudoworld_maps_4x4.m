@@ -121,7 +121,8 @@ for di = 1:ndt
 
     for ji = 1:4
       for jj = 1:4
-        ii = jj + (ji-1)*4;
+        % ii = jj + (ji-1)*4;
+        ii = ji + (jj-1)*4;
         q(ji,jj).select();
         D = nan(ns,1);
         index = indices{ji};
