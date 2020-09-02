@@ -11,7 +11,7 @@ nm = length(metrics);
 cxs = {};
 cxs{1} = {[0 .05], [0 1], [0 1]};
 cxs{2} = {[0 .1], [0 2], [0 2]};
-sparsities = [50, 60, 100];
+sparsities = [50:10:100];
 nspars = length(sparsities);
 
 row_labels = {};
@@ -104,7 +104,6 @@ for di = 1:ndt
 
     for ji = 1:nspars
       for jj = 1:nw
-        %ii = jj + (ji-1)*nspars;
         ii = ji +(jj-1)*nspars;
         q(ji,jj).select();
         D = nan(ns,1);
