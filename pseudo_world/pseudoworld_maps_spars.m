@@ -108,7 +108,7 @@ for di = 1:ndt
         ii = ji +(jj-1)*nspars;
         q(ji,jj).select();
         D = nan(ns,1);
-        index = indices{ji};
+        index = indices{jj};
         D(index) = DATA{ii};
         D = reshape(D',[nlon,nlat])';
         map_sst(D, lons, lats, cmap, cx, clong);
