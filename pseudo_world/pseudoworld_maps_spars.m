@@ -95,7 +95,7 @@ for di = 1:ndt
 
     % Labels in left column
     p(1,1).pack(4)
-    for k = 1:4
+    for k = 1:nspars
       p(1,1,k).select();  text(-.2,.5,row_labels{k},'FontSize',8)
       set(gca, 'xtick', [], 'ytick', [],'visible','off');
     end
