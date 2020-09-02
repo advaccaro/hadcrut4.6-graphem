@@ -9,8 +9,8 @@ nw = length(worldnums);
 metrics = {'bias2', 'var', 'MSE'};
 nm = length(metrics);
 cxs = {};
-cxs{1} = {[0 .25], [0 1], [0 2]};
-cxs{2} = {[0 .5], [0 3], [0 6]};
+cxs{1} = {[0 .1], [0 1], [0 1]};
+cxs{2} = {[0 .2], [0 2], [0 2]};
 
 indices = {};
 
