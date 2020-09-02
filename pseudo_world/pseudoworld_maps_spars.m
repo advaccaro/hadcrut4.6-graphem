@@ -27,8 +27,9 @@ for di = 1:ndt
   BIAS2 = {};
   VAR = {};
   MSE = {};
+  idx = 1;
   for worldnum = 1:nw
-    idx = 1 +nw*(worldnum-1);
+    % idx = 1 +nw*(worldnum-1);
     % Prepare pseudoworld name
     worldname = ['pseudoworld' num2str(worldnum)];
     fullname = [worldname '_' datatype];
