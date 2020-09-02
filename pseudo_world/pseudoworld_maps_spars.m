@@ -27,9 +27,9 @@ for di = 1:ndt
   BIAS2 = {};
   VAR = {};
   MSE = {};
-  idx = 1;
+  % idx = 1;
   for worldnum = 1:nw
-    % idx = 1 +nw*(worldnum-1);
+    idx = 1 + nspars*(worldnum-1);
     % Prepare pseudoworld name
     worldname = ['pseudoworld' num2str(worldnum)];
     fullname = [worldname '_' datatype];
@@ -104,7 +104,8 @@ for di = 1:ndt
 
     for ji = 1:nspars
       for jj = 1:nw
-        ii = jj + (ji-1)*nspars;
+        %ii = jj + (ji-1)*nspars;
+        ii = ji +(jj-1)*nspars;
         q(ji,jj).select();
         D = nan(ns,1);
         index = indices{ji};
