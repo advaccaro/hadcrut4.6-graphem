@@ -56,11 +56,8 @@ for di = 1:ndt
     col_labels{method_idx} = 'Null';
     nulltag = [fullname '_null.mat'];
     null = load(nulltag);
-    mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, null.X_n, lats_2d));,
+    mses{set_idx, method_idx} = sprintf('%.3f', calc_rmse(truth_r, null.X_n, lats_2d));,
     % ses{set_idx, method_idx} = null.se;
-
-
-
 
     % Load interpolated datasets
     % Load kriging
@@ -68,7 +65,7 @@ for di = 1:ndt
     col_labels{method_idx} = 'Kriging';
     krigtag = [fullname '_krig.mat'];
     krig = load(krigtag);
-    mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, krig.X_k, lats_2d));
+    mses{set_idx, method_idx} = sprintf('%.3f', calc_rmse(truth_r, krig.X_k, lats_2d));
     % ses{set_idx, method_idx} = krig.se;
 
 
@@ -77,7 +74,7 @@ for di = 1:ndt
     col_labels{method_idx} = 'GraphEM, R_1000';
     crtag = [fullname '_cr1000.mat'];
     cr = load(crtag);
-    mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, cr.Xg, lats_2d));
+    mses{set_idx, method_idx} = sprintf('%.3f', calc_rmse(truth_r, cr.Xg, lats_2d));
     % ses{set_idx, method_idx} = cr.se;
 
 
@@ -91,7 +88,7 @@ for di = 1:ndt
       spars = sparsities(si);
       sptag = [fullname '_sp' num2str(spars) '.mat'];
       sps{si} = load(sptag);
-      mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, sps{si}.Xg, lats_2d));
+      mses{set_idx, method_idx} = sprintf('%.3f', calc_rmse(truth_r, sps{si}.Xg, lats_2d));
     end
   end
 end
@@ -99,7 +96,7 @@ end
 
 
 %  still a problem with Row Labels
-M = [{' '} col_labels; row_labels mses];
+M = [{' '} col_labels'; row_labels mses];
 latextable(M,'name','pseudoworld_rmse_scores.tex','Hline',[1], 'Vline', 1);
 
 
