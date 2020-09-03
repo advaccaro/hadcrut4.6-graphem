@@ -101,7 +101,7 @@ end
 %  still a problem with Row Labels
 
 M = [row_labels mses];
-latextable(M,'Horiz',cLabels,'name','pseudoworld_rmse_scores.tex','Hline',[1], 'Vline', 1);
+latextable(M,'Horiz',col_labels,'name','pseudoworld_rmse_scores.tex','Hline',[1], 'Vline', 1);
 
 
 function rmse = calc_rmse(Xt, X, lats_2d)
