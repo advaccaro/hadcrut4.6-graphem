@@ -77,7 +77,7 @@ for di = 1:ndt
     col_labels{method_idx} = 'GraphEM, R_1000';
     crtag = [fullname '_cr1000.mat'];
     cr = load(crtag);
-    mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, krig.Xg, lats_2d));
+    mses{set_idx, method_idx} = sprintf('%.2f', calc_rmse(truth_r, cr.Xg, lats_2d));
     % ses{set_idx, method_idx} = cr.se;
 
 
