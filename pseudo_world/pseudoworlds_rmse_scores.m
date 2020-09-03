@@ -44,7 +44,8 @@ for di = 1:ndt
     index = find(Stest > 0);
     lonlat = double(PW.loc);
     lats = lonlat(:,2);
-    lats_2d = repmat(lats(index), [1,nt]); lats_2d = lats_2d;
+    [nt,ns] = size(PW.grid_2d);
+    lats_2d = repmat(lats(index), [1,nt]); lats_2d = lats_2d';
 
     % Reduce truth
     truth_r = PWtruth.grid_2d(:, index);
