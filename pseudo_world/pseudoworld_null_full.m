@@ -24,9 +24,9 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
 
 
   % Load CV indices
-  cv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
-  cv_indices_path = [odir cv_indices_tag];
-  load(cv_indices_path);
+  % cv_indices_tag = [worldname '_' datatype '_kcv_indices.mat'];
+  % cv_indices_path = [odir cv_indices_tag];
+  % load(cv_indices_path);
 
   % % Set up output matrices
   % Xg = cell(1,Kcv);
@@ -40,28 +40,17 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
   lats_2d = repmat(lats(index), [1,nt]);
   lats_2d = lats_2d';
 
-  % compute climatology
-  clim = calc_clim(Xgrid);
-  step_full =12*[0:1:ceil(nt/12)-1];
+  % compute column means
+  col_means = nanmean(Xgrid);
+  % clim = calc_clim(Xgrid);
+  % step_full =12*[0:1:ceil(nt/12)-1];
 
 
   % Fill in missing values
   tmp = Xgrid;
   for t = 1:nt
-    month = mod(t,12);
-    if month == 0
-      month = 12;
-    end
-    % First, try to set missing values to climatology
-    % missing_ind = isnan(tmp(t,:));
-    % tmp(t, missing_ind) = clim(month, missing_ind);
-    % nmiss = sum(isnan(tmp(t,:)));
-    % if nmiss > 0
-      % If climatology is NaN, set to GMT for time step
-    gmt = calc_gmt(tmp(t,:), lats_2d);
     missing_ind = isnan(tmp(t,:));
-    tmp(t,missing_ind) = gmt;
-    % end
+    tmp(t,:missing_ind) = col_means(missing_ind);
   end
   X_n = tmp;
 
