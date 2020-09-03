@@ -42,11 +42,8 @@ for di = 1:ndt
     test = ~isnan(PW.grid_2d);
     Stest = sum(test);
     index = find(Stest > 0);
-    indices{set_idx} = index;
-    lons = double(PW.lon);
-    nlon = length(lons);
-    lats = double(PW.lat);
-    nlat = length(lats);
+    lonlat = double(PW.loc);
+    lats = lonlat(:,2);
     lats_2d = repmat(lats(index), [1,nt]); lats_2d = lats_2d;
 
     % Reduce truth
