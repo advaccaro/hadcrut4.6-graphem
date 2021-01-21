@@ -59,7 +59,7 @@ function Xg = pseudoworld_graphem_sp_full(worldnum, datatype, target_spars)
   C0 = corr(X_k(modern, :));
 
   % GLASSO
-  greedy_maxit = 50;
+  greedy_maxit = 100;
   [spars, adj] = greedy_search_TT(C0, target_spars, greedy_maxit);
   spars_f = spars(end);
   adjM = adj{end};

@@ -8,7 +8,7 @@ touch $fn
 
 echo "#!/bin/bash" >> $fn
 echo "#SBATCH --job-name=$rn" >> $fn
-echo "#SBATCH --mem=4GB" >> $fn
+echo "#SBATCH --mem=8GB" >> $fn
 echo "#SBATCH --nodelist=iridium" >> $fn
 echo "cd /home/geovault-02/avaccaro/hadcrut4.6-graphem/pseudo_world" >> $fn
 echo "/usr/bin/matlab -nodesktop -nosplash > ./out/$out.out << EOF" >> $fn

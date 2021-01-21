@@ -50,7 +50,7 @@ function X_n = pseudoworld_null_full(worldnum, datatype)
   tmp = Xgrid;
   for t = 1:nt
     missing_ind = isnan(tmp(t,:));
-    tmp(t,:missing_ind) = col_means(missing_ind);
+    tmp(t,missing_ind) = col_means(missing_ind);
   end
   X_n = tmp;
 

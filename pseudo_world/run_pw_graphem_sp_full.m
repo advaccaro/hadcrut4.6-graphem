@@ -1,5 +1,5 @@
 function Xg = run_pw_graphem_sp_full(target_spars)
-  worldnums = [1:4];
+  worldnums = [1:2];
   datatypes = {'lsat', 'sst'};
 
   for wn = worldnums
