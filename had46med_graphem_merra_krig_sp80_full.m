@@ -62,7 +62,7 @@ X = rawH46med;
 [cn, ~] = size(cw17.temp2d);
 X0 = X; 
 X0(1:cn,:) = cw17.temp2d; %
-
+X0(isnan(X0)) = 0;
 
 %% GraphEM SP Part 1
 %GraphEM options
