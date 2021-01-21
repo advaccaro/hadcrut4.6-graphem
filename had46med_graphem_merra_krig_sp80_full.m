@@ -30,30 +30,30 @@ sptag = [outdir 'had46med_full_sp' num2str(target_spars*100) '_merra_krig.112020
 
 
 %% Get calibration data from CW
-cwtfrac = cw17.tfrac;
-tcal = cwtfrac(cwtfrac >= 1960 & cwtfrac < 1991); %calibration period
-calib = ismember(cwtfrac,tcal); %calibration index
-Xcal = cw17.temp2d(calib,:);
+%cwtfrac = cw17.tfrac;
+%tcal = cwtfrac(cwtfrac >= 1960 & cwtfrac < 1991); %calibration period
+%calib = ismember(cwtfrac,tcal); %calibration index
+%Xcal = cw17.temp2d(calib,:);
 
 %% Estimate correlation matrix
-C0 = corrcoef(cw17s.temp2d); %estimate correlation coefficients matrix
-N = 50; %maximum iterations
-[spars, adj] = greedy_search_TT(C0,target_spars,N); %estimate adjacency matrix using greedy search
-spars_f = spars(end); adjM = adj{end}; %estimated sparsity and adjacency matrix
+%C0 = corrcoef(cw17s.temp2d); %estimate correlation coefficients matrix
+%N = 50; %maximum iterations
+%[spars, adj] = greedy_search_TT(C0,target_spars,N); %estimate adjacency matrix using greedy search
+%spars_f = spars(end); adjM = adj{end}; %estimated sparsity and adjacency matrix
 
 %clear adj spars
 %load(adjtag)
 
 %% Produce a "well"-conditioned C
-opt.ggm_tol = 5e-3;
-opt.ggm_maxit = 200;
-opt.ggm_thre  = 50;
-opt.adj = adjM;
-[Cg,sp_level] = Sigma_G(C0,opt);
+%opt.ggm_tol = 5e-3;
+%opt.ggm_maxit = 200;
+%opt.ggm_thre  = 50;
+%opt.adj = adjM;
+%[Cg,sp_level] = Sigma_G(C0,opt);
 
-save(adjtag, 'spars_f', 'adjM', 'Cg', 'target_spars');
+%save(adjtag, 'spars_f', 'adjM', 'Cg', 'target_spars');
 
-%load(adjtag);
+load(adjtag);
 
 %% GraphEM (GLASSO)
 X = rawH46med;
