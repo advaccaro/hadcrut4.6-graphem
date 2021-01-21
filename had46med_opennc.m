@@ -2,13 +2,12 @@
 
 
 %filenum = ; %filenum must be defined in pbs script!
-addpath(genpath('/home/geovault-00/rverna/hadCRUT4.6/'))
 %addpath('/home/geovault-00/jianghaw/pseudoproxy/graphem_test/graphem/')
 
 
 %%Initialize (0th step) (open raw data netCDf, update  w/ cw2013, format)
 
-indir = '/home/geovault-00/rverna/hadCRUT4.6/data/raw/';
+indir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/raw/update/';
 infile = ['HadCRUT.4.6.0.0.median.nc'];
 inpath = [indir infile];
 
@@ -65,8 +64,8 @@ H46med.tvec = htvec;
 H46med.tfrac = htfrac;
 
 
-odir = '/home/geovault-00/rverna/hadCRUT4.6/data/';
-ofile = ['had46med.mat'];
+odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/';
+ofile = ['had46med.112020.mat'];
 opath = [odir ofile];
 
 %save raw and updated hadcrut4 ensemble member as .mat
