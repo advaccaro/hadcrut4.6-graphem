@@ -56,7 +56,7 @@ save(adjtag, 'spars_f', 'adjM', 'Cg', 'target_spars');
 %load(adjtag);
 
 %% GraphEM (GLASSO)
-X = rawH46med;
+X = rawH50mean;
 
 %% Setup for X0
 [cn, ~] = size(cw17.temp2d);
@@ -79,7 +79,7 @@ opt.Xmis0 = X0;
 
 runtime = toc; %runtime in seconds
 	
-save(sptag, 'SP1', 'loc', 'H46med', 'target_spars', 'spars_f', 'runtime')
+save(sptag, 'SP1', 'loc', 'H50mean', 'target_spars', 'spars_f', 'runtime')
 clear SP1 opt
 
 
