@@ -12,7 +12,7 @@ addpath(genpath('/home/geovault-02/avaccaro/hadcrut4.6-graphem/'))
 %% Open HadCRUT4 and CW datasets
 homedir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/';
 indir = [homedir 'data/'];
-infile = 'had46med.112020.mat';
+infile = 'had50mean.mat';
 inpath = [indir infile];
 load(inpath)
 
@@ -25,8 +25,8 @@ load(cwspath)
 target_spars = .8; %target sparsity
 %outdir = '/home/geovault-00/rverna/hadCRUT4.6/data/';
 outdir = indir;
-adjtag = [outdir 'had46med_sp' num2str(target_spars*100) '_merra_krig_adj.112020..mat'];
-sptag = [outdir 'had46med_full_sp' num2str(target_spars*100) '_merra_krig.112020.mat'];
+adjtag = [outdir 'had50mean_sp' num2str(target_spars*100) '_merra_krig_adj.mat'];
+sptag = [outdir 'had50meam_full_sp' num2str(target_spars*100) '_merra_krig.mat'];
 
 
 %% Get calibration data from CW

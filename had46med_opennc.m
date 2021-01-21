@@ -7,8 +7,8 @@
 
 %%Initialize (0th step) (open raw data netCDf, update  w/ cw2013, format)
 
-indir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/raw/update/';
-infile = ['HadCRUT.4.6.0.0.median.nc'];
+indir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/raw/';
+infile = ['HadCRUT.5.0.1.0.anomalies.ensemble_mean.nc'];
 inpath = [indir infile];
 
 
@@ -19,22 +19,22 @@ ncidin = netcdf.open(inpath); %open netCDF file
 latname = 'latitude'; 
 lonname = 'longitude';
 timename = 'time'; 
-tname = 'temperature_anomaly';
-statusname = 'field_status';
+tname = 'tas_mean';
+rname = 'realization';
 
 %find correct indices for each variable
 time_indx = netcdf.inqVarID(ncidin,timename);
 lon_indx = netcdf.inqVarID(ncidin,lonname);
 lat_indx = netcdf.inqVarID(ncidin,latname);
 temp_indx = netcdf.inqVarID(ncidin,tname);
-status_indx = netcdf.inqVarID(ncidin,statusname);
+status_indx = netcdf.inqVarID(ncidin,rname);
 
 %now import
 H46med.lat = netcdf.getVar(ncidin,lat_indx);
 H46med.lon = netcdf.getVar(ncidin,lon_indx);
 H46med.time = netcdf.getVar(ncidin,time_indx);
 H46med.x = netcdf.getVar(ncidin,temp_indx);
-H46med.stat = netcdf.getVar(ncidin, status_indx);
+H46med.realization = netcdf.getVar(ncidin, status_indx);
 
 %encode NaN's
 H46med.x(H46med.x < -99999) = NaN;
@@ -65,7 +65,7 @@ H46med.tfrac = htfrac;
 
 
 odir = '/home/geovault-02/avaccaro/hadcrut4.6-graphem/data/';
-ofile = ['had46med.112020.mat'];
+ofile = ['had50mean.mat'];
 opath = [odir ofile];
 
 %save raw and updated hadcrut4 ensemble member as .mat
